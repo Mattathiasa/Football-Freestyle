@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video Player</title>
+    <style>
+        header {
+            background-color: #254336;
+            color: #DAD3BE;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Global styles */
+        body {
+            background-image: linear-gradient(135deg, #DAD3BE, #6B8A7A);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+
+        #prev-btn,
+        #next-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #6B8A7A;
+            color: #DAD3BE;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+
+        #prev-btn {
+            left: 50px;
+        }
+
+        #next-btn {
+            right: 10px;
+        }
+
+
+
+        /* Main video styles */
+        .video-player {
+            width: 20vw;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            /* Center the video player horizontally */
+            display: block;
+            /* Ensures the video player is treated as a block element */
+        }
+
+        .video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .video-player .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(37, 67, 54, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #DAD3BE;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .video-player .overlay h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .video-player .overlay p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .video-player .overlay button {
+            background-color: #6B8A7A;
+            color: #DAD3BE;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-player .overlay button:hover {
+            background-color: #B7B597;
+        }
+
+        /* Grid styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            margin-top: 5px;
+        }
+
+        .grid-item {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+            }
+
+            .video-player {
+                width: 50vw;
+                height: 79vh;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+
+            .grid-item {
+                padding-bottom: 75%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .container {
+                padding: 30px;
+            }
+
+            .video-player {
+                height: 400px;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 15px;
+            }
+
+            .grid-item {
+                padding-bottom: 60%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .video-player {
+                height: 500px;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+            }
+
+            .grid-item {
+                padding-bottom: 56.25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>Mattathias Abraham</header>
+    <div id="color-change"></div>
+    <div class="container">
+        <div class="video-player">
+            <video id="main-video" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-controls">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next....</button>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
+                <video>
+                    <source src="InShot_20240316_100322674.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20230801_183643123.mp4">
+                <video>
+                    <source src="InShot_20230801_183643123.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20231222_193736173.mp4">
+                <video>
+                    <source src="InShot_20231222_193736173.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240316_084456055.mp4">
+                <video>
+                    <source src="InShot_20231026_183637785.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="InShot_20240210_114443852.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="InShot_20240127_084233322.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_35860727_005609_549.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_109991022_074418_225.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110020319_111426_321.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110021113_212108_917.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110041203_022300_976.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110051222_005221_849.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110060629_231404_655.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110070526_184745_946.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110091230_123819_508.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110110522_003654_648.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110120804_234323_540.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110140604_065523_153.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110160216_150045_476.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110200408_171430_270.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110210708_210944_943.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110240619_084531_938.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="VID_110260410_141837_490.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+                <video>
+                    <source src="InShot_20240401_141616544.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mainVideo = document.getElementById('main-video');
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const videoElement = item.querySelector('video source');
+                const videoUrl = videoElement.src;
+                mainVideo.src = videoUrl;
+                mainVideo.type = 'video/mp4';
+                mainVideo.play();
+            });
+        });
+        window.addEventListener('DOMContentLoaded', function () {
+            var firstVideo = document.querySelector('.grid-container video:first-child');
+            var mainVideoContainer = document.querySelector('.video-player video');
+
+            // Clone the source element of the first video
+            var clonedSource = firstVideo.querySelector('source').cloneNode(true);
+
+            // Set the cloned source to the main video element
+            mainVideoContainer.src = clonedSource.src;
+            mainVideoContainer.type = clonedSource.type;
+
+            // Play the main video
+            mainVideoContainer.play();
+        });
+
+
+        const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
+        const colorChange = document.getElementById('color-change');
+
+        function changeBackgroundColor() {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            colorChange.style.backgroundColor = randomColor;
+        }
+
+        setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
+
+
+
+
+        const totalVideos = gridItems.length;
+        let currentVideoIndex = 0;
+
+        function playNextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+            const videoElement = gridItems[currentVideoIndex].querySelector('video source');
+            const videoUrl = videoElement.src;
+            mainVideo.src = videoUrl;
+            mainVideo.type = 'video/mp4';
+            mainVideo.play();
+        }
+
+        function playPreviousVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
+            const videoElement = gridItems[currentVideoIndex].querySelector('video source');
+            const videoUrl = videoElement.src;
+            mainVideo.src = videoUrl;
+            mainVideo.type = 'video/mp4';
+            mainVideo.play();
+        }
+
+        document.getElementById('next-btn').addEventListener('click', playNextVideo);
+        document.getElementById('prev-btn').addEventListener('click', playPreviousVideo);
+
+        mainVideo.addEventListener('ended', playNextVideo);
+
+    </script>
+</body>
+
+</html>
