@@ -65,7 +65,7 @@
 
         /* Main video styles */
         .video-player {
-            width: 20vw;
+            width: 23vw;
             height: 70vh;
             position: relative;
             overflow: hidden;
@@ -139,7 +139,7 @@
             padding-bottom: 56.25%;
             overflow: hidden;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 18px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
@@ -169,12 +169,33 @@
             }
 
             .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 10px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+                margin-top: 5px;
             }
 
             .grid-item {
-                padding-bottom: 75%;
+                position: relative;
+                padding-bottom: 56.25%;
+                overflow: hidden;
+                cursor: pointer;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .grid-item:hover {
+                transform: scale(1.05);
+            }
+
+            .grid-item video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
         }
 
@@ -275,7 +296,9 @@
             </div>
             <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
                 <video>
-                    <source src="InShot_20240127_084233322.mp4" type="video/mp4">
+                    <source
+                        src="https://www.dropbox.com/scl/fi/cmptl4x3z7kx95rkpujzr/InShot_20240127_084233322.mp4?rlkey=5t9sstc7cjjf3icntpj7pg7b7&st=4uuegx63&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -391,71 +414,151 @@
     </div>
 
     <script>
-        const mainVideo = document.getElementById('main-video');
-        const gridItems = document.querySelectorAll('.grid-item');
-        gridItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const videoElement = item.querySelector('video source');
+        // const mainVideo = document.getElementById('main-video');
+        // const gridItems = document.querySelectorAll('.grid-item');
+        // gridItems.forEach(item => {
+        //     item.addEventListener('click', () => {
+        //         const videoElement = item.querySelector('video source');
+        //         const videoUrl = videoElement.src;
+        //         mainVideo.src = videoUrl;
+        //         mainVideo.type = 'video/mp4';
+        //         mainVideo.play();
+        //     });
+        // });
+        // window.addEventListener('DOMContentLoaded', function () {
+        //     var firstVideo = document.querySelector('.grid-container video:first-child');
+        //     var mainVideoContainer = document.querySelector('.video-player video');
+
+        //     // Clone the source element of the first video
+        //     var clonedSource = firstVideo.querySelector('source').cloneNode(true);
+
+        //     // Set the cloned source to the main video element
+        //     mainVideoContainer.src = clonedSource.src;
+        //     mainVideoContainer.type = clonedSource.type;
+
+        //     // Play the main video
+        //     mainVideoContainer.play();
+        // });
+
+
+        // const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
+        // const colorChange = document.getElementById('color-change');
+
+        // function changeBackgroundColor() {
+        //     const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        //     colorChange.style.backgroundColor = randomColor;
+        // }
+
+        // setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
+
+
+
+
+        // const totalVideos = gridItems.length;
+        // let currentVideoIndex = 0;
+
+        // function playNextVideo() {
+        //     currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+        //     const videoElement = gridItems[currentVideoIndex].querySelector('video source');
+        //     const videoUrl = videoElement.src;
+        //     mainVideo.src = videoUrl;
+        //     mainVideo.type = 'video/mp4';
+        //     mainVideo.play();
+        // }
+
+        // function playPreviousVideo() {
+        //     currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
+        //     const videoElement = gridItems[currentVideoIndex].querySelector('video source');
+        //     const videoUrl = videoElement.src;
+        //     mainVideo.src = videoUrl;
+        //     mainVideo.type = 'video/mp4';
+        //     mainVideo.play();
+        // }
+
+        // document.getElementById('next-btn').addEventListener('click', playNextVideo);
+        // document.getElementById('prev-btn').addEventListener('click', playPreviousVideo);
+
+        // mainVideo.addEventListener('ended', playNextVideo);
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainVideo = document.getElementById('main-video');
+            const gridItems = document.querySelectorAll('.grid-item');
+
+            // Initialize the first video in the main video player
+            const firstVideo = document.querySelector('.grid-item:first-child video source');
+            mainVideo.src = firstVideo.src;
+            mainVideo.type = 'video/mp4';
+            mainVideo.play();
+
+            // Add click event to each grid item to play the selected video
+            gridItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    const videoElement = item.querySelector('video source');
+                    const videoUrl = videoElement.src;
+                    mainVideo.src = videoUrl;
+                    mainVideo.type = 'video/mp4';
+                    mainVideo.play();
+                    currentVideoIndex = index;
+                });
+            });
+
+            // Random background color change functionality
+            const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
+            const colorChange = document.getElementById('color-change');
+
+            function changeBackgroundColor() {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                colorChange.style.backgroundColor = randomColor;
+            }
+
+            setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
+
+            // Video navigation functionality
+            const totalVideos = gridItems.length;
+            let currentVideoIndex = 0;
+
+            function playVideoAtIndex(index) {
+                const videoElement = gridItems[index].querySelector('video source');
                 const videoUrl = videoElement.src;
                 mainVideo.src = videoUrl;
                 mainVideo.type = 'video/mp4';
                 mainVideo.play();
+                currentVideoIndex = index;
+            }
+
+            function playNextVideo() {
+                currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+                playVideoAtIndex(currentVideoIndex);
+            }
+
+            function playPreviousVideo() {
+                currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
+                playVideoAtIndex(currentVideoIndex);
+            }
+
+            document.getElementById('next-btn').addEventListener('click', playNextVideo);
+            document.getElementById('prev-btn').addEventListener('click', playPreviousVideo);
+            mainVideo.addEventListener('ended', playNextVideo);
+
+            // TikTok-like scrolling feature on mobile
+            let startY;
+            let endY;
+
+            mainVideo.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+            });
+
+            mainVideo.addEventListener('touchend', (e) => {
+                endY = e.changedTouches[0].clientY;
+                if (startY > endY + 50) {
+                    playNextVideo();
+                } else if (startY < endY - 50) {
+                    playPreviousVideo();
+                }
             });
         });
-        window.addEventListener('DOMContentLoaded', function () {
-            var firstVideo = document.querySelector('.grid-container video:first-child');
-            var mainVideoContainer = document.querySelector('.video-player video');
 
-            // Clone the source element of the first video
-            var clonedSource = firstVideo.querySelector('source').cloneNode(true);
-
-            // Set the cloned source to the main video element
-            mainVideoContainer.src = clonedSource.src;
-            mainVideoContainer.type = clonedSource.type;
-
-            // Play the main video
-            mainVideoContainer.play();
-        });
-
-
-        const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
-        const colorChange = document.getElementById('color-change');
-
-        function changeBackgroundColor() {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            colorChange.style.backgroundColor = randomColor;
-        }
-
-        setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
-
-
-
-
-        const totalVideos = gridItems.length;
-        let currentVideoIndex = 0;
-
-        function playNextVideo() {
-            currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
-            const videoElement = gridItems[currentVideoIndex].querySelector('video source');
-            const videoUrl = videoElement.src;
-            mainVideo.src = videoUrl;
-            mainVideo.type = 'video/mp4';
-            mainVideo.play();
-        }
-
-        function playPreviousVideo() {
-            currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
-            const videoElement = gridItems[currentVideoIndex].querySelector('video source');
-            const videoUrl = videoElement.src;
-            mainVideo.src = videoUrl;
-            mainVideo.type = 'video/mp4';
-            mainVideo.play();
-        }
-
-        document.getElementById('next-btn').addEventListener('click', playNextVideo);
-        document.getElementById('prev-btn').addEventListener('click', playPreviousVideo);
-
-        mainVideo.addEventListener('ended', playNextVideo);
 
     </script>
 </body>
