@@ -5,9 +5,9 @@
     <title>Video Player</title>
     <style>
         header {
-            background-color: #254336;
-            color: #DAD3BE;
-            padding: 20px;
+            background-color: #D3A121;
+            color: #080705;
+            padding: 5px;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
@@ -17,10 +17,7 @@
 
         /* Global styles */
         body {
-            background-image: linear-gradient(135deg, #DAD3BE, #6B8A7A);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #0B0B0B;
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
@@ -31,8 +28,9 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px -10px;
         }
+
 
         .video-controls {
             display: flex;
@@ -44,8 +42,8 @@
         #next-btn {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #6B8A7A;
-            color: #DAD3BE;
+            background-color: #D3A121;
+            color: #080705;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -62,19 +60,17 @@
         }
 
 
-
         /* Main video styles */
         .video-player {
-            width: 23vw;
+            width: 22vw;
             height: 70vh;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             margin: 0 auto;
+            padding-top: -20px;
             /* Center the video player horizontally */
-            display: block;
-            /* Ensures the video player is treated as a block element */
         }
 
         .video-player video {
@@ -82,6 +78,7 @@
             height: 100%;
             object-fit: contain;
             object-position: center;
+
         }
 
         .video-player .overlay {
@@ -125,6 +122,8 @@
         .video-player .overlay button:hover {
             background-color: #B7B597;
         }
+
+
 
         /* Grid styles */
         .grid-container {
@@ -244,7 +243,7 @@
     <div id="color-change"></div>
     <div class="container">
         <div class="video-player">
-            <video id="main-video" controls>
+            <video id="main-video" controls muted>
                 <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -297,47 +296,54 @@
             <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
                 <video>
                     <source
-                        src="https://www.dropbox.com/scl/fi/cmptl4x3z7kx95rkpujzr/InShot_20240127_084233322.mp4?rlkey=5t9sstc7cjjf3icntpj7pg7b7&st=4uuegx63&dl=0"
+                        src="https://dl.dropboxusercontent.com/scl/fi/cmptl4x3z7kx95rkpujzr/InShot_20240127_084233322.mp4?rlkey=5t9sstc7cjjf3icntpj7pg7b7&st=4uuegx63&dl=0"
                         type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+            <div class="grid-item" data-src="VID_35860727_005609_549.mp4">
                 <video>
-                    <source src="VID_35860727_005609_549.mp4" type="video/mp4">
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/95nkeh3dixaakrxvxhiqn/VID_35860727_005609_549.mp4?rlkey=1mfvyiz9l7mejcmu339rrbe3v&st=7szhz1ih&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+
+            <div class="grid-item" data-src="VID_109991022_074418_225.mp4">
                 <video>
-                    <source src="VID_109991022_074418_225.mp4" type="video/mp4">
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/szabc9lhqkeb8v53jg4g6/VID_109991022_074418_225.mp4?rlkey=nc9u78cw6l4krnonoj2gsz3hm&st=6pp6zdvm&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+            <div class="grid-item" data-src="VID_110021113_212108_917.mp4">
                 <video>
-                    <source src="VID_110020319_111426_321.mp4" type="video/mp4">
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/6k0fxdousp7pc9j9pa0cj/VID_110021113_212108_917.mp4?rlkey=9cibm9mbbnyvv88dumd27r3v1&st=86dzzytw&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+            <div class="grid-item" data-src="VID_110041203_022300_976.mp4">
                 <video>
-                    <source src="VID_110021113_212108_917.mp4" type="video/mp4">
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/eo6bpeq3eeerce557n0qq/VID_110041203_022300_976.mp4?rlkey=bx3vghgcoh0wgujtjfndthg9a&st=zw8dyx6m&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
+
+            <div class="grid-item" data-src="VID_110051222_005221_849.mp4">
                 <video>
-                    <source src="VID_110041203_022300_976.mp4" type="video/mp4">
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/m0vxk1m1xijoh58hxcuac/VID_110051222_005221_849.mp4?rlkey=x2yvckzrqsisrul4o5lgsryyv&st=612t758k&dl=0"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
-                <video>
-                    <source src="VID_110051222_005221_849.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+
             <div class="grid-item" data-src="InShot_20240210_114443852.mp4">
                 <video>
                     <source src="VID_110060629_231404_655.mp4" type="video/mp4">
@@ -412,7 +418,52 @@
             </div>
         </div>
     </div>
+    <script>
+        function getDominantColor(imgElement) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.src = imgElement.currentSrc || imgElement.src;
 
+                img.onload = () => {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
+                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imageData.data;
+                    const rgb = [0, 0, 0];
+                    let count = 0;
+
+                    for (let i = 0; i < data.length; i += 4) {
+                        rgb[0] += data[i];
+                        rgb[1] += data[i + 1];
+                        rgb[2] += data[i + 2];
+                        count++;
+                    }
+
+                    rgb[0] = Math.floor(rgb[0] / count);
+                    rgb[1] = Math.floor(rgb[1] / count);
+                    rgb[2] = Math.floor(rgb[2] / count);
+
+                    resolve(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
+                };
+            });
+        }
+
+        const mainVideo = document.getElementById('main-video');
+
+        mainVideo.addEventListener('canplaythrough', () => {
+            getDominantColor(mainVideo)
+                .then((dominantColor) => {
+                    document.body.style.backgroundColor = dominantColor;
+                })
+                .catch((error) => {
+                    console.error('Error getting dominant color:', error);
+                });
+        });
+    </script>
     <script>
         // const mainVideo = document.getElementById('main-video');
         // const gridItems = document.querySelectorAll('.grid-item');
@@ -503,16 +554,16 @@
                 });
             });
 
-            // Random background color change functionality
-            const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
-            const colorChange = document.getElementById('color-change');
+            // // Random background color change functionality
+            // const colors = ['#DAD3BE', '#6B8A7A', '#254336', '#B7B597']; // Add more colors as needed
+            // const colorChange = document.getElementById('color-change');
 
-            function changeBackgroundColor() {
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                colorChange.style.backgroundColor = randomColor;
-            }
+            // function changeBackgroundColor() {
+            //     const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            //     colorChange.style.backgroundColor = randomColor;
+            // }
 
-            setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
+            // setInterval(changeBackgroundColor, 3000); // Change color every 3 seconds (adjust interval as needed)
 
             // Video navigation functionality
             const totalVideos = gridItems.length;
@@ -559,6 +610,43 @@
             });
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+        const mainVideos = document.getElementById('main-video');
+        const videoPlayer = document.querySelector('.video-player');
+
+        window.addEventListener('scroll', () => {
+            const videoPlayerRect = videoPlayer.getBoundingClientRect();
+            if (videoPlayerRect.top <= 0) {
+                videoPlayer.classList.add('sticky');
+            } else {
+                videoPlayer.classList.remove('sticky');
+            }
+        });
 
     </script>
 </body>
