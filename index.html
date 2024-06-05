@@ -2,17 +2,19 @@
 <html>
 
 <head>
-    <title>Video Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Personal Website</title>
     <style>
         header {
             background-color: #D3A121;
             color: #080705;
-            padding: 5px;
+            padding: 20px;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            height: 5vh;
         }
 
         /* Global styles */
@@ -48,28 +50,51 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
+        #prev-btn:hover,
+        #next-btn:hover {
+            background-color: #F0C419;
+        }
+
+        #prev-btn::after,
+        #next-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: #080705;
+            transition: width 0.3s;
+        }
+
+        #prev-btn:hover::after,
+        #next-btn:hover::after {
+            width: 100%;
+        }
 
         #prev-btn {
-            left: 50px;
+            margin-right: 20px;
         }
 
         #next-btn {
-            right: 10px;
+            margin-left: 20px;
         }
 
 
-        /* Main video styles */
         .video-player {
-            width: 22vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
             height: 70vh;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-            padding-top: -20px;
+            margin: 20px auto;
             /* Center the video player horizontally */
         }
 
@@ -155,6 +180,36 @@
             top: 0;
             left: 0;
         }
+
+        footer {
+            background-color: #D3A121;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+        }
+
+        .social-icons i {
+            font-size: 30px;
+            color: black;
+            /* Set the icon color to black */
+            transition: transform 0.3s;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.2);
+        }
+
+
 
         /* Responsive styles */
         @media (max-width: 767px) {
@@ -242,14 +297,14 @@
     <header>Mattathias Abraham</header>
     <div id="color-change"></div>
     <div class="container">
-        <div class="video-player">
-            <video id="main-video" controls muted>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
         <div class="video-controls">
             <button id="prev-btn">Previous</button>
+            <div class="video-player">
+                <video id="main-video" controls muted>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <button id="next-btn">Next....</button>
         </div>
         <div class="grid-container">
@@ -418,6 +473,13 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/mattathiasa" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@mattathiasa" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://github.com/mattathiasa" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
     <script>
         function getDominantColor(imgElement) {
             return new Promise((resolve) => {
@@ -635,20 +697,7 @@
 
 
     </script>
-    <script>
-        const mainVideos = document.getElementById('main-video');
-        const videoPlayer = document.querySelector('.video-player');
 
-        window.addEventListener('scroll', () => {
-            const videoPlayerRect = videoPlayer.getBoundingClientRect();
-            if (videoPlayerRect.top <= 0) {
-                videoPlayer.classList.add('sticky');
-            } else {
-                videoPlayer.classList.remove('sticky');
-            }
-        });
-
-    </script>
 </body>
 
 </html>
