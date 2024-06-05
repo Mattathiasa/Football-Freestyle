@@ -43,6 +43,8 @@
         #prev-btn,
         #next-btn {
             padding: 10px 20px;
+            width: 150px;
+            /* Set a specific width for both buttons */
             font-size: 16px;
             background-color: #D3A121;
             color: #080705;
@@ -211,47 +213,31 @@
 
 
 
-        /* Responsive styles */
+
+        /* Hide previous and next buttons on phone mode */
         @media (max-width: 767px) {
-            .container {
-                padding: 20px;
+
+            #prev-btn,
+            #next-btn {
+                display: none;
             }
 
             .video-player {
-                width: 50vw;
-                height: 79vh;
+                height: 100vh;
             }
 
             .grid-container {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-gap: 20px;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 10px;
                 margin-top: 5px;
             }
 
             .grid-item {
-                position: relative;
                 padding-bottom: 56.25%;
-                overflow: hidden;
-                cursor: pointer;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .grid-item:hover {
-                transform: scale(1.05);
-            }
-
-            .grid-item video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
             }
         }
+
 
         @media (min-width: 768px) and (max-width: 1199px) {
             .container {
@@ -298,16 +284,24 @@
     <div id="color-change"></div>
     <div class="container">
         <div class="video-controls">
-            <button id="prev-btn">Previous</button>
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
             <div class="video-player">
                 <video id="main-video" controls muted>
                     <source src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <button id="next-btn">Next....</button>
+            <button id="next-btn">Next <i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="grid-container">
+            <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
+                <video>
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/ne8m29g7pfndga8h6w4p3/Matty-Summer-2K19.mp4?rlkey=43cqv8mv5qpz8u47rc5mvpv2p&st=gs9iclqp&dl=0"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
                 <video>
                     <source
