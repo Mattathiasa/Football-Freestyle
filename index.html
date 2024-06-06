@@ -30,26 +30,25 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px -10px;
+            padding: 0px;
         }
 
 
         .video-controls {
             display: flex;
             justify-content: space-evenly;
-            margin-top: 20px;
+            margin-bottom: 5vh;
         }
 
         #prev-btn,
         #next-btn {
             padding: 10px 20px;
-            width: 150px;
-            /* Set a specific width for both buttons */
+            width: 10vw;
             font-size: 16px;
             background-color: #D3A121;
             color: #080705;
             border: none;
-            border-radius: 4px;
+            border-radius: 5vh;
             cursor: pointer;
             transition: background-color 0.3s ease;
             text-transform: uppercase;
@@ -96,7 +95,8 @@
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
+            margin: 0px auto;
+
             /* Center the video player horizontally */
         }
 
@@ -284,16 +284,24 @@
     <div id="color-change"></div>
     <div class="container">
         <div class="video-controls">
-            <button id="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="video-player">
-                <video id="main-video" controls muted>
+                <video id="main-video" controls>
                     <source src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <button id="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="grid-container">
+            <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
+                <video>
+                    <source
+                        src="https://dl.dropboxusercontent.com/scl/fi/519g9gz1vlkpzrurw9hly/Matty-Basketball-2K21_Full-HD_60fps.mp4?rlkey=p4uwp16bgxt1om0ntm2ss3ynj&st=g42e0pzl&dl=0"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
                 <video>
                     <source
