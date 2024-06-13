@@ -14,21 +14,18 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            height: 5vh;
+            height: 3vh;
         }
 
         /* Global styles */
         body {
             background-color: #0B0B0B;
-            margin: 0;
-            padding: 0;
             font-family: 'Roboto', sans-serif;
         }
 
 
         /* Container styles */
         .container {
-            max-width: 1200px;
             margin: 0 auto;
             padding: 0px;
         }
@@ -90,7 +87,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            height: 70vh;
+            height: 80vh;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
@@ -101,7 +98,7 @@
         }
 
         .video-player video {
-            width: 100%;
+            width: 100vw;
             height: 100%;
             object-fit: contain;
             object-position: center;
@@ -284,14 +281,14 @@
     <div id="color-change"></div>
     <div class="container">
         <div class="video-controls">
-            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="video-player">
+            <!-- <button id="prev-btn"><i class="fas fa-chevron-left"></i></button> -->
+            <div class="video-player" id="myDiv">
                 <video id="main-video" controls>
                     <source src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+            <!-- <button id="next-btn"><i class="fas fa-chevron-right"></i></button> -->
         </div>
         <div class="grid-container">
             <div class="grid-item" data-src="InShot_20231026_093443559.mp4">
@@ -692,7 +689,14 @@
 
 
 
-
+        function setDivWidth() {
+            var div = document.getElementById('myDiv');
+            div.style.width = window.innerWidth + 'px';
+        }
+        // Set the width on page load
+        window.onload = setDivWidth;
+        // Adjust the width on window resize
+        window.onresize = setDivWidth;
 
 
 
