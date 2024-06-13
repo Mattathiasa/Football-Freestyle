@@ -5,17 +5,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Personal Website</title>
     <style>
-        header {
+        /* header {
             background-color: #D3A121;
             color: #080705;
-            padding: 20px;
+            padding: 4vh;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            height: 3vh;
-        }
+            height: 2vh;
+        } */
 
         /* Global styles */
         body {
@@ -35,71 +35,27 @@
             display: flex;
             justify-content: space-evenly;
             margin-bottom: 5vh;
+            height: 100vh;
         }
-
-        #prev-btn,
-        #next-btn {
-            padding: 10px 20px;
-            width: 10vw;
-            font-size: 16px;
-            background-color: #D3A121;
-            color: #080705;
-            border: none;
-            border-radius: 5vh;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        #prev-btn:hover,
-        #next-btn:hover {
-            background-color: #F0C419;
-        }
-
-        #prev-btn::after,
-        #next-btn::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background-color: #080705;
-            transition: width 0.3s;
-        }
-
-        #prev-btn:hover::after,
-        #next-btn:hover::after {
-            width: 100%;
-        }
-
-        #prev-btn {
-            margin-right: 20px;
-        }
-
-        #next-btn {
-            margin-left: 20px;
-        }
-
 
         .video-player {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            height: 80vh;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             margin: 0px auto;
+            top: 0;
+            left: 0;
 
             /* Center the video player horizontally */
         }
 
         .video-player video {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             object-fit: contain;
             object-position: center;
 
@@ -237,12 +193,10 @@
 
 
         @media (min-width: 768px) and (max-width: 1199px) {
-            .container {
-                padding: 30px;
-            }
+
 
             .video-player {
-                height: 400px;
+                height: 100vh;
             }
 
             .grid-container {
@@ -256,12 +210,12 @@
         }
 
         @media (min-width: 1200px) {
-            .container {
-                padding: 40px 20px;
+            header {
+                display: none;
             }
 
             .video-player {
-                height: 500px;
+                height: 100vh;
             }
 
             .grid-container {
