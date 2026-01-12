@@ -1,0 +1,9 @@
+
+{
+  "name": "Mattathias Abraham - Elite Footballer Portfolio",
+  "description": "A cinematic, Nike-inspired personal showcase for Mattathias Abraham, featuring match highlights, career stats, and professional branding.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

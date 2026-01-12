@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mattathias Abraham | Elite Football HUD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --nav-height: 72px;
+        --pitch-green: #39FF14;
+        --gold: #D4AF37;
+        --obsidian: #050505;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--obsidian);
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      .font-display {
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        font-style: italic;
+      }
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
+      .bg-hex {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='93' viewBox='0 0 80 93'%3E%3Cpath d='M40 0l40 23.094v46.188L40 92.376 0 69.282V23.094L40 0z' fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+        background-size: 40px 46.5px;
+      }
+
+      .scanline {
+        width: 100%;
+        height: 100px;
+        z-index: 10;
+        background: linear-gradient(0deg, rgba(57, 255, 20, 0) 0%, rgba(57, 255, 20, 0.1) 50%, rgba(57, 255, 20, 0) 100%);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 100%;
+        animation: scan 4s linear infinite;
+        pointer-events: none;
+      }
+
+      @keyframes scan {
+        0% { bottom: 100%; }
+        100% { bottom: -100px; }
+      }
+
+      .glow-green {
+        box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+      }
+      
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: var(--pitch-green); border-radius: 10px; }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .corner-tl { position: absolute; top: 0; left: 0; width: 20px; height: 20px; border-top: 2px solid var(--pitch-green); border-left: 2px solid var(--pitch-green); }
+      .corner-tr { position: absolute; top: 0; right: 0; width: 20px; height: 20px; border-top: 2px solid var(--pitch-green); border-right: 2px solid var(--pitch-green); }
+      .corner-bl { position: absolute; bottom: 0; left: 0; width: 20px; height: 20px; border-bottom: 2px solid var(--pitch-green); border-left: 2px solid var(--pitch-green); }
+      .corner-br { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-bottom: 2px solid var(--pitch-green); border-right: 2px solid var(--pitch-green); }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-hex">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
