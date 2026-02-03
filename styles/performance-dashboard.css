@@ -1,0 +1,347 @@
+/* Performance Dashboard - Cyberpunk Theme Integration */
+
+/* Remove the old CSS and rely on existing Tailwind classes */
+.performance-dashboard {
+  /* All styling now handled by Tailwind classes in components */
+}
+
+/* Chart-specific overrides for Recharts */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.1) !important;
+}
+
+.recharts-tooltip-wrapper {
+  z-index: 1000 !important;
+}
+
+.recharts-legend-wrapper {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ensure proper text rendering in charts */
+.recharts-text {
+  font-family: 'Courier New', monospace !important;
+}
+
+/* Custom hover effects for chart elements */
+.recharts-active-dot {
+  filter: drop-shadow(0 0 8px #CCFF00) !important;
+}
+
+.recharts-line {
+  filter: drop-shadow(0 0 4px rgba(204, 255, 0, 0.3));
+}
+
+/* Radar chart styling */
+.recharts-polar-grid-angle line,
+.recharts-polar-grid-concentric-polygon {
+  stroke: rgba(255, 255, 255, 0.1) !important;
+}
+
+.recharts-radar {
+  filter: drop-shadow(0 0 4px rgba(204, 255, 0, 0.2));
+}
+
+/* Animation for chart loading */
+@keyframes chartFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recharts-wrapper {
+  animation: chartFadeIn 0.8s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recharts-wrapper {
+    font-size: 10px;
+  }
+  
+  .recharts-cartesian-axis-tick-value,
+  .recharts-polar-angle-axis-tick-value {
+    font-size: 8px !important;
+  }
+}
+/* Video Player Slider Styling */
+.slider {
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 4px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #CCFF00;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(204, 255, 0, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #CCFF00;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 8px rgba(204, 255, 0, 0.5);
+}
+
+.slider::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+}
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+  /* Ensure video cards maintain aspect ratio on mobile */
+  .video-card {
+    aspect-ratio: 9/11;
+  }
+  
+  /* Improve touch targets for mobile */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile controls */
+  .mobile-controls {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  /* Optimize text sizes for mobile readability */
+  .mobile-text-xs {
+    font-size: 10px;
+  }
+  
+  .mobile-text-sm {
+    font-size: 12px;
+  }
+}
+
+/* Touch-friendly slider for mobile */
+@media (max-width: 768px) {
+  .slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Improve video player timeline for mobile */
+@media (max-width: 768px) {
+  .video-timeline {
+    height: 6px;
+    border-radius: 3px;
+  }
+  
+  .video-timeline-thumb {
+    width: 16px;
+    height: 16px;
+  }
+}
+/* Mobile Navigation Improvements */
+.mobile-menu-container {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile menu link animations */
+.mobile-menu-container a {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.mobile-menu-container a:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu-container a:nth-child(2) { animation-delay: 0.2s; }
+.mobile-menu-container a:nth-child(3) { animation-delay: 0.3s; }
+.mobile-menu-container a:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hamburger menu animation improvements */
+.hamburger-line {
+  transform-origin: center;
+}
+
+/* Mobile navigation backdrop blur enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .mobile-nav-backdrop {
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Ensure proper z-index stacking for mobile menu */
+@media (max-width: 768px) {
+  .mobile-menu-overlay {
+    z-index: 9999;
+  }
+  
+  .mobile-menu-content {
+    z-index: 10000;
+  }
+}
+
+/* Touch-friendly navigation improvements */
+@media (max-width: 768px) {
+  .nav-touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .mobile-nav-link {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .mobile-nav-link:last-child {
+    border-bottom: none;
+  }
+}
+/* Video Player Auto-Hide Controls */
+.video-controls {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.video-controls.hidden {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+/* Video container cursor states */
+.video-container {
+  cursor: none;
+  transition: cursor 0.3s ease;
+}
+
+.video-container.show-cursor {
+  cursor: pointer;
+}
+
+/* Play/Pause overlay */
+.play-pause-overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Smooth fade for control buttons */
+.control-button {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.control-button.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+/* Video player immersive mode */
+.video-player-immersive {
+  background: #000;
+}
+
+.video-player-immersive * {
+  user-select: none;
+}
+
+/* Hide scrollbars in video player */
+.video-player-immersive::-webkit-scrollbar {
+  display: none;
+}
+
+.video-player-immersive {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* Enhanced Video Player Controls Behavior */
+.video-player-container {
+  cursor: default;
+  transition: cursor 0.3s ease;
+}
+
+.video-player-container.controls-hidden {
+  cursor: none;
+}
+
+.video-player-container.controls-visible {
+  cursor: default;
+}
+
+/* Smooth control transitions */
+.video-controls-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.video-controls-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.video-controls-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-controls-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Mouse activity detection */
+.video-player-active {
+  cursor: default;
+}
+
+.video-player-inactive {
+  cursor: none;
+}
+
+/* Prevent text selection in video player */
+.video-player-container * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

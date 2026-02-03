@@ -20,11 +20,11 @@ const Footer: React.FC = () => {
             onClick={scrollToTop}
             className="group cursor-pointer mb-12 relative"
           >
-            <div className="w-24 h-24 glass flex items-center justify-center text-[#39FF14] font-display font-black text-4xl italic transition-all duration-500 group-hover:glow-green group-hover:scale-110">
+            <div className="w-24 h-24 glass flex items-center justify-center text-[#CCFF00] font-display font-black text-4xl italic transition-all duration-500 group-hover:glow-green group-hover:scale-110">
               MA
               <div className="corner-tl opacity-50" /> <div className="corner-br opacity-50" />
             </div>
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-mono text-[#39FF14] uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-mono text-[#CCFF00] uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
               Back to Start
             </div>
           </div>
@@ -41,8 +41,8 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer" 
                 className="glass p-10 flex flex-col items-center gap-6 group hover:glow-green transition-all duration-500 border-white/5"
               >
-                <span className="text-[#39FF14] font-mono text-xl font-black italic">{social.icon}</span>
-                <div className="h-[1px] w-12 bg-white/10 group-hover:w-full group-hover:bg-[#39FF14]/50 transition-all duration-700" />
+                <span className="text-[#CCFF00] font-mono text-xl font-black italic">{social.icon}</span>
+                <div className="h-[1px] w-12 bg-white/10 group-hover:w-full group-hover:bg-[#CCFF00]/50 transition-all duration-700" />
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-white/30 group-hover:text-white transition-colors">{social.name}</span>
               </a>
             ))}

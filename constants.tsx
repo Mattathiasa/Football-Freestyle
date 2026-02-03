@@ -13,388 +13,996 @@ export const MILESTONES = {
 
 /**
  * HIGHLIGHTS ARCHIVE
- * Using dl.dropboxusercontent.com with &raw=1 for maximum performance streaming.
+ * Using Cloudinary for optimized video streaming
+ * Thumbnails auto-generated from video URLs
  */
 export const HIGHLIGHTS: Highlight[] = [
   {
-    id: 'vid-2021-full',
-    title: '2021 Full Highlights',
-    category: 'Recap',
-    tags: ['2021', 'Evolution', 'Season Recap'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/sfui36q3kyaemuehrqnde/Matty-2021_Full-HD_60fps.mp4?rlkey=bblhq9f4v73a32nzacylb3w6s&st=ipkheou5&raw=1',
-    thumbnail: '',
-    description: 'The definitive collection of my 2021 performance and growth.',
-    stats: { power: 88, speed: 92, control: 95 }
+    "id": "matty-featured",
+    "title": "Covid + Pre Covid Videos",
+    "category": "Full Video",
+    "tags": [
+      "Precision",
+      "Flow",
+      "Elite",
+      "Featured"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036418/Matty_Final_pbj7kf.mp4",
+    "description": "High-intensity training session showcasing precision and flow.",
+    "stats": {
+      "power": 88,
+      "speed": 82,
+      "control": 91
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_Final_pbj7kf.jpg",
+    "date": "2020-03-15",
+    "rating": 4.5,
+    "skillType": "Control & Flow",
+    "surface": "Turf",
+    "progressTag": "Recent"
   },
   {
-    id: 'vid-2021-basketball',
-    title: '2021 Basketball Trick Shots',
-    category: 'Basketball',
-    tags: ['2021', 'Trickshot', 'Basketball', 'Crossover'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/519g9gz1vlkpzrurw9hly/Matty-Basketball-2K21_Full-HD_60fps.mp4?rlkey=p4uwp16bgxt1om0ntm2ss3ynj&st=je8xa7xv&raw=1',
-    thumbnail: '',
-    description: 'Crossover skills: Bringing the football touch to the court.',
-    stats: { power: 82, speed: 94, control: 91 }
+    "id": "matty-ecusta",
+    "title": "Ecusta",
+    "category": "Match",
+    "tags": [
+      "Team Play",
+      "Collaboration",
+      "Tactical"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036426/Matty_14_spc8ax.mp4",
+    "description": "Team tactical session with multiple players showcasing collaboration.",
+    "stats": {
+      "power": 90,
+      "speed": 88,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_14_spc8ax.jpg",
+    "date": "2024-11-28",
+    "rating": 4
   },
   {
-    id: 'vid-late-night',
-    title: 'Late Night Sessions',
-    category: 'Skills',
-    tags: ['Night Grind', 'Precision', 'Focus'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/1ummgur0zd30fy1o7k9sn/Matty-53.mp4?rlkey=wa72zzjjl2mjgexr4gtzq5pop&st=ykjupaop&raw=1',
-    thumbnail: '',
-    description: 'When everyone else sleeps, we grind. Pure skill focus.',
-    stats: { power: 75, speed: 85, control: 98 }
+    "id": "matty-2021",
+    "title": "2021",
+    "category": "Training",
+    "tags": [
+      "Technical",
+      "Skill Development"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036440/Matty_2021_oswyaw.mp4",
+    "description": "Technical skill development session.",
+    "stats": {
+      "power": 82,
+      "speed": 85,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_2021_oswyaw.jpg",
+    "date": "2021-08-15",
+    "rating": 3
   },
   {
-    id: 'matty-1',
-    title: 'Solo Session Clip 1',
-    category: 'Training',
-    tags: ['2024', 'Drills', 'Agility'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/8txxc359kqf3zt7dpkz9i/Matty-1.mp4?rlkey=64ets64iwqrs6um05y1e6ftt7&st=sndt8qek&raw=1',
-    thumbnail: '',
-    stats: { power: 84, speed: 90, control: 88 }
+    "id": "matty-au-2018",
+    "title": "AU 2018",
+    "category": "Training",
+    "tags": [
+      "Solo",
+      "Fundamentals",
+      "Endurance"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036383/Matty_6_xtqijx.mp4",
+    "description": "Solo training session focusing on fundamentals.",
+    "stats": {
+      "power": 85,
+      "speed": 82,
+      "control": 88
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_6_xtqijx.jpg",
+    "date": "2018-09-22",
+    "rating": 4
   },
   {
-    id: 'matty-2',
-    title: 'Solo Session Clip 2',
-    category: 'Skills',
-    tags: ['First Touch', 'Control'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/xn0cqhhopd85ayb99w7oa/Matty-2.mp4?rlkey=2yu1qpcbk0zrhyn2gyzarnbwb&st=hv1d8ao4&raw=1',
-    thumbnail: '',
-    stats: { power: 78, speed: 88, control: 96 }
+    "id": "matty-basketball-team",
+    "title": "Basketball shot with Uchi, Naty and MK",
+    "category": "Recap",
+    "tags": [
+      "Full Session",
+      "Complete",
+      "Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036296/Matty_39..._With_Uchi_Naty_And_Mk_dyod7l.mp4",
+    "description": "Complete session showcasing technical mastery.",
+    "stats": {
+      "power": 88,
+      "speed": 90,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_39.jpg",
+    "date": "2024-10-12",
+    "rating": 5,
+    "skillType": "Trick Shot",
+    "surface": "Indoor",
+    "progressTag": "Recent"
   },
   {
-    id: 'matty-3',
-    title: 'Solo Session Clip 3',
-    category: 'Training',
-    tags: ['Fitness', 'Endurance'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/kothscvy2tldeyyaojnd9/Matty-3.mp4?rlkey=ahsayb6ih58d5syjcb27fdh61&st=gdmfuxvc&raw=1',
-    thumbnail: '',
-    stats: { power: 90, speed: 85, control: 82 }
+    "id": "matty-experiment-47",
+    "title": "Experiment",
+    "category": "Skills",
+    "tags": [
+      "Advanced",
+      "Protocol",
+      "Elite"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036349/Matty_47_ul0bbf.mp4",
+    "description": "Advanced skill protocol demonstration.",
+    "stats": {
+      "power": 86,
+      "speed": 92,
+      "control": 96
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_47_ul0bbf.jpg",
+    "date": "2024-09-18",
+    "rating": 5,
+    "skillType": "Juggling",
+    "surface": "Concrete",
+    "progressTag": "Recent"
   },
   {
-    id: 'matty-5',
-    title: 'Solo Session Clip 4',
-    category: 'Skills',
-    tags: ['Dribbling', 'Technique'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/38h118ivlrhq9fscq9o04/Matty-5.mp4?rlkey=yp6zqs3jtbg5mvdlqlm1ragjs&st=6yz8ir1w&raw=1',
-    thumbnail: '',
-    stats: { power: 76, speed: 93, control: 97 }
+    "id": "matty-experiment-solo-iec",
+    "title": "Experiment Solo IEC",
+    "category": "Training",
+    "tags": [
+      "Movement",
+      "Analysis",
+      "Agility"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036245/Matty_44_k5u1oe.mp4",
+    "description": "Movement analysis and agility training.",
+    "stats": {
+      "power": 80,
+      "speed": 95,
+      "control": 85
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_44_k5u1oe.jpg"
   },
   {
-    id: 'matty-7',
-    title: 'Solo Session Clip 5',
-    category: 'Warmup',
-    tags: ['Mobility', 'Stretching'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/evfvm1z05dub21e3sp0up/Matty-7.mp4?rlkey=1uatydr8zbxwkew0xlna2z8hg&st=901wsxr9&raw=1',
-    thumbnail: '',
-    stats: { power: 65, speed: 80, control: 85 }
+    "id": "matty-experiment-solo-ecusta",
+    "title": "Experiment Solo Ecusta",
+    "category": "Skills",
+    "tags": [
+      "Skill",
+      "Technique",
+      "Flow"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036243/Matty_34_jqvmt0.mp4",
+    "description": "Technical skill session with flow emphasis.",
+    "stats": {
+      "power": 78,
+      "speed": 88,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_34_jqvmt0.jpg"
   },
   {
-    id: 'matty-8',
-    title: '1v1 with Alew',
-    category: '1v1',
-    tags: ['Battle', 'Defending', 'intensity'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/cmil2owwb79tq3lmmp9o0/Matty-8-with-Alew.mp4?rlkey=xs3ts5w8qdo16f5ljkzxyapfl&st=3tr6cxxg&raw=1',
-    thumbnail: '',
-    stats: { power: 89, speed: 91, control: 90 }
+    "id": "matty-iec-experiment",
+    "title": "IEC Experiment",
+    "category": "Training",
+    "tags": [
+      "Core",
+      "Mechanics",
+      "Foundation"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036235/Matty_42_Full_Version_tsuxb9.mp4",
+    "description": "Core mechanics and foundation training.",
+    "stats": {
+      "power": 84,
+      "speed": 80,
+      "control": 90
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_42_Full_Version_tsuxb9.jpg"
   },
   {
-    id: 'matty-9',
-    title: 'Solo Session Clip 7',
-    category: 'Skills',
-    tags: ['Flair', 'Freestyle'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/33i8uk5h7d0voeqlenjxr/Matty-9.mp4?rlkey=dlx2u0xqyn4a322l7ub0nfwp2&st=niuf1b0l&raw=1',
-    thumbnail: '',
-    stats: { power: 72, speed: 89, control: 99 }
+    "id": "matty-basketball-shots-iec",
+    "title": "Basketball shots IEC",
+    "category": "Skills",
+    "tags": [
+      "POV",
+      "Tactical",
+      "Vision"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036218/Matty_29_xyy9f4.mp4",
+    "description": "POV perspective tactical demonstration.",
+    "stats": {
+      "power": 75,
+      "speed": 85,
+      "control": 98
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_29_xyy9f4.jpg"
   },
   {
-    id: 'matty-10',
-    title: 'Solo Session Clip 8',
-    category: 'Training',
-    tags: ['Repetition', 'Mastery'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/k6j8qt306fu5rjfrkjue2/Matty-10.mp4?rlkey=eaph14g4lcd1051elqtb5ugj6&st=vyxy6lyw&raw=1',
-    thumbnail: '',
-    stats: { power: 85, speed: 88, control: 92 }
+    "id": "matty-around-world-basketball",
+    "title": "Around the world Basketball IEC",
+    "category": "Skills",
+    "tags": [
+      "Elite",
+      "Protocol",
+      "Advanced"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036217/Matty_33_zbjvsn.mp4",
+    "description": "Elite protocol with advanced techniques.",
+    "stats": {
+      "power": 82,
+      "speed": 90,
+      "control": 96
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_33_zbjvsn.jpg"
   },
   {
-    id: 'matty-11',
-    title: 'Solo Session Clip 9',
-    category: 'Skills',
-    tags: ['Trickshot', 'Precision'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/7h6oedngjr5dwazdblnj5/Matty-11.mp4?rlkey=33h4i3q7vm9hlg0bythhho3yt&st=gu0dbi80&raw=1',
-    thumbnail: '',
-    stats: { power: 92, speed: 84, control: 96 }
+    "id": "matty-basketball-rain",
+    "title": "Basketball shots Rain",
+    "category": "Training",
+    "tags": [
+      "Rain",
+      "Weather",
+      "Grit",
+      "Determination"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036204/Matty_28_mlujcm.mp4",
+    "description": "Training session in challenging rain conditions.",
+    "stats": {
+      "power": 88,
+      "speed": 82,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_28_mlujcm.jpg",
+    "date": "2023-11-05",
+    "rating": 4
   },
   {
-    id: 'matty-12',
-    title: 'Solo Session Clip 10',
-    category: 'Training',
-    tags: ['Volume', 'Workload'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/snm8lafzi4l3ykw41he78/Matty-12.mp4?rlkey=zvg97c9cuxiilb7p9nug3psmb&st=33ox0gwl&raw=1',
-    thumbnail: '',
-    stats: { power: 88, speed: 88, control: 88 }
+    "id": "matty-experiment-iec-13",
+    "title": "Experiment IEC",
+    "category": "Skills",
+    "tags": [
+      "Peak",
+      "Performance",
+      "Elite"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036175/Matty_13_koin39.mp4",
+    "description": "Peak performance demonstration.",
+    "stats": {
+      "power": 92,
+      "speed": 94,
+      "control": 90
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_13_koin39.jpg"
   },
   {
-    id: 'matty-13',
-    title: 'Solo Session Clip 11',
-    category: 'Skills',
-    tags: ['Ball Control', 'Footwork'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/1cb0vfgcnoblrjh4gpsxr/Matty-13.mp4?rlkey=77jz4p6gobvo95qbmzkvtntsx&st=bkk0zh7w&raw=1',
-    thumbnail: '',
-    stats: { power: 74, speed: 95, control: 97 }
+    "id": "matty-experiment-iec-25",
+    "title": "Experiment IEC",
+    "category": "Skills",
+    "tags": [
+      "POV",
+      "Tactical",
+      "First Person"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036175/Matty_25_th1k3l.mp4",
+    "description": "First-person tactical perspective.",
+    "stats": {
+      "power": 76,
+      "speed": 88,
+      "control": 97
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_25_th1k3l.jpg"
   },
   {
-    id: 'matty-14',
-    title: 'Solo Session Clip 12',
-    category: 'Warmup',
-    tags: ['Ready', 'Prime'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/ifxp9vonigr4nhftax7l8/Matty-14.mp4?rlkey=k5upb70st0sby79a6r68iw8t5&st=dd1rdwbc&raw=1',
-    thumbnail: '',
-    stats: { power: 70, speed: 85, control: 88 }
+    "id": "matty-skills-match",
+    "title": "Skills Match",
+    "category": "Recap",
+    "tags": [
+      "Ultimate",
+      "Milestone",
+      "Achievement"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036168/Matty_2_xtmpuq.mp4",
+    "description": "Ultimate milestone session - 50th video achievement.",
+    "stats": {
+      "power": 95,
+      "speed": 95,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_2_xtmpuq.jpg"
   },
   {
-    id: 'matty-15',
-    title: 'Precision Drill 15',
-    category: 'Skills',
-    tags: ['Target Practice', 'Skill'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/c7uitdn60t64j2qdd2dr8/Matty-15.mp4?rlkey=vsmuxbz0u1hqvm42b6pjsxh39&st=me623e9m&raw=1',
-    thumbnail: '',
-    stats: { power: 82, speed: 86, control: 94 }
+    "id": "matty-experiment-inshot",
+    "title": "Experiment",
+    "category": "Training",
+    "tags": [
+      "Technical",
+      "Drill",
+      "Precision"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036141/Inshot_20240316_100322674_fa8yrz.mp4",
+    "description": "Technical drill focusing on precision.",
+    "stats": {
+      "power": 80,
+      "speed": 84,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20240316_100322674_fa8yrz.jpg"
   },
   {
-    id: 'matty-16',
-    title: 'Dynamic Training 16',
-    category: 'Training',
-    tags: ['Movement', 'Tactical'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/8r4nm9lihq9g5mwn82gb1/Matty-16.mp4?rlkey=hui5altavsnnuq8jhutiqm2zs&st=iliz8jvr&raw=1',
-    thumbnail: '',
-    stats: { power: 85, speed: 93, control: 89 }
+    "id": "matty-lomi-battle-2",
+    "title": "Lomi Battle 2",
+    "category": "1v1",
+    "tags": [
+      "1v1",
+      "Battle",
+      "Lomi",
+      "Skill"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036135/Inshot_20250214_190750437_zcndol.mp4",
+    "description": "Second battle session with Lomi.",
+    "stats": {
+      "power": 85,
+      "speed": 96,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20250214_190750437_zcndol.jpg",
+    "date": "2025-02-14",
+    "rating": 4
   },
   {
-    id: 'matty-18',
-    title: 'Match Intensity 18',
-    category: 'Match',
-    tags: ['Game Day', 'Pressure'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/4ae1awvufl3zcuwazidxf/Matty-18.mp4?rlkey=cfn9uvk4hzwff1jq7cmz9euyd&st=n18bs7t3&raw=1',
-    thumbnail: '',
-    stats: { power: 94, speed: 90, control: 87 }
+    "id": "matty-basketball-solo",
+    "title": "Basketball Solo",
+    "category": "Training",
+    "tags": [
+      "Solo",
+      "Training",
+      "Development"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036131/Matty_Basketball_jnypru.mp4",
+    "description": "Solo training and skill development.",
+    "stats": {
+      "power": 78,
+      "speed": 86,
+      "control": 89
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_Basketball_jnypru.jpg"
   },
   {
-    id: 'matty-19',
-    title: 'Elite Control 19',
-    category: 'Skills',
-    tags: ['Touch', 'Masterclass'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/vmsfgswqgcqh64v8ninoq/Matty-19.mp4?rlkey=td7ivl6etwsapfgbra0u46x92&st=6jw1pm1g&raw=1',
-    thumbnail: '',
-    stats: { power: 70, speed: 85, control: 100 }
+    "id": "matty-skills-iec-46",
+    "title": "Skills IEC",
+    "category": "Skills",
+    "tags": [
+      "Solo",
+      "First Touch",
+      "Control"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036074/Matty_46_n5b2tc.mp4",
+    "description": "Solo session emphasizing first touch and control.",
+    "stats": {
+      "power": 75,
+      "speed": 88,
+      "control": 96
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_46_n5b2tc.jpg"
   },
   {
-    id: 'matty-20',
-    title: 'Power Training 20',
-    category: 'Training',
-    tags: ['Strength', 'Power'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/zk0qylylj11qywbd2q3wl/Matty-20.mp4?rlkey=fdmmze072ts8o79sivamowrqa&st=7q3yu0jv&raw=1',
-    thumbnail: '',
-    stats: { power: 98, speed: 80, control: 75 }
+    "id": "matty-ping-pong-ecusta",
+    "title": "Ping-Pong Ecusta",
+    "category": "Skills",
+    "tags": [
+      "Creative",
+      "Play",
+      "Vision"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036071/Matty_45_bqvv61.mp4",
+    "description": "Creative play with vision and touch.",
+    "stats": {
+      "power": 72,
+      "speed": 90,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_45_bqvv61.jpg"
   },
   {
-    id: 'matty-21',
-    title: 'Finishing Drill 21',
-    category: 'Match',
-    tags: ['Goal Scoring', 'Finish'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/rjt778wvqulc4i4tie863/Matty-21.mp4?rlkey=0o6pe6zm1jdlab44ea113ea00&st=icyhvuyn&raw=1',
-    thumbnail: '',
-    stats: { power: 95, speed: 88, control: 82 }
+    "id": "matty-basketball-shots-43",
+    "title": "Basketball shots IEC",
+    "category": "Training",
+    "tags": [
+      "Technical",
+      "Drill",
+      "Repetition"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036059/Matty_43_cnhwis.mp4",
+    "description": "Technical drill with repetition focus.",
+    "stats": {
+      "power": 83,
+      "speed": 85,
+      "control": 91
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_43_cnhwis.jpg"
   },
   {
-    id: 'matty-22',
-    title: '1v1 Lomi Battle',
-    category: '1v1',
-    tags: ['Lomi', 'Skill Move', 'Dribbling'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/2xx6v9u2giyg70p0hmr4w/Matty-22-Lomi.mp4?rlkey=0obtflbzhk8xfg32lfvbxn5xj&st=l4tvbap8&raw=1',
-    thumbnail: '',
-    stats: { power: 78, speed: 96, control: 95 }
+    "id": "matty-solo-skills-iec-38",
+    "title": "Solo Skills IEC",
+    "category": "Skills",
+    "tags": [
+      "Advanced",
+      "Skills",
+      "Flair"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036046/Matty_38_ds6hjc.mp4",
+    "description": "Advanced skills with creative flair.",
+    "stats": {
+      "power": 74,
+      "speed": 89,
+      "control": 97
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_38_ds6hjc.jpg"
   },
   {
-    id: 'matty-23',
-    title: 'Advanced Skills 23',
-    category: 'Skills',
-    tags: ['Creative', 'Flair'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/3bvq3rxkn2oboz5tg4f1m/Matty-23.mp4?rlkey=4jpqrme2rrpfvibrsh9d42gp7&st=1mxv8u8x&raw=1',
-    thumbnail: '',
-    stats: { power: 72, speed: 88, control: 98 }
+    "id": "matty-basketball-shots-42",
+    "title": "Basketball shots IEC",
+    "category": "Training",
+    "tags": [
+      "Drill",
+      "Execution",
+      "Precision"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036039/Matty_42_nammk5.mp4",
+    "description": "Precise drill execution demonstration.",
+    "stats": {
+      "power": 87,
+      "speed": 83,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_42_nammk5.jpg"
   },
   {
-    id: 'matty-24',
-    title: 'Speed Drill 24',
-    category: 'Training',
-    tags: ['Sprints', 'Explosive'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/dwbjhnyncll2spv5qp0yg/Matty-24.mp4?rlkey=tzc8bpakj7kk5twjiyupd34f8&st=k61vcpss&raw=1',
-    thumbnail: '',
-    stats: { power: 80, speed: 99, control: 78 }
+    "id": "matty-lomi-final",
+    "title": "Lomi Final",
+    "category": "Recap",
+    "tags": [
+      "Final",
+      "Protocol",
+      "Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035982/Matty_40_Lomi_2%EF%B8%8F%E2%83%A3_hercnj.mp4",
+    "description": "Final protocol showcasing complete mastery.",
+    "stats": {
+      "power": 94,
+      "speed": 94,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_40_Lomi_2%EF%B8%8F%E2%83%A3_hercnj.jpg"
   },
   {
-    id: 'matty-25',
-    title: 'Creative Play 25',
-    category: 'Skills',
-    tags: ['Vision', 'Touch'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/xtay0fo900gml6rkvo74h/Matty-25.mp4?rlkey=c6zskhqcpy4me3zotnxstnava&st=uawb1rd6&raw=1',
-    thumbnail: '',
-    stats: { power: 75, speed: 90, control: 94 }
+    "id": "matty-rain-iec",
+    "title": "Rain IEC",
+    "category": "1v1",
+    "tags": [
+      "1v1",
+      "Lomi",
+      "Battle",
+      "Skill"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035979/Matty_36_Rain_%EF%B8%8F_%EF%B8%8F_v6jmok.mp4",
+    "description": "Intense 1v1 battle with Lomi showcasing skill moves.",
+    "stats": {
+      "power": 79,
+      "speed": 96,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_36_Rain_%EF%B8%8F_%EF%B8%8F_v6jmok.jpg"
   },
   {
-    id: 'matty-26',
-    title: 'Technical Session 26',
-    category: 'Training',
-    tags: ['Basics', 'Fundamentals'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/x38oncm6g7g83080sx2yy/Matty-26.mp4?rlkey=78d4b66r2amnpynklbtdj2xjl&st=5c26kopf&raw=1',
-    thumbnail: '',
-    stats: { power: 85, speed: 85, control: 85 }
+    "id": "matty-basketball-burst-32",
+    "title": "Basketball Burst",
+    "category": "Skills",
+    "tags": [
+      "Technical",
+      "Burst",
+      "Explosive"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035942/Matty_32_uxnef4.mp4",
+    "description": "Explosive technical burst demonstration.",
+    "stats": {
+      "power": 86,
+      "speed": 97,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_32_uxnef4.jpg"
   },
   {
-    id: 'matty-30-pov',
-    title: 'POV Tactical Feed 1',
-    category: 'Skills',
-    tags: ['POV', 'Vision', 'Control'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/9c31u448bwhullfdm5qki/Matty-30-POV-1.mp4?rlkey=flf1b2gw2ph6w8dpcllu1hd53&st=ycesmdcj&raw=1',
-    thumbnail: '',
-    stats: { power: 75, speed: 88, control: 99 }
+    "id": "matty-experiment-iec-35",
+    "title": "Experiment IEC",
+    "category": "Skills",
+    "tags": [
+      "Skill",
+      "Session",
+      "Ball Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035923/Matty_35_va0ayn.mp4",
+    "description": "Skill session focusing on ball mastery.",
+    "stats": {
+      "power": 73,
+      "speed": 92,
+      "control": 96
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_35_va0ayn.jpg"
   },
   {
-    id: 'matty-31',
-    title: 'Skill Session 31',
-    category: 'Skills',
-    tags: ['Ball Mastery', 'Flair'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/5r5mst4oxyx0ovrnutltm/Matty-31-2.mp4?rlkey=xlqk58pkuwxwnktergenjkgy0&st=4hqm7knk&raw=1',
-    thumbnail: '',
-    stats: { power: 70, speed: 92, control: 95 }
+    "id": "matty-experiment-iec-3",
+    "title": "Experiment IEC",
+    "category": "Pingball",
+    "tags": [
+      "Precision",
+      "Unit",
+      "Target"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035868/Matty_3_iolij4.mp4",
+    "description": "Precision targeting and execution unit.",
+    "stats": {
+      "power": 96,
+      "speed": 81,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_3_iolij4.jpg"
   },
   {
-    id: 'matty-32',
-    title: 'Technical Drill 32',
-    category: 'Training',
-    tags: ['Technique', 'Repetition'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/jfhb1hxrj5fw63dkqy81x/Matty-32.mp4?rlkey=2m4zi6l135u38i0odsrnjubsf&st=ymtaymqe&raw=1',
-    thumbnail: '',
-    stats: { power: 82, speed: 85, control: 89 }
+    "id": "matty-basketball-baseball-31",
+    "title": "Basketball Baseball",
+    "category": "Skills",
+    "tags": [
+      "Technical",
+      "Burst",
+      "Explosive"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035864/Matty_31_2%EF%B8%8F%E2%83%A3_nh4wad.mp4",
+    "description": "Explosive technical burst demonstration.",
+    "stats": {
+      "power": 86,
+      "speed": 97,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_31_2%EF%B8%8F%E2%83%A3_nh4wad.jpg"
   },
   {
-    id: 'matty-33',
-    title: 'Movement Analysis 33',
-    category: 'Training',
-    tags: ['Agility', 'Movement'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/7azi5oskuovat7lu1294j/Matty-33.mp4?rlkey=o6i1qvhwodknahgyx8wu61dp7&st=58kaag24&raw=1',
-    thumbnail: '',
-    stats: { power: 78, speed: 94, control: 82 }
+    "id": "matty-basketball-tries-27",
+    "title": "Basketball Tries IEC",
+    "category": "Skills",
+    "tags": [
+      "Skill",
+      "Session",
+      "Ball Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035846/Matty_27_igrazc.mp4",
+    "description": "Skill session focusing on ball mastery.",
+    "stats": {
+      "power": 73,
+      "speed": 92,
+      "control": 96
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_27_igrazc.jpg"
   },
   {
-    id: 'matty-34',
-    title: 'Core Mechanics 34',
-    category: 'Training',
-    tags: ['Fundamentals', 'Stability'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/06se0zb418nim86deykrk/Matty-34.mp4?rlkey=gcwma6kiw8a65nbj06pl9kolx&st=nrc500tw&raw=1',
-    thumbnail: '',
-    stats: { power: 85, speed: 80, control: 88 }
+    "id": "matty-lomi-iec-22",
+    "title": "Lomi IEC",
+    "category": "1v1",
+    "tags": [
+      "Precision",
+      "1v1",
+      "Battle"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035798/Matty_22_Lomi_arkf2f.mp4",
+    "description": "Precision 1v1 battle with Lomi.",
+    "stats": {
+      "power": 96,
+      "speed": 81,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_22_Lomi_arkf2f.jpg"
   },
   {
-    id: 'matty-36-rain',
-    title: 'Rain Drill Session',
-    category: 'Training',
-    tags: ['Grit', 'Environment', 'Control'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/89djvaifxo3fe2j087924/Matty-36-Rain.mp4?rlkey=i123qjedrlnglc65lheex4fvy&st=b45se74d&raw=1',
-    thumbnail: '',
-    stats: { power: 90, speed: 85, control: 94 }
+    "id": "matty-experiment-ecusta-23",
+    "title": "Experiment ECUSTA",
+    "category": "Training",
+    "tags": [
+      "Precision",
+      "Technical",
+      "Flow"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035791/Matty_23_wbonnq.mp4",
+    "description": "Technical flow session at Ecusta.",
+    "stats": {
+      "power": 85,
+      "speed": 88,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_23_wbonnq.jpg"
   },
   {
-    id: 'matty-37',
-    title: 'Elite Protocol 37',
-    category: 'Skills',
-    tags: ['Advanced', 'Technical'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/wxr6bvioes3lozg0hb0kv/Matty-37.mp4?rlkey=i2med8rxnwye4an3x05eb6cml&st=csybz2e6&raw=1',
-    thumbnail: '',
-    stats: { power: 74, speed: 89, control: 98 }
+    "id": "matty-experiment-entoto-21",
+    "title": "Experiment Entoto",
+    "category": "Training",
+    "tags": [
+      "Location",
+      "Outdoor",
+      "Natural"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035788/Matty_21_d4rdfi.mp4",
+    "description": "Outdoor training session at Entoto.",
+    "stats": {
+      "power": 82,
+      "speed": 85,
+      "control": 89
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_21_d4rdfi.jpg"
   },
   {
-    id: 'matty-38',
-    title: 'Drill Execution 38',
-    category: 'Training',
-    tags: ['Precision', 'Flow'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/i3fbr8rb0vbs4tg4eaiau/Matty-38.mp4?rlkey=s0ph200okcbalzvi853hufput&st=1omnlr6l&raw=1',
-    thumbnail: '',
-    stats: { power: 88, speed: 82, control: 91 }
+    "id": "matty-experiment-baseball-26",
+    "title": "Experiment Baseball IEC",
+    "category": "Training",
+    "tags": [
+      "Cross-training",
+      "Baseball",
+      "Coordination"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035786/Matty_26_cm5dmb.mp4",
+    "description": "Cross-training with baseball elements.",
+    "stats": {
+      "power": 88,
+      "speed": 83,
+      "control": 87
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_26_cm5dmb.jpg"
   },
   {
-    id: 'matty-39-friends',
-    title: 'Team Tactical w/ MK',
-    category: 'Match',
-    tags: ['Collaboration', 'Game Play', 'Intensity'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/k2odbj269ut83qgjxix3v/Matty-39...-with-Uchi-Naty-and-MK.mp4?rlkey=s98rcuhvovon5gp9gye38cwj6&st=nqy7ybiz&raw=1',
-    thumbnail: '',
-    stats: { power: 92, speed: 90, control: 88 }
+    "id": "matty-experiment-ecusta-24",
+    "title": "Experiment Ecusta",
+    "category": "Training",
+    "tags": [
+      "Technical",
+      "Drill",
+      "Consistency"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035764/Matty_24_igfndn.mp4",
+    "description": "Consistent technical drill work.",
+    "stats": {
+      "power": 84,
+      "speed": 86,
+      "control": 91
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_24_igfndn.jpg"
   },
   {
-    id: 'matty-40-lomi',
-    title: 'Lomi Battle 2',
-    category: '1v1',
-    tags: ['1v1', 'Battle', 'Technical'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/10ht32nb7gn5z1xpgrcgm/Matty-40-Lomi-2.mp4?rlkey=tyt2q4imax91hlgtpcfnoeecy&st=6zouk8dw&raw=1',
-    thumbnail: '',
-    stats: { power: 80, speed: 95, control: 97 }
+    "id": "matty-ping-pong-ecusta-20",
+    "title": "Ping-Pong Ecusta",
+    "category": "Skills",
+    "tags": [
+      "Creative",
+      "Touch",
+      "Finesse"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035742/Matty_20_fvqvra.mp4",
+    "description": "Creative touch and finesse work.",
+    "stats": {
+      "power": 70,
+      "speed": 92,
+      "control": 98
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_20_fvqvra.jpg"
   },
   {
-    id: 'matty-41-pov2',
-    title: 'POV Tactical Feed 2',
-    category: 'Skills',
-    tags: ['POV', 'Insight', 'Vision'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/9vzd0qgij1t1xoh59a1xl/Matty-41-POV-2.mp4?rlkey=k1lnfupmtjbsjiglpj60vdd82&st=zbn8wntb&raw=1',
-    thumbnail: '',
-    stats: { power: 72, speed: 88, control: 100 }
+    "id": "matty-basketball-shots-19",
+    "title": "Basketball shots IEC",
+    "category": "Training",
+    "tags": [
+      "Shooting",
+      "Accuracy",
+      "Repetition"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035690/Matty_19_qhhzjk.mp4",
+    "description": "Shooting accuracy and repetition training.",
+    "stats": {
+      "power": 89,
+      "speed": 78,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_19_qhhzjk.jpg"
   },
   {
-    id: 'matty-42-full',
-    title: 'Session Mastery 42',
-    category: 'Recap',
-    tags: ['Archive', 'Full Stream'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/70va9g26vqieipswty2e1/Matty-42-full-version.mp4?rlkey=wypwwek7tvhtjre228u75xco4&st=axy133cu&raw=1',
-    thumbnail: '',
-    stats: { power: 85, speed: 85, control: 90 }
+    "id": "matty-experiment-iec-17",
+    "title": "Experiment IEC",
+    "category": "Skills",
+    "tags": [
+      "Innovation",
+      "Technique",
+      "Development"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035680/Matty_17_orpcry.mp4",
+    "description": "Innovative technique development.",
+    "stats": {
+      "power": 76,
+      "speed": 91,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_17_orpcry.jpg"
   },
   {
-    id: 'matty-42',
-    title: 'Technical Burst 42',
-    category: 'Skills',
-    tags: ['Explosive', 'Touch'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/sdcd7886w532m5u5zz20f/Matty-42.mp4?rlkey=jgeoeg1v43gqlkq90j1annga1&st=x2wcsso2&raw=1',
-    thumbnail: '',
-    stats: { power: 79, speed: 96, control: 94 }
+    "id": "matty-experiment-home-16",
+    "title": "Experiment Home",
+    "category": "Training",
+    "tags": [
+      "Home",
+      "Solo",
+      "Practice"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035653/Matty_16_zsw0mo.mp4",
+    "description": "Home-based solo practice session.",
+    "stats": {
+      "power": 75,
+      "speed": 84,
+      "control": 90
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_16_zsw0mo.jpg"
   },
   {
-    id: 'matty-43',
-    title: 'Precision Unit 43',
-    category: 'Pingball',
-    tags: ['Target', 'Execution'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/xceqkh0emewggiwopntst/Matty-43.mp4?rlkey=4dfp4b3hjpe7y5ls9z7wa71ur&st=0kcwt6qw&raw=1',
-    thumbnail: '',
-    stats: { power: 98, speed: 80, control: 92 }
+    "id": "matty-skills-iec-11",
+    "title": "Skills IEC",
+    "category": "Skills",
+    "tags": [
+      "Technical",
+      "Skills",
+      "Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035651/Matty_11_jvobgs.mp4",
+    "description": "Technical skills mastery session.",
+    "stats": {
+      "power": 81,
+      "speed": 89,
+      "control": 94
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_11_jvobgs.jpg"
   },
   {
-    id: 'matty-44',
-    title: 'System Drive 44',
-    category: 'Training',
-    tags: ['Agility', 'Drill'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/wxc6uzlvajbu0v3bzoyhj/Matty-44.mp4?rlkey=kib102agb04ud3mvy5w5cz16t&st=pjxyewq8&raw=1',
-    thumbnail: '',
-    stats: { power: 86, speed: 92, control: 87 }
+    "id": "matty-experiment-ecusta-15",
+    "title": "Experiment Ecusta",
+    "category": "Training",
+    "tags": [
+      "Experimental",
+      "Innovation",
+      "Testing"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035645/Matty_15_qpmjwy.mp4",
+    "description": "Experimental training and innovation testing.",
+    "stats": {
+      "power": 78,
+      "speed": 87,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_15_qpmjwy.jpg"
   },
   {
-    id: 'matty-45',
-    title: 'Final Protocol 45',
-    category: 'Recap',
-    tags: ['Peak', 'Mastery'],
-    videoUrl: 'https://dl.dropboxusercontent.com/scl/fi/gvf0eqh2nblu1h1nm9krt/Matty-45.mp4?rlkey=7lsa18ys5im1sxn21fwro3sho&st=e4l2yech&raw=1',
-    thumbnail: '',
-    stats: { power: 94, speed: 94, control: 94 }
+    "id": "matty-skills-iec-10",
+    "title": "Skills IEC",
+    "category": "Skills",
+    "tags": [
+      "Foundation",
+      "Building",
+      "Core"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035628/Matty_10_ep8epn.mp4",
+    "description": "Foundation building and core skills.",
+    "stats": {
+      "power": 77,
+      "speed": 85,
+      "control": 91
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_10_ep8epn.jpg"
+  },
+  {
+    "id": "matty-basketball-shots-12",
+    "title": "Basketball shots IEC",
+    "category": "Training",
+    "tags": [
+      "Shooting",
+      "Form",
+      "Technique"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035626/Matty_12_xvafbd.mp4",
+    "description": "Shooting form and technique work.",
+    "stats": {
+      "power": 86,
+      "speed": 80,
+      "control": 88
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_12_xvafbd.jpg"
+  },
+  {
+    "id": "matty-first-video",
+    "title": "First Video Ever",
+    "category": "Milestone",
+    "tags": [
+      "First",
+      "Beginning",
+      "Journey"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035616/Matty_1_q2bzia.mp4",
+    "description": "The very first video - beginning of the journey.",
+    "stats": {
+      "power": 65,
+      "speed": 70,
+      "control": 75
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_1_q2bzia.jpg",
+    "date": "2020-03-15",
+    "rating": 2
+  },
+  {
+    "id": "matty-2024-recap",
+    "title": "2024 Recap",
+    "category": "Recap",
+    "tags": [
+      "Year",
+      "Summary",
+      "Progress"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035610/Inshot_20241231_211644228_ihcy0v.mp4",
+    "description": "Complete 2024 year summary and progress.",
+    "stats": {
+      "power": 90,
+      "speed": 88,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20241231_211644228_ihcy0v.jpg",
+    "date": "2024-12-31",
+    "rating": 5
+  },
+  {
+    "id": "matty-skills-basketball-combo",
+    "title": "Skills and Basketball IEC",
+    "category": "Training",
+    "tags": [
+      "Combination",
+      "Multi-sport",
+      "Versatility"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035580/Inshot_20250410_092047074_tgvsk4.mp4",
+    "description": "Multi-sport combination training showing versatility.",
+    "stats": {
+      "power": 85,
+      "speed": 87,
+      "control": 90
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20250410_092047074_tgvsk4.jpg"
+  },
+  {
+    "id": "matty-basketball-shots-april",
+    "title": "Basketball shots April",
+    "category": "Training",
+    "tags": [
+      "Monthly",
+      "Progress",
+      "Consistency"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035575/Inshot_20250430_202849160_beg1h7.mp4",
+    "description": "April monthly progress and consistency work.",
+    "stats": {
+      "power": 83,
+      "speed": 82,
+      "control": 89
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20250430_202849160_beg1h7.jpg"
+  },
+  {
+    "id": "matty-basketball-june",
+    "title": "Basketball June",
+    "category": "Training",
+    "tags": [
+      "Summer",
+      "Heat",
+      "Endurance"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035528/Inshot_20240620_121858581_ub8hdq.mp4",
+    "description": "Summer training with focus on endurance.",
+    "stats": {
+      "power": 87,
+      "speed": 85,
+      "control": 91
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Inshot_20240620_121858581_ub8hdq.jpg"
+  },
+  {
+    "id": "matty-basketball-special",
+    "title": "Basketball Special",
+    "category": "Training",
+    "tags": [
+      "Special",
+      "Unique",
+      "Showcase"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035502/Vid_299440917_181029_538_oaps4o.mp4",
+    "description": "Special showcase session with unique elements.",
+    "stats": {
+      "power": 88,
+      "speed": 86,
+      "control": 92
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Vid_299440917_181029_538_oaps4o.jpg"
+  },
+  {
+    "id": "matty-50th-milestone",
+    "title": "50th Video Milestone",
+    "category": "Milestone",
+    "tags": [
+      "Milestone",
+      "50th",
+      "Achievement"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035496/Matty_50_vtzns1.mp4",
+    "description": "50th video milestone achievement.",
+    "stats": {
+      "power": 95,
+      "speed": 95,
+      "control": 95
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_50_vtzns1.jpg",
+    "date": "2024-08-30",
+    "rating": 5
+  },
+  {
+    "id": "matty-experiment-babogaya",
+    "title": "Experiment Babogaya",
+    "category": "Training",
+    "tags": [
+      "Location",
+      "Outdoor",
+      "Adventure"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035444/Matty_7_avvhlq.mp4",
+    "description": "Outdoor adventure training at Babogaya.",
+    "stats": {
+      "power": 80,
+      "speed": 88,
+      "control": 85
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_7_avvhlq.jpg"
+  },
+  {
+    "id": "matty-target-shot-alew",
+    "title": "Target Shot with Alew",
+    "category": "Training",
+    "tags": [
+      "Partner",
+      "Accuracy",
+      "Teamwork"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035425/Matty_8_With_Alew_kdmg1c.mp4",
+    "description": "Partner training focusing on accuracy and teamwork.",
+    "stats": {
+      "power": 84,
+      "speed": 82,
+      "control": 93
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_8_With_Alew_kdmg1c.jpg"
+  },
+  {
+    "id": "matty-experiment-iec-49",
+    "title": "Experiment IEC Advanced",
+    "category": "Skills",
+    "tags": [
+      "Advanced",
+      "Elite",
+      "Mastery"
+    ],
+    "videoUrl": "https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770035418/Matty_49_hknf6z.mp4",
+    "description": "Advanced elite mastery demonstration.",
+    "stats": {
+      "power": 92,
+      "speed": 94,
+      "control": 97
+    },
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_49_hknf6z.jpg"
   }
 ];

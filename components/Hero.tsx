@@ -27,9 +27,9 @@ const Hero: React.FC = () => {
 
       {/* Futuristic Tactical Overlays */}
       <div className="absolute inset-0 pointer-events-none z-10 opacity-20">
-         <div className="absolute top-[20%] left-[10%] w-[1px] h-[40%] bg-[#39FF14]" />
-         <div className="absolute top-[10%] right-[10%] w-[20%] h-[1px] bg-[#39FF14]" />
-         <div className="absolute bottom-[20%] left-[5%] text-[#39FF14] font-mono text-[8px] flex flex-col gap-1">
+         <div className="absolute top-[20%] left-[10%] w-[1px] h-[40%] bg-[#CCFF00]" />
+         <div className="absolute top-[10%] right-[10%] w-[20%] h-[1px] bg-[#CCFF00]" />
+         <div className="absolute bottom-[20%] left-[5%] text-[#CCFF00] font-mono text-[8px] flex flex-col gap-1">
             <span>// ANALYZING_FLUIDITY...</span>
             <span>// TRACKING_POSITION_X: 104.22</span>
             <span>// TRACKING_POSITION_Y: 88.01</span>
@@ -41,16 +41,16 @@ const Hero: React.FC = () => {
       <div className="relative z-20 text-center px-6 max-w-6xl">
         <div className="mb-12 flex flex-col items-center animate-in fade-in slide-in-from-top-10 duration-1000">
           <div className="flex items-center gap-4 mb-4">
-             <div className="w-10 h-[1px] bg-[#39FF14]" />
-             <span className="text-[#39FF14] font-mono tracking-[0.5em] text-[10px] font-bold uppercase">Elite Profile v3.1</span>
-             <div className="w-10 h-[1px] bg-[#39FF14]" />
+             <div className="w-10 h-[1px] bg-[#CCFF00]" />
+             <span className="text-[#CCFF00] font-mono tracking-[0.5em] text-[10px] font-bold uppercase">Elite Profile v3.1</span>
+             <div className="w-10 h-[1px] bg-[#CCFF00]" />
           </div>
           <h2 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.3em] mb-2">Protocol: {PLAYER_TITLE}</h2>
         </div>
         
         <h1 className="font-display font-black text-7xl sm:text-9xl md:text-[13rem] mb-10 tracking-tighter leading-[0.8] uppercase italic">
           {PLAYER_NAME.split(' ')[0]}<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39FF14] via-white to-white/10 drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] via-white to-white/10 drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]">
             {PLAYER_NAME.split(' ')[1]}
           </span>
         </h1>
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
           <a 
             href="#highlights"
             onClick={scrollToHighlights}
-            className="w-full sm:w-auto px-12 py-6 bg-[#39FF14] text-black font-display font-bold text-2xl italic hover:bg-white transition-all duration-500 rounded-sm shadow-[0_0_50px_rgba(57,255,20,0.4)] flex items-center gap-4 group no-underline"
+            className="w-full sm:w-auto px-12 py-6 bg-[#CCFF00] text-black font-display font-bold text-2xl italic hover:bg-white transition-all duration-500 rounded-sm shadow-[0_0_50px_rgba(57,255,20,0.4)] flex items-center gap-4 group no-underline"
           >
             <span>INITIALIZE FEED</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 20 20" fill="currentColor">
@@ -72,15 +72,15 @@ const Hero: React.FC = () => {
           </a>
           
           <div className="hidden sm:flex items-center gap-6 py-6 px-10 rounded-sm border border-white/10 backdrop-blur-xl glass">
-            <div className="w-2 h-2 rounded-full bg-[#39FF14] animate-ping" />
+            <div className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
             <span className="text-white font-mono text-[10px] font-bold uppercase tracking-widest">Live: Skill Sync Active</span>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
-        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#39FF14] to-transparent animate-pulse" />
-        <span className="text-[8px] font-mono uppercase tracking-[0.5em] font-bold text-[#39FF14]">Data Stream</span>
+        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#CCFF00] to-transparent animate-pulse" />
+        <span className="text-[8px] font-mono uppercase tracking-[0.5em] font-bold text-[#CCFF00]">Data Stream</span>
       </div>
     </section>
   );
