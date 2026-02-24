@@ -7,13 +7,15 @@ interface PositionHeatmapProps {
 
 const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
   // Football pitch dimensions (scaled)
-  const pitchWidth = 350;
-  const pitchHeight = 500;
+  const pitchWidth = 500;
+  const pitchHeight = 300;
+  const goalWidth = 80;
+  const goalDepth = 15;
   
   // Find max values for intensity scaling
-  const maxTouches = Math.max(...data.map(d => d.touches));
-  const maxPasses = Math.max(...data.map(d => d.passes));
-  const maxDribbles = Math.max(...data.map(d => d.dribbles));
+  const maxTouches = Math.max(...data.map((d: HeatmapData) => d.touches));
+  const maxPasses = Math.max(...data.map((d: HeatmapData) => d.passes));
+  const maxDribbles = Math.max(...data.map((d: HeatmapData) => d.dribbles));
 
   const getIntensity = (touches: number, passes: number, dribbles: number) => {
     const touchesNorm = touches / maxTouches;
@@ -32,7 +34,7 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
 
   // Top zones for display
   const topZones = data
-    .sort((a, b) => b.touches - a.touches)
+    .sort((a: HeatmapData, b: HeatmapData) => b.touches - a.touches)
     .slice(0, 3);
 
   return (
@@ -45,7 +47,7 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             height={pitchHeight} 
             fill="rgba(0, 0, 0, 0.3)" 
             stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1"
+            strokeWidth="2"
           />
           
           {/* Center circle */}
@@ -54,8 +56,16 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             cy={pitchHeight / 2} 
             r="40" 
             fill="none" 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1"
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2"
+          />
+          
+          {/* Center spot */}
+          <circle 
+            cx={pitchWidth / 2} 
+            cy={pitchHeight / 2} 
+            r="3" 
+            fill="rgba(255, 255, 255, 0.5)" 
           />
           
           {/* Center line */}
@@ -64,8 +74,8 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             y1={pitchHeight / 2} 
             x2={pitchWidth} 
             y2={pitchHeight / 2} 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1"
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2"
           />
           
           {/* Penalty areas */}
@@ -75,8 +85,8 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             width="210" 
             height="80" 
             fill="none" 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1" 
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2" 
           />
           <rect 
             x="70" 
@@ -84,9 +94,13 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             width="210" 
             height="80" 
             fill="none" 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1" 
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2" 
           />
+          
+          {/* Penalty spots */}
+          <circle cx={pitchWidth / 2} cy="50" r="3" fill="rgba(255, 255, 255, 0.5)" />
+          <circle cx={pitchWidth / 2} cy={pitchHeight - 50} r="3" fill="rgba(255, 255, 255, 0.5)" />
           
           {/* Goal areas */}
           <rect 
@@ -95,8 +109,8 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             width="90" 
             height="30" 
             fill="none" 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1" 
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2" 
           />
           <rect 
             x="130" 
@@ -104,12 +118,74 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             width="90" 
             height="30" 
             fill="none" 
-            stroke="rgba(255, 255, 255, 0.2)" 
-            strokeWidth="1" 
+            stroke="rgba(255, 255, 255, 0.3)" 
+            strokeWidth="2" 
           />
           
+          {/* TOP GOAL - Centered */}
+          <g>
+            {/* Goal posts */}
+            <rect 
+              x={(pitchWidth - goalWidth) / 2} 
+              y={-goalDepth} 
+              width={goalWidth} 
+              height={goalDepth} 
+              fill="rgba(204, 255, 0, 0.1)" 
+              stroke="#CCFF00" 
+              strokeWidth="3"
+            />
+            {/* Goal net pattern */}
+            <line x1={(pitchWidth - goalWidth) / 2} y1={-goalDepth} x2={(pitchWidth + goalWidth) / 2} y2="0" stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 20} y1={-goalDepth} x2={(pitchWidth - goalWidth) / 2 + 20} y2="0" stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 40} y1={-goalDepth} x2={(pitchWidth - goalWidth) / 2 + 40} y2="0" stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 60} y1={-goalDepth} x2={(pitchWidth - goalWidth) / 2 + 60} y2="0" stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            {/* Goal label */}
+            <text 
+              x={pitchWidth / 2} 
+              y={-goalDepth / 2} 
+              textAnchor="middle" 
+              fontSize="10" 
+              fill="#CCFF00" 
+              fontWeight="bold"
+              fontFamily="monospace"
+            >
+              GOAL
+            </text>
+          </g>
+          
+          {/* BOTTOM GOAL - Centered */}
+          <g>
+            {/* Goal posts */}
+            <rect 
+              x={(pitchWidth - goalWidth) / 2} 
+              y={pitchHeight} 
+              width={goalWidth} 
+              height={goalDepth} 
+              fill="rgba(204, 255, 0, 0.1)" 
+              stroke="#CCFF00" 
+              strokeWidth="3"
+            />
+            {/* Goal net pattern */}
+            <line x1={(pitchWidth - goalWidth) / 2} y1={pitchHeight} x2={(pitchWidth + goalWidth) / 2} y2={pitchHeight + goalDepth} stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 20} y1={pitchHeight} x2={(pitchWidth - goalWidth) / 2 + 20} y2={pitchHeight + goalDepth} stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 40} y1={pitchHeight} x2={(pitchWidth - goalWidth) / 2 + 40} y2={pitchHeight + goalDepth} stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            <line x1={(pitchWidth - goalWidth) / 2 + 60} y1={pitchHeight} x2={(pitchWidth - goalWidth) / 2 + 60} y2={pitchHeight + goalDepth} stroke="rgba(204, 255, 0, 0.3)" strokeWidth="1" />
+            {/* Goal label */}
+            <text 
+              x={pitchWidth / 2} 
+              y={pitchHeight + goalDepth / 2 + 3} 
+              textAnchor="middle" 
+              fontSize="10" 
+              fill="#CCFF00" 
+              fontWeight="bold"
+              fontFamily="monospace"
+            >
+              GOAL
+            </text>
+          </g>
+          
           {/* Heatmap data points */}
-          {data.map((point, index) => {
+          {data.map((point: HeatmapData, index: number) => {
             const intensity = getIntensity(point.touches, point.passes, point.dribbles);
             const x = (point.x / 100) * pitchWidth;
             const y = (point.y / 100) * pitchHeight;
@@ -117,6 +193,16 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
             
             return (
               <g key={index}>
+                {/* Outer glow */}
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={radius + 5}
+                  fill={getHeatColor(intensity)}
+                  opacity={0.2}
+                  className="transition-all duration-300"
+                />
+                {/* Main circle */}
                 <circle
                   cx={x}
                   cy={y}
@@ -125,11 +211,12 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
                   opacity={0.7}
                   className="transition-all duration-300 hover:opacity-100"
                 />
+                {/* Touch count */}
                 <text
                   x={x}
                   y={y + 3}
                   textAnchor="middle"
-                  fontSize="8"
+                  fontSize="9"
                   fill="#000"
                   fontWeight="bold"
                   fontFamily="monospace"
@@ -147,7 +234,7 @@ const PositionHeatmap: React.FC<PositionHeatmapProps> = ({ data }) => {
         <div className="text-[#CCFF00] font-mono text-[8px] uppercase tracking-[0.3em] mb-2">
           Zone Dominance
         </div>
-        {topZones.map((zone, index) => (
+        {topZones.map((zone: HeatmapData, index: number) => (
           <div key={index} className="flex justify-between items-center py-1 border-b border-white/10">
             <span className="text-white/60 font-mono text-xs">{zone.zone}</span>
             <div className="flex items-center gap-2">
