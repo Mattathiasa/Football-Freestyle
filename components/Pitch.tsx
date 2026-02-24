@@ -193,6 +193,12 @@ const Pitch: React.FC = () => {
     localStorage.removeItem('pitchButtonPositions');
   };
 
+  // Clear localStorage on mount to ensure fresh positions (temporary fix)
+  useEffect(() => {
+    // Uncomment this line if you want to force reset positions on every page load
+    // localStorage.removeItem('pitchButtonPositions');
+  }, []);
+
   return (
     <section id="pitch" className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Background Image */}
@@ -261,7 +267,7 @@ const Pitch: React.FC = () => {
 
       {/* Main Content - Interactive Pitch */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 pt-32 pb-20">
-        <div className="relative w-full max-w-6xl h-[80vh] md:h-[85vh]">
+        <div className="relative w-full max-w-6xl aspect-[4/3]">
           
           {/* Title at top */}
           <div className="absolute -top-24 md:-top-28 left-1/2 -translate-x-1/2 text-center w-full">
