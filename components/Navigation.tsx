@@ -5,10 +5,30 @@ import Logo from './Logo';
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const nameParts = (PLAYER_NAME || "MATTATHIAS ABRAHAM").split(' ');
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      
+      // Determine active section based on scroll position
+      const sections = ['pitch', 'highlights', 'analytics', 'skills', 'story'];
+      const scrollPosition = window.scrollY + 100; // Offset for better detection
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    
+    handleScroll(); // Check on mount
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -68,15 +88,19 @@ const Navigation: React.FC = () => {
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6 lg:gap-12 text-[10px] lg:text-xs font-mono font-bold uppercase tracking-[0.3em] text-white/30">
-          {['highlights', 'analytics', 'skills', 'story'].map((item) => (
+          {['pitch', 'highlights', 'analytics', 'skills', 'story'].map((item) => (
             <a 
               key={item}
               href={`#${item}`} 
               onClick={(e) => scrollToSection(e, item)}
-              className="hover:text-[#CCFF00] transition-all relative group py-2"
+              className={`hover:text-[#CCFF00] transition-all relative group py-2 ${
+                activeSection === item ? 'text-[#CCFF00]' : ''
+              }`}
             >
               {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#CCFF00] transition-all duration-500 group-hover:w-full" />
+              <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#CCFF00] transition-all duration-500 ${
+                activeSection === item ? 'w-full' : 'w-0 group-hover:w-full'
+              }`} />
             </a>
           ))}
         </div>
@@ -117,16 +141,20 @@ const Navigation: React.FC = () => {
 
             {/* Navigation Links */}
             <div className="p-6 space-y-6">
-              {['highlights', 'analytics', 'skills', 'story'].map((item, index) => (
+              {['pitch', 'highlights', 'analytics', 'skills', 'story'].map((item, index) => (
                 <a 
                   key={item}
                   href={`#${item}`} 
                   onClick={(e) => scrollToSection(e, item)}
-                  className="block text-white/70 hover:text-[#CCFF00] transition-all duration-300 relative group"
+                  className={`block transition-all duration-300 relative group ${
+                    activeSection === item ? 'text-[#CCFF00]' : 'text-white/70 hover:text-[#CCFF00]'
+                  }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-[#CCFF00]/30 font-mono text-xs">
+                    <span className={`font-mono text-xs ${
+                      activeSection === item ? 'text-[#CCFF00]' : 'text-[#CCFF00]/30'
+                    }`}>
                       {(index + 1).toString().padStart(2, '0')}
                     </span>
                     <div className="flex flex-col">
@@ -134,6 +162,7 @@ const Navigation: React.FC = () => {
                         {item}
                       </span>
                       <span className="text-[10px] text-white/30 font-mono uppercase tracking-[0.3em] mt-1">
+                        {item === 'pitch' && 'Interactive Field'}
                         {item === 'highlights' && 'Video Archive'}
                         {item === 'analytics' && 'Performance Data'}
                         {item === 'skills' && 'Technical Abilities'}
@@ -143,7 +172,9 @@ const Navigation: React.FC = () => {
                   </div>
                   
                   {/* Hover line */}
-                  <div className="absolute left-8 bottom-0 w-0 h-[1px] bg-[#CCFF00] transition-all duration-300 group-hover:w-full" />
+                  <div className={`absolute left-8 bottom-0 h-[1px] bg-[#CCFF00] transition-all duration-300 ${
+                    activeSection === item ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
                 </a>
               ))}
             </div>

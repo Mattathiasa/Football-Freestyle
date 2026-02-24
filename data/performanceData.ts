@@ -10,21 +10,40 @@ export const performanceData: PerformanceData[] = [
   { age: 21, year: 2023, goals: 32, assists: 22, successfulDribbles: 118, minutesPlayed: 3060, matchRating: 8.7, overallScore: 98 },
   { age: 22, year: 2024, goals: 35, assists: 25, successfulDribbles: 125, minutesPlayed: 3150, matchRating: 8.9, overallScore: 100 },
   { age: 23, year: 2025, goals: 31, assists: 21, successfulDribbles: 115, minutesPlayed: 2970, matchRating: 8.5, overallScore: 95 },
-  { age: 24, year: 2026, goals: 29, assists: 19, successfulDribbles: 108, minutesPlayed: 2850, matchRating: 8.2, overallScore: 91 }
+  { age: 24, year: 2026, goals: 11, assists: 12, successfulDribbles: 108, minutesPlayed: 2850, matchRating: 8.2, overallScore: 91 }
 ];
 
-// Sample heatmap data showing field positioning
+// Sample heatmap data showing field positioning - Striker/Central Attacking Focus
 export const heatmapData: HeatmapData[] = [
-  { x: 25, y: 75, touches: 145, passes: 89, dribbles: 23, zone: 'Left Wing' },
-  { x: 75, y: 75, touches: 98, passes: 67, dribbles: 15, zone: 'Right Wing' },
-  { x: 50, y: 65, touches: 167, passes: 112, dribbles: 31, zone: 'Central Attacking Mid' },
-  { x: 35, y: 85, touches: 89, passes: 45, dribbles: 18, zone: 'Left Final Third' },
-  { x: 65, y: 85, touches: 76, passes: 38, dribbles: 14, zone: 'Right Final Third' },
-  { x: 50, y: 90, touches: 134, passes: 67, dribbles: 28, zone: 'Central Final Third' },
-  { x: 20, y: 60, touches: 67, passes: 34, dribbles: 12, zone: 'Left Midfield' },
-  { x: 80, y: 60, touches: 54, passes: 28, dribbles: 9, zone: 'Right Midfield' },
-  { x: 50, y: 50, touches: 98, passes: 78, dribbles: 8, zone: 'Central Midfield' },
-  { x: 45, y: 95, touches: 89, passes: 23, dribbles: 19, zone: 'Penalty Area' }
+  // Central Striker Zone - Highest Activity
+  { x: 50, y: 90, touches: 198, passes: 85, dribbles: 42, zone: 'Central Final Third' },
+  { x: 50, y: 95, touches: 156, passes: 45, dribbles: 38, zone: 'Penalty Area' },
+  { x: 45, y: 92, touches: 142, passes: 52, dribbles: 35, zone: 'Left Penalty Area' },
+  { x: 55, y: 92, touches: 138, passes: 48, dribbles: 33, zone: 'Right Penalty Area' },
+  
+  // Central Attacking Midfield - Very High Activity
+  { x: 50, y: 80, touches: 187, passes: 125, dribbles: 38, zone: 'Central Attacking Mid' },
+  { x: 50, y: 85, touches: 165, passes: 98, dribbles: 35, zone: 'Central Attack Deep' },
+  
+  // Wide Attacking Areas - Moderate Activity
+  { x: 35, y: 85, touches: 98, passes: 58, dribbles: 22, zone: 'Left Final Third' },
+  { x: 65, y: 85, touches: 94, passes: 54, dribbles: 20, zone: 'Right Final Third' },
+  { x: 25, y: 80, touches: 76, passes: 45, dribbles: 15, zone: 'Left Wing Attack' },
+  { x: 75, y: 80, touches: 72, passes: 42, dribbles: 14, zone: 'Right Wing Attack' },
+  
+  // Midfield Transition - Lower Activity
+  { x: 50, y: 65, touches: 112, passes: 89, dribbles: 12, zone: 'Central Midfield' },
+  { x: 40, y: 70, touches: 68, passes: 52, dribbles: 8, zone: 'Left Central Mid' },
+  { x: 60, y: 70, touches: 65, passes: 48, dribbles: 7, zone: 'Right Central Mid' },
+  
+  // Wide Midfield - Minimal Activity
+  { x: 20, y: 75, touches: 45, passes: 32, dribbles: 5, zone: 'Left Wing Mid' },
+  { x: 80, y: 75, touches: 42, passes: 28, dribbles: 4, zone: 'Right Wing Mid' },
+  
+  // Defensive Areas - Very Low Activity (Rare Drop Back)
+  { x: 50, y: 50, touches: 38, passes: 28, dribbles: 2, zone: 'Defensive Mid' },
+  { x: 35, y: 40, touches: 22, passes: 18, dribbles: 1, zone: 'Left Defense' },
+  { x: 65, y: 40, touches: 20, passes: 16, dribbles: 1, zone: 'Right Defense' }
 ];
 
 // Sample shot data with foot preference and outcomes

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Pitch from './components/Pitch';
 import StatsBar from './components/StatsBar';
 import VideoGrid from './components/VideoGrid';
 import Footer from './components/Footer';
@@ -36,6 +37,8 @@ const App: React.FC = () => {
       
       <main className="relative z-10">
         <Hero />
+        
+        <Pitch />
         
         {/* The Story Section - Redesigned as Tactical Intelligence */}
         <section id="story" className="py-32 md:py-60 px-6 relative overflow-hidden">
