@@ -193,10 +193,9 @@ const Pitch: React.FC = () => {
     localStorage.removeItem('pitchButtonPositions');
   };
 
-  // Clear localStorage on mount to ensure fresh positions (temporary fix)
+  // Clear localStorage on mount to ensure fresh positions
   useEffect(() => {
-    // Uncomment this line if you want to force reset positions on every page load
-    // localStorage.removeItem('pitchButtonPositions');
+    localStorage.removeItem('pitchButtonPositions');
   }, []);
 
   return (
