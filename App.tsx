@@ -2,14 +2,9 @@ import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import FootballScrollSequence from './components/FootballScrollSequence';
-import PlayerBio from './components/PlayerBio';
-import StatsBar from './components/StatsBar';
 import VideoGrid from './components/VideoGrid';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
-import PerformanceDashboard from './components/PerformanceDashboard';
-import { performanceData, heatmapData, shotData, footEfficiencyData } from './data/performanceData';
-import './styles/performance-dashboard.css';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,30 +26,14 @@ const App: React.FC = () => {
         {/* 1 ─ Hero: full-screen video intro */}
         <Hero />
 
-        {/* 2 ─ Scroll sequence: cinematic football assembly story */}
+        {/* 2 ─ Scroll journey: About / Skills / Performance / Analytics / CTA */}
         <FootballScrollSequence />
 
-        {/* 3 ─ Player bio: grounds the viewer after the cinematic */}
-        <PlayerBio />
-
-        {/* 4 ─ Skills / Stats bar */}
-        <StatsBar />
-
-        {/* 5 ─ Performance analytics */}
-        <section id="analytics" className="relative">
-          <PerformanceDashboard
-            performanceData={performanceData}
-            heatmapData={heatmapData}
-            shotData={shotData}
-            footEfficiencyData={footEfficiencyData}
-          />
-        </section>
-
-        {/* 6 ─ Video archive */}
+        {/* 3 ─ Highlights: video archive */}
         <VideoGrid />
 
-        {/* 7 ─ Connect CTA */}
-        <section className="py-40 md:py-60 px-6 text-center relative overflow-hidden bg-obsidian border-t border-white/5">
+        {/* 4 ─ Connect CTA */}
+        <section id="connect" className="py-40 md:py-60 px-6 text-center relative overflow-hidden bg-obsidian border-t border-white/5">
           <div className="absolute inset-0 z-0 bg-hex opacity-5" />
           <div className="relative z-10 max-w-4xl mx-auto">
             <div className="inline-block px-6 py-2 glass border-[#CCFF00]/20 text-[#CCFF00] font-mono text-[9px] uppercase tracking-[0.5em] mb-12">
@@ -72,7 +51,7 @@ const App: React.FC = () => {
             <a
               href="#footer"
               onClick={scrollToFooter}
-              className="inline-flex items-center gap-4 px-16 py-6 glass bg-white/5 border-white/20 text-white font-display font-black italic uppercase text-lg tracking-[0.2em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.05)] no-underline group"
+              className="inline-flex items-center gap-4 px-16 py-6 glass bg-white/5 border-white/20 text-white font-display font-black italic uppercase text-lg tracking-[0.2em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline group"
             >
               <span>OPEN HUD</span>
               <div className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] group-hover:bg-black group-hover:animate-ping" />
