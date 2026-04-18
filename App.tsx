@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import FootballScrollSequence from './components/FootballScrollSequence';
 import Pitch from './components/Pitch';
 import StatsBar from './components/StatsBar';
 import VideoGrid from './components/VideoGrid';
@@ -37,7 +38,9 @@ const App: React.FC = () => {
       
       <main className="relative z-10">
         <Hero />
-        
+
+        <FootballScrollSequence />
+
         <Pitch />
         
         {/* The Story Section - Redesigned as Tactical Intelligence */}

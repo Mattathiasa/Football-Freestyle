@@ -58,9 +58,16 @@
         box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
       }
       
-      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar { width: 3px; }
       ::-webkit-scrollbar-track { background: #050505; }
-      ::-webkit-scrollbar-thumb { background: var(--pitch-green); border-radius: 10px; }
+      ::-webkit-scrollbar-thumb { background: rgba(204,255,0,0.5); border-radius: 99px; transition: background 0.2s; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--pitch-green); }
+      * { scrollbar-width: thin; scrollbar-color: rgba(204,255,0,0.4) #050505; }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; }
+        50%       { opacity: 1;   }
+      }
 
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
