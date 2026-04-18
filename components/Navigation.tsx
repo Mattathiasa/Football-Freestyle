@@ -13,7 +13,7 @@ const Navigation: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
       
       // Determine active section based on scroll position
-      const sections = ['pitch', 'highlights', 'analytics', 'skills', 'story'];
+      const sections = ['highlights', 'analytics', 'skills', 'story'];
       const scrollPosition = window.scrollY + 100; // Offset for better detection
       
       for (const section of sections) {
@@ -88,7 +88,7 @@ const Navigation: React.FC = () => {
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6 lg:gap-12 text-[10px] lg:text-xs font-mono font-bold uppercase tracking-[0.3em] text-white/30">
-          {['pitch', 'highlights', 'analytics', 'skills', 'story'].map((item) => (
+          {['highlights', 'analytics', 'skills', 'story'].map((item) => (
             <a 
               key={item}
               href={`#${item}`} 
@@ -141,7 +141,7 @@ const Navigation: React.FC = () => {
 
             {/* Navigation Links */}
             <div className="p-6 space-y-6">
-              {['pitch', 'highlights', 'analytics', 'skills', 'story'].map((item, index) => (
+              {['highlights', 'analytics', 'skills', 'story'].map((item, index) => (
                 <a 
                   key={item}
                   href={`#${item}`} 
@@ -162,7 +162,6 @@ const Navigation: React.FC = () => {
                         {item}
                       </span>
                       <span className="text-[10px] text-white/30 font-mono uppercase tracking-[0.3em] mt-1">
-                        {item === 'pitch' && 'Interactive Field'}
                         {item === 'highlights' && 'Video Archive'}
                         {item === 'analytics' && 'Performance Data'}
                         {item === 'skills' && 'Technical Abilities'}

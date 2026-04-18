@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import FootballScrollSequence from './components/FootballScrollSequence';
-import Pitch from './components/Pitch';
 import StatsBar from './components/StatsBar';
 import VideoGrid from './components/VideoGrid';
 import Footer from './components/Footer';
@@ -40,8 +39,6 @@ const App: React.FC = () => {
         <Hero />
 
         <FootballScrollSequence />
-
-        <Pitch />
         
         {/* The Story Section - Redesigned as Tactical Intelligence */}
         <section id="story" className="py-32 md:py-60 px-6 relative overflow-hidden">
