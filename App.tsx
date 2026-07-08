@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import FootballScrollSequence from './components/FootballScrollSequence';
-import VideoGrid from './components/VideoGrid';
+import VideoShowcase from './components/showcase/VideoShowcase';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 
@@ -29,8 +29,8 @@ const App: React.FC = () => {
         {/* 2 ─ Scroll journey: About / Skills / Performance / Analytics / CTA */}
         <FootballScrollSequence />
 
-        {/* 3 ─ Highlights: video archive */}
-        <VideoGrid />
+        {/* 3 ─ Highlights: featured reel + video archive */}
+        <VideoShowcase />
 
         {/* 4 ─ Connect CTA */}
         <section id="connect" className="py-40 md:py-60 px-6 text-center relative overflow-hidden bg-obsidian border-t border-white/5">

@@ -16,7 +16,7 @@ const FootEfficiencyRadar: React.FC<FootEfficiencyRadarProps> = ({ data }) => {
       metric: 'Accuracy',
       leftFoot: leftFoot?.shotAccuracy || 0,
       rightFoot: rightFoot?.shotAccuracy || 0,
-      fullMark: 100
+      fullMark: 95
     },
     {
       metric: 'Conversion',
@@ -28,19 +28,19 @@ const FootEfficiencyRadar: React.FC<FootEfficiencyRadarProps> = ({ data }) => {
       metric: 'Power',
       leftFoot: leftFoot?.power || 0,
       rightFoot: rightFoot?.power || 0,
-      fullMark: 100
+      fullMark: 94
     },
     {
       metric: 'Curve',
       leftFoot: leftFoot?.curve || 0,
       rightFoot: rightFoot?.curve || 0,
-      fullMark: 100
+      fullMark: 97
     },
     {
       metric: 'First Touch',
       leftFoot: leftFoot?.firstTouchShots || 0,
       rightFoot: rightFoot?.firstTouchShots || 0,
-      fullMark: 100
+      fullMark: 91
     }
   ];
 

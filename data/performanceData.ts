@@ -74,18 +74,18 @@ export const shotData: ShotData[] = [
 export const footEfficiencyData: FootEfficiency[] = [
   {
     foot: 'right',
-    shotAccuracy: 78,
-    goalConversion: 42,
-    power: 85,
-    curve: 72,
-    firstTouchShots: 68
+    shotAccuracy: 23,
+    goalConversion: 26,
+    power: 47,
+    curve: 12,
+    firstTouchShots: 87
   },
   {
     foot: 'left',
-    shotAccuracy: 71,
-    goalConversion: 38,
-    power: 79,
-    curve: 84,
-    firstTouchShots: 61
+    shotAccuracy: 89,
+    goalConversion: 88,
+    power: 85,
+    curve: 91,
+    firstTouchShots: 82
   }
 ];

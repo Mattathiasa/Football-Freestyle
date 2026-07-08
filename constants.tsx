@@ -19,6 +19,7 @@ export const MILESTONES = {
 export const HIGHLIGHTS: Highlight[] = [
   {
     "id": "matty-featured",
+    "featured": true,
     "title": "Covid + Pre Covid Videos",
     "category": "Full Video",
     "tags": [
@@ -43,6 +44,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-ecusta",
+    "featured": true,
     "title": "Ecusta",
     "category": "Match",
     "tags": [
@@ -102,6 +104,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-team",
+    "featured": true,
     "title": "Basketball shot with Uchi, Naty and MK",
     "category": "Recap",
     "tags": [
@@ -116,7 +119,7 @@ export const HIGHLIGHTS: Highlight[] = [
       "speed": 90,
       "control": 95
     },
-    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/Matty_39.jpg",
+    "thumbnail": "https://res.cloudinary.com/dg1xa7q5c/video/upload/w_400,h_488,c_fill,g_auto,q_auto,f_auto,so_3.0/v1770036296/Matty_39..._With_Uchi_Naty_And_Mk_dyod7l.jpg",
     "date": "2024-10-12",
     "rating": 5,
     "skillType": "Trick Shot",
@@ -125,6 +128,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-47",
+    "featured": true,
     "title": "Experiment",
     "category": "Skills",
     "tags": [
@@ -238,6 +242,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-rain",
+    "featured": true,
     "title": "Basketball shots Rain",
     "category": "Training",
     "tags": [
@@ -331,6 +336,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-lomi-battle-2",
+    "featured": true,
     "title": "Lomi Battle 2",
     "category": "1v1",
     "tags": [
@@ -841,6 +847,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-2024-recap",
+    "featured": true,
     "title": "2024 Recap",
     "category": "Recap",
     "tags": [
@@ -933,6 +940,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-50th-milestone",
+    "featured": true,
     "title": "50th Video Milestone",
     "category": "Milestone",
     "tags": [

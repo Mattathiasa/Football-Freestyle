@@ -18,6 +18,7 @@ export interface Highlight {
   skillType?: string; // e.g., "Juggling", "Control", "Trick Shot", "First Touch"
   surface?: string; // e.g., "Concrete", "Turf", "Indoor", "Grass"
   progressTag?: 'Early' | 'Mid' | 'Recent'; // Development timeline
+  featured?: boolean; // Included in the cinematic featured reel
 }
 
 export interface PlayerStats {

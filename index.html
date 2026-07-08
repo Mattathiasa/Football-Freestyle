@@ -82,6 +82,12 @@
         backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
+
+      .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.22); color: transparent; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
     </style>
     <script type="importmap">
 {
