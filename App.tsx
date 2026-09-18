@@ -9,10 +9,6 @@ import LoadingScreen from './components/LoadingScreen';
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  if (isLoading) {
-    return <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />;
-  }
-
   const scrollToFooter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
@@ -61,6 +57,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <LoadingScreen visible={isLoading} onLoadingComplete={() => setIsLoading(false)} />
     </div>
   );
 };

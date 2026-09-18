@@ -1,91 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { HIGHLIGHTS } from '../constants';
-import { videoCache } from '../videoCache';
 
 interface LoadingScreenProps {
+  visible: boolean;
   onLoadingComplete: () => void;
 }
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ visible, onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [currentTask, setCurrentTask] = useState('Initializing...');
   const [loadedThumbnails, setLoadedThumbnails] = useState(0);
-  const [loadedVideos, setLoadedVideos] = useState(0);
 
   useEffect(() => {
+    if (!visible) return;
+
     const loadContent = async () => {
       try {
-        const totalThumbnails = HIGHLIGHTS.length;
-        const totalTasks = totalThumbnails;
+        const totalTasks = HIGHLIGHTS.length;
         let completedTasks = 0;
 
-        console.log('🚀 Starting simplified loading process...');
-
-        // Phase 1: Load thumbnails only
         setCurrentTask('Loading thumbnails...');
-        
-        const thumbnailPromises = HIGHLIGHTS.map(async (highlight, index) => {
-          const thumbnailSrc = highlight.thumbnail || (highlight.videoUrl.includes('cloudinary.com') 
+
+        const thumbnailPromises = HIGHLIGHTS.map(async (highlight) => {
+          const thumbnailSrc = highlight.thumbnail || (highlight.videoUrl.includes('cloudinary.com')
             ? highlight.videoUrl.replace('/upload/', '/upload/w_400,h_488,c_fill,q_auto,f_auto,so_3.0/').replace('.mp4', '.jpg')
             : '');
-          
+
           if (thumbnailSrc) {
             try {
-              await new Promise((resolve, reject) => {
+              await new Promise<void>((resolve, reject) => {
                 const img = new Image();
-                img.onload = resolve;
-                img.onerror = reject;
+                img.onload = () => resolve();
+                img.onerror = () => reject();
                 img.src = thumbnailSrc;
               });
-              
-              completedTasks++;
-              setLoadedThumbnails(prev => prev + 1);
-              setProgress((completedTasks / totalTasks) * 100);
-            } catch (error) {
-              console.warn(`Failed to load thumbnail for ${highlight.title}`);
-              completedTasks++;
-              setProgress((completedTasks / totalTasks) * 100);
+            } catch {
+              // Thumbnail failed - continue without it
             }
-          } else {
-            completedTasks++;
-            setProgress((completedTasks / totalTasks) * 100);
           }
+          completedTasks++;
+          setProgress(Math.round((completedTasks / totalTasks) * 100));
+          setLoadedThumbnails(completedTasks);
         });
 
         await Promise.all(thumbnailPromises);
-        console.log('✅ Thumbnails loaded');
-
-        // Phase 2: Ready for video playback!
-        setCurrentTask('Ready for video playback!');
-        
-        console.log('🚀 Loading complete - videos will load on demand!');
-        
-        // Small delay to show completion
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
         setProgress(100);
-        
-        // Trigger completion
-        setTimeout(() => {
-          console.log('🎬 All systems ready - launching app!');
-          onLoadingComplete();
-        }, 800);
+        setCurrentTask('Ready');
 
-      } catch (error) {
-        console.error('❌ Loading process failed:', error);
-        // Fallback - launch app anyway after a delay
-        setTimeout(() => {
-          console.log('🔄 Fallback - launching app despite errors');
-          onLoadingComplete();
-        }, 2000);
+        setTimeout(onLoadingComplete, 250);
+      } catch {
+        setTimeout(onLoadingComplete, 250);
       }
     };
 
-    // Add a maximum timeout as safety net
-    const maxTimeout = setTimeout(() => {
-      console.warn('⏰ Loading timeout - launching app');
-      onLoadingComplete();
-    }, 15000); // 15 second max
+    const maxTimeout = setTimeout(onLoadingComplete, 8000);
 
     loadContent().finally(() => {
       clearTimeout(maxTimeout);
@@ -94,17 +62,22 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     return () => {
       clearTimeout(maxTimeout);
     };
-  }, [onLoadingComplete]);
+  }, [visible, onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-[200] bg-obsidian flex flex-col items-center justify-center">
+    <div
+      className={`fixed inset-0 z-[200] bg-obsidian flex flex-col items-center justify-center transition-opacity duration-700 ${
+        visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+      aria-hidden={!visible}
+    >
       {/* Background Effects */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#CCFF00]/5 blur-[120px] rounded-full pointer-events-none animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#CCFF00]/3 blur-[100px] rounded-full pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
-      
+
       {/* Main Loading Content */}
       <div className="relative z-10 flex flex-col items-center max-w-md mx-auto px-6">
-        
+
         {/* Logo/Title */}
         <div className="mb-12 text-center">
           <h1 className="font-display text-4xl md:text-6xl font-black italic text-white uppercase tracking-tighter leading-none mb-4">
@@ -113,7 +86,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
           </h1>
           <div className="flex items-center justify-center gap-4">
             <div className="w-8 h-[2px] bg-[#CCFF00]" />
-            <span className="text-[#CCFF00] font-mono tracking-[0.4em] text-xs font-bold uppercase">Loading System</span>
+            <span className="text-[#CCFF00] font-mono tracking-[0.4em] text-xs font-bold uppercase">Loading</span>
             <div className="w-8 h-[2px] bg-[#CCFF00]" />
           </div>
         </div>
@@ -147,7 +120,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
               }}
             />
           </svg>
-          
+
           {/* Progress percentage */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl font-mono font-bold text-[#CCFF00]">
@@ -160,22 +133,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         <div className="text-center mb-8">
           <p className="text-white font-mono text-sm mb-2">{currentTask}</p>
           <div className="flex items-center justify-center gap-4 text-xs text-white/50 font-mono">
-            <span>Thumbnails: {loadedThumbnails}/{HIGHLIGHTS.length}</span>
-            <span>Videos: On-demand loading</span>
+            <span>Videos: {HIGHLIGHTS.length} archived</span>
           </div>
-        </div>
-
-        {/* Skip button for debugging */}
-        <div className="mt-8">
-          <button
-            onClick={() => {
-              console.log('🔄 Skipping loading - launching app immediately');
-              onLoadingComplete();
-            }}
-            className="px-6 py-2 text-xs font-mono text-white/50 hover:text-[#CCFF00] border border-white/20 hover:border-[#CCFF00] transition-all duration-300"
-          >
-            Skip Loading (Debug)
-          </button>
         </div>
 
         {/* Loading Animation */}
@@ -190,30 +149,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
               }}
             />
           ))}
-        </div>
-
-        {/* Technical Details */}
-        <div className="mt-12 text-center">
-          <div className="glass border border-white/10 rounded-lg p-4 backdrop-blur-md">
-            <div className="grid grid-cols-2 gap-4 text-xs font-mono">
-              <div>
-                <span className="text-white/40 uppercase tracking-wider">System</span>
-                <div className="text-[#CCFF00] font-bold">V4.0</div>
-              </div>
-              <div>
-                <span className="text-white/40 uppercase tracking-wider">Cache</span>
-                <div className="text-[#CCFF00] font-bold">Active</div>
-              </div>
-              <div>
-                <span className="text-white/40 uppercase tracking-wider">Quality</span>
-                <div className="text-[#CCFF00] font-bold">Adaptive</div>
-              </div>
-              <div>
-                <span className="text-white/40 uppercase tracking-wider">Stream</span>
-                <div className="text-[#CCFF00] font-bold">Optimized</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
