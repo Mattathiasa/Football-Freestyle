@@ -1,13 +1,30 @@
 import React, { useRef, useEffect } from 'react';
 import { PLAYER_NAME, PLAYER_TITLE, PLAYER_TAGLINE } from '../constants';
 
+const HERO_VIDEO = 'https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036418/Matty_Final_pbj7kf.mp4';
+const HERO_POSTER = 'https://res.cloudinary.com/dg1xa7q5c/video/upload/w_1600,q_auto,f_jpg,so_0.5/v1770036418/Matty_Final_pbj7kf.mp4';
+
 const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.1; // Speed it up for excitement
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Start the 5.7MB clip only after the page has loaded so it never
+    // competes with the critical path (fonts, first JS, LCP text).
+    const startVideo = () => {
+      video.src = HERO_VIDEO;
+      video.playbackRate = 1.1; // Speed it up for excitement
+      video.play().catch(() => {});
+    };
+
+    if (document.readyState === 'complete') {
+      startVideo();
+    } else {
+      window.addEventListener('load', startVideo, { once: true });
     }
+    return () => window.removeEventListener('load', startVideo);
   }, []);
 
   const scrollToHighlights = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -20,12 +37,14 @@ const Hero: React.FC = () => {
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover opacity-40 brightness-75 grayscale group-hover:grayscale-0 transition-all duration-1000"
-        autoPlay loop muted playsInline
+        preload="none"
+        poster={HERO_POSTER}
+        loop
+        muted
+        playsInline
         aria-hidden="true"
         tabIndex={-1}
-      >
-        <source src="https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036418/Matty_Final_pbj7kf.mp4" type="video/mp4" />
-      </video>
+      />
 
       {/* Futuristic Tactical Overlays */}
       <div className="absolute inset-0 pointer-events-none z-10 opacity-20">
