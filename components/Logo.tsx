@@ -83,7 +83,7 @@ const Logo: React.FC<LogoProps> = ({
             ${variant === 'hero' ? 'text-white' : 'text-white'}
             ${variant === 'navigation' ? 'hidden sm:block' : ''}
           `}>
-            Mattathias <span className="text-white/20">Abraham</span>
+            Mattathias <span className="text-white/40">Abraham</span>
           </span>
           {variant === 'hero' && (
             <span className="text-[#CCFF00] font-mono text-xs uppercase tracking-[0.3em] mt-1">

@@ -428,7 +428,7 @@ const FootballScrollSequence: React.FC = () => {
             >
               THE<br />BEAUTIFUL<br />GAME
             </h2>
-            <p className="font-mono uppercase tracking-[0.3em] text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <p className="font-mono uppercase tracking-[0.3em] text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
               Played without compromise.
             </p>
           </div>
@@ -448,7 +448,7 @@ const FootballScrollSequence: React.FC = () => {
                 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', color: 'rgba(255,255,255,0.92)' }}
               >
                 {PLAYER_NAME.split(' ')[0]}<br />
-                <span style={{ color: 'rgba(255,255,255,0.18)' }}>{PLAYER_NAME.split(' ')[1]}</span>
+                <span style={{ color: 'rgba(255,255,255,0.40)' }}>{PLAYER_NAME.split(' ')[1]}</span>
               </h2>
 
               <div className="relative w-28 h-28 mb-5 flex-shrink-0">
@@ -459,16 +459,16 @@ const FootballScrollSequence: React.FC = () => {
                 <div className="corner-br" style={{ width: 10, height: 10 }} />
               </div>
 
-              <p className="font-mono text-white/35 text-xs uppercase tracking-[0.2em] mb-6 leading-relaxed max-w-xs">
+              <p className="font-mono text-white/60 text-xs uppercase tracking-[0.2em] mb-6 leading-relaxed max-w-xs">
                 [ {PLAYER_TAGLINE} ]
               </p>
-              <p className="font-mono text-white/35 text-xs leading-relaxed mb-6 max-w-xs border-l-2 border-[#CCFF00]/20 pl-4">
+              <p className="font-mono text-white/60 text-xs leading-relaxed mb-6 max-w-xs border-l-2 border-[#CCFF00]/20 pl-4">
                 Solo football — touch, control, creativity and precision. No shortcuts. Just the ball and the work.
               </p>
               <div className="flex gap-3 flex-wrap">
                 {[['Origin', 'Addis Ababa'], ['Est.', '2020'], ['Videos', '50+']].map(([k, v]) => (
                   <div key={k} className="glass border-white/5 px-3 py-2">
-                    <div className="font-mono text-[10px] text-white/25 uppercase tracking-widest">{k}</div>
+                    <div className="font-mono text-[10px] text-white/50 uppercase tracking-widest">{k}</div>
                     <div className="font-display font-black italic tracking-tight" style={{ fontSize: '1rem', color: ACCENT }}>{v}</div>
                   </div>
                 ))}
@@ -486,9 +486,9 @@ const FootballScrollSequence: React.FC = () => {
                 style={{ fontSize: 'clamp(2.2rem, 8vw, 3.5rem)', color: 'rgba(255,255,255,0.92)' }}
               >
                 {PLAYER_NAME.split(' ')[0]}&nbsp;
-                <span style={{ color: 'rgba(255,255,255,0.18)' }}>{PLAYER_NAME.split(' ')[1]}</span>
+                <span style={{ color: 'rgba(255,255,255,0.40)' }}>{PLAYER_NAME.split(' ')[1]}</span>
               </h2>
-              <p className="font-mono text-white/35 text-[11px] uppercase tracking-[0.25em]">
+              <p className="font-mono text-white/60 text-[11px] uppercase tracking-[0.25em]">
                 [ {PLAYER_TAGLINE} ]
               </p>
               <div className="flex gap-2 mt-3">
@@ -515,13 +515,13 @@ const FootballScrollSequence: React.FC = () => {
                 className="font-display font-black uppercase italic leading-none tracking-tighter mb-8 text-right"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', color: 'rgba(255,255,255,0.92)' }}
               >
-                SKILL<br /><span style={{ color: 'rgba(255,255,255,0.18)' }}>MATRIX</span>
+                SKILL<br /><span style={{ color: 'rgba(255,255,255,0.40)' }}>MATRIX</span>
               </h2>
               <div className="flex flex-col gap-5">
                 {SKILLS.map((sk, i) => (
                   <div key={sk.label}>
                     <div className="flex justify-between items-baseline mb-1.5">
-                      <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest">{sk.label}</span>
+                      <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest">{sk.label}</span>
                       <span className="font-display font-black italic text-lg" style={{ color: ACCENT }}>{sk.value}</span>
                     </div>
                     <div className="h-[3px] bg-white/8 overflow-hidden">
@@ -549,7 +549,7 @@ const FootballScrollSequence: React.FC = () => {
               <div className="grid grid-cols-2 gap-3">
                 {SKILLS.map((sk) => (
                   <div key={sk.label} className="glass px-3 py-2 border-white/5">
-                    <div className="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-1">{sk.label}</div>
+                    <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest mb-1">{sk.label}</div>
                     <div className="font-display font-black italic text-xl" style={{ color: ACCENT }}>{sk.value}</div>
                   </div>
                 ))}
@@ -569,7 +569,7 @@ const FootballScrollSequence: React.FC = () => {
               className="font-display font-black uppercase italic leading-none tracking-tighter mb-12 text-center"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'rgba(255,255,255,0.92)' }}
             >
-              PERFORMANCE<br /><span style={{ color: 'rgba(255,255,255,0.18)' }}>PARAMETERS</span>
+              PERFORMANCE<br /><span style={{ color: 'rgba(255,255,255,0.40)' }}>PARAMETERS</span>
             </h2>
 
             {/* Flanking stat grid — 2×2 around the ball on desktop, simple grid on mobile */}
@@ -592,7 +592,7 @@ const FootballScrollSequence: React.FC = () => {
                   </div>
                   <div className="h-px w-8 my-2" style={{ background: `rgba(${ACCENT_RGB},0.3)` }} />
                   <div className="font-mono text-white/60 text-[10px] uppercase tracking-widest">{s.label}</div>
-                  <div className="font-mono text-white/25 text-[10px] uppercase tracking-widest mt-0.5">{s.sub}</div>
+                  <div className="font-mono text-white/50 text-[10px] uppercase tracking-widest mt-0.5">{s.sub}</div>
                 </div>
               ))}
             </div>
@@ -612,7 +612,7 @@ const FootballScrollSequence: React.FC = () => {
                 className="font-display font-black uppercase italic leading-none tracking-tighter text-center"
                 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', color: 'rgba(255,255,255,0.92)' }}
               >
-                5 YEARS<br /><span style={{ color: 'rgba(255,255,255,0.18)' }}>DOCUMENTED</span>
+                5 YEARS<br /><span style={{ color: 'rgba(255,255,255,0.40)' }}>DOCUMENTED</span>
               </h2>
             </div>
 
@@ -625,7 +625,7 @@ const FootballScrollSequence: React.FC = () => {
                 const revealed = opacity > 0.25;
                 return (
                   <div key={row.year} className="flex items-center gap-3 md:gap-4">
-                    <span className="font-mono text-[11px] md:text-xs text-white/35 w-9 md:w-10 text-right tracking-widest flex-shrink-0">
+                    <span className="font-mono text-[11px] md:text-xs text-white/55 w-9 md:w-10 text-right tracking-widest flex-shrink-0">
                       {row.year}
                     </span>
                     <div className="flex-1 h-[6px] md:h-[7px] bg-white/5 overflow-hidden">
@@ -640,12 +640,12 @@ const FootballScrollSequence: React.FC = () => {
                     </div>
                     <div className="flex items-baseline gap-2 flex-shrink-0">
                       <span className="font-display font-black italic text-sm md:text-base" style={{ color: ACCENT }}>{row.score}</span>
-                      <span className="font-mono text-[10px] text-white/25 uppercase tracking-widest hidden sm:inline">{row.label}</span>
+                      <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest hidden sm:inline">{row.label}</span>
                     </div>
                   </div>
                 );
               })}
-              <p className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mt-4" style={{ opacity: opacity > 0.3 ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+              <p className="font-mono text-[10px] text-white/50 uppercase tracking-[0.3em] mt-4" style={{ opacity: opacity > 0.3 ? 1 : 0, transition: 'opacity 0.5s ease' }}>
                 Self-rated style scores — illustrative, not measured
               </p>
             </div>
@@ -663,9 +663,9 @@ const FootballScrollSequence: React.FC = () => {
               className="font-display font-black uppercase italic leading-none tracking-tighter mb-6"
               style={{ fontSize: 'clamp(3rem, 9vw, 8rem)', color: 'rgba(255,255,255,0.92)' }}
             >
-              EXPLORE<br /><span style={{ color: 'rgba(255,255,255,0.16)' }}>THE JOURNEY</span>
+              EXPLORE<br /><span style={{ color: 'rgba(255,255,255,0.40)' }}>THE JOURNEY</span>
             </h2>
-            <p className="font-mono uppercase tracking-[0.25em] text-xs mb-10" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <p className="font-mono uppercase tracking-[0.25em] text-xs mb-10" style={{ color: 'rgba(255,255,255,0.55)' }}>
               50+ highlights. Every touch documented.
             </p>
             <a
@@ -693,7 +693,7 @@ const FootballScrollSequence: React.FC = () => {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 pointer-events-none select-none"
           style={{ opacity: clamp(1 - dp / 0.06, 0, 1) }}
         >
-          <span className="font-mono uppercase tracking-[0.55em]" style={{ fontSize: '9px', color: 'rgba(255,255,255,0.28)' }}>
+          <span className="font-mono uppercase tracking-[0.55em]" style={{ fontSize: '9px', color: 'rgba(255,255,255,0.50)' }}>
             Scroll to Explore
           </span>
           <div style={{ width: 1, height: 40, background: `linear-gradient(to bottom, rgba(${ACCENT_RGB},0.45), transparent)` }} />

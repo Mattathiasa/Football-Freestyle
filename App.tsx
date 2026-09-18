@@ -41,7 +41,7 @@ const App: React.FC = () => {
                 Connect
               </span>
             </h3>
-            <p className="text-white/30 mb-16 text-lg font-mono uppercase tracking-widest max-w-2xl mx-auto">
+            <p className="text-white/60 mb-16 text-lg font-mono uppercase tracking-widest max-w-2xl mx-auto">
               Clips, drills and years of documented progress — all in one archive.
             </p>
             <a

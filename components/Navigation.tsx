@@ -214,7 +214,7 @@ const Navigation: React.FC = () => {
                     <span className={`font-mono text-sm font-bold uppercase tracking-[0.2em] ${activeSection === item.id ? 'text-[#CCFF00]' : 'text-white/70 group-hover:text-white'}`}>
                       {item.label}
                     </span>
-                    <span className="font-mono text-[11px] text-white/25 uppercase tracking-[0.3em] mt-0.5">
+                    <span className="font-mono text-[11px] text-white/50 uppercase tracking-[0.3em] mt-0.5">
                       {item.sub}
                     </span>
                   </div>
@@ -224,7 +224,7 @@ const Navigation: React.FC = () => {
 
             {/* Footer info */}
             <div className="p-6 border-t border-white/8">
-              <div className="text-white/20 font-mono text-[11px] uppercase tracking-[0.4em] mb-1">Football Portfolio</div>
+              <div className="text-white/40 font-mono text-[11px] uppercase tracking-[0.4em] mb-1">Football Portfolio</div>
               <div className="text-[#CCFF00]/50 font-mono text-xs uppercase tracking-[0.3em]">{PLAYER_NAME}</div>
             </div>
 

@@ -764,7 +764,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
 
         {/* Keyboard shortcuts hint */}
         <div className="mt-2 md:mt-4 text-center">
-          <div className="text-white/30 font-mono text-[8px] md:text-[9px] uppercase tracking-[0.1em] md:tracking-[0.2em]">
+          <div className="text-white/50 font-mono text-[8px] md:text-[9px] uppercase tracking-[0.1em] md:tracking-[0.2em]">
             <span className="hidden md:inline">Space: Play/Pause • ←/→: Frame Step • M: Mute • F: Fullscreen • L: Loop • Esc: Close</span>
             <span className="md:hidden">Tap to show controls • Use buttons to control playback</span>
           </div>

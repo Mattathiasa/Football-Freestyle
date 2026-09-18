@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           </div>
           
           <h2 className="font-display text-5xl md:text-7xl font-black mb-4 uppercase tracking-tighter italic">{PLAYER_NAME}</h2>
-          <p className="text-white/20 font-mono mb-20 tracking-[0.5em] uppercase text-xs">Playing in Addis Ababa, documented since 2020</p>
+          <p className="text-white/50 font-mono mb-20 tracking-[0.5em] uppercase text-xs">Playing in Addis Ababa, documented since 2020</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl mb-32">
             {socialLinks.map((social) => (
@@ -52,12 +52,12 @@ const Footer: React.FC = () => {
               >
                 <span className="text-[#CCFF00] font-mono text-xl font-black italic">{social.icon}</span>
                 <div className="h-[1px] w-12 bg-white/10 group-hover:w-full group-hover:bg-[#CCFF00]/50 transition-all duration-700" />
-                <span className="text-xs font-mono font-bold uppercase tracking-[0.4em] text-white/30 group-hover:text-white transition-colors">{social.name}</span>
+                <span className="text-xs font-mono font-bold uppercase tracking-[0.4em] text-white/60 group-hover:text-white transition-colors">{social.name}</span>
               </a>
             ))}
           </div>
 
-          <div className="w-full flex flex-col md:flex-row justify-between items-center text-white/10 text-[11px] font-mono uppercase tracking-[0.4em] pt-12 border-t border-white/5">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center text-white/50 text-[11px] font-mono uppercase tracking-[0.4em] pt-12 border-t border-white/5">
              <p>© {new Date().getFullYear()} Mattathias Abraham. All rights reserved.</p>
              <div className="flex gap-8 mt-6 md:mt-0">
                 <a href="https://www.tiktok.com/@mattathiasa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors no-underline">TikTok</a>

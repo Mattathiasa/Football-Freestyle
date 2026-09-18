@@ -224,7 +224,7 @@ const FeaturedReel: React.FC<FeaturedReelProps> = ({ clips, onOpen }) => {
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-black italic tracking-tighter uppercase leading-[0.85] text-white">
-            The <span className="text-white/20">Showcase</span>
+            The <span className="text-white/40">Showcase</span>
           </h2>
         </div>
 
@@ -269,7 +269,7 @@ const FeaturedReel: React.FC<FeaturedReelProps> = ({ clips, onOpen }) => {
         >
           <span className="font-mono text-xs md:text-sm text-white tracking-widest tabular-nums">
             {String(activeIndex + 1).padStart(2, '0')}
-            <span className="text-white/25"> / {String(clips.length).padStart(2, '0')}</span>
+            <span className="text-white/50"> / {String(clips.length).padStart(2, '0')}</span>
           </span>
           <div className="flex-1 h-[1px] bg-white/10 relative overflow-hidden">
             <div
