@@ -14,52 +14,55 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ visible, onLoadingComplet
   useEffect(() => {
     if (!visible) return;
 
-    const loadContent = async () => {
-      try {
-        const totalTasks = HIGHLIGHTS.length;
-        let completedTasks = 0;
+    const totalTasks = HIGHLIGHTS.length;
+    let completedTasks = 0;
+    let cancelled = false;
 
-        setCurrentTask('Loading thumbnails...');
+    setCurrentTask('Warming thumbnails...');
 
-        const thumbnailPromises = HIGHLIGHTS.map(async (highlight) => {
-          const thumbnailSrc = highlight.thumbnail || (highlight.videoUrl.includes('cloudinary.com')
-            ? highlight.videoUrl.replace('/upload/', '/upload/w_400,h_488,c_fill,q_auto,f_auto,so_3.0/').replace('.mp4', '.jpg')
-            : '');
+    const warmThumbnails = async () => {
+      const thumbnailPromises = HIGHLIGHTS.map(async (highlight) => {
+        const thumbnailSrc = highlight.thumbnail || (highlight.videoUrl.includes('cloudinary.com')
+          ? highlight.videoUrl.replace('/upload/', '/upload/w_400,h_488,c_fill,q_auto,f_auto,so_3.0/').replace('.mp4', '.jpg')
+          : '');
 
-          if (thumbnailSrc) {
-            try {
-              await new Promise<void>((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve();
-                img.onerror = () => reject();
-                img.src = thumbnailSrc;
-              });
-            } catch {
-              // Thumbnail failed - continue without it
-            }
+        if (thumbnailSrc) {
+          try {
+            await new Promise<void>((resolve, reject) => {
+              const img = new Image();
+              img.onload = () => resolve();
+              img.onerror = () => reject();
+              img.src = thumbnailSrc;
+            });
+          } catch {
+            // Thumbnail failed - continue without it
           }
-          completedTasks++;
+        }
+        completedTasks++;
+        if (!cancelled) {
           setProgress(Math.round((completedTasks / totalTasks) * 100));
           setLoadedThumbnails(completedTasks);
-        });
+        }
+      });
 
-        await Promise.all(thumbnailPromises);
+      await Promise.all(thumbnailPromises);
+      if (!cancelled) {
         setProgress(100);
         setCurrentTask('Ready');
-
-        setTimeout(onLoadingComplete, 250);
-      } catch {
-        setTimeout(onLoadingComplete, 250);
       }
     };
 
+    warmThumbnails().catch(() => {});
+
+    // Start the fade on a fixed grace period rather than gating it behind
+    // thumbnail warming, so the hero is revealed promptly even on a slow
+    // connection. The warming continues in the background either way.
+    const graceTimeout = setTimeout(onLoadingComplete, 1200);
     const maxTimeout = setTimeout(onLoadingComplete, 8000);
 
-    loadContent().finally(() => {
-      clearTimeout(maxTimeout);
-    });
-
     return () => {
+      cancelled = true;
+      clearTimeout(graceTimeout);
       clearTimeout(maxTimeout);
     };
   }, [visible, onLoadingComplete]);

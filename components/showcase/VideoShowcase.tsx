@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HIGHLIGHTS } from '../../constants';
 import { Highlight } from '../../types';
-import VideoPlayer from '../VideoPlayer';
 import FeaturedReel from './FeaturedReel';
 import ArchiveGrid from './ArchiveGrid';
 import { getFeaturedClips } from './featured';
+
+const VideoPlayer = React.lazy(() => import('../VideoPlayer'));
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -41,7 +42,9 @@ const VideoShowcase: React.FC = () => {
       <ArchiveGrid clips={HIGHLIGHTS} onOpen={setActiveHighlight} />
 
       {activeHighlight && (
-        <VideoPlayer highlight={activeHighlight} onClose={() => setActiveHighlight(null)} />
+        <Suspense fallback={null}>
+          <VideoPlayer highlight={activeHighlight} onClose={() => setActiveHighlight(null)} />
+        </Suspense>
       )}
     </section>
   );
