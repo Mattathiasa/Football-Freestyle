@@ -7,7 +7,7 @@ export const PLAYER_TAGLINE = "Built on faith. Driven by football.";
 export const MILESTONES = {
   hoursTrained: "2,400+",
   skillsMastered: "42",
-  clipsShared: "150+",
+  clipsShared: "50+",
   passionLevel: "100%"
 };
 
@@ -129,7 +129,7 @@ export const HIGHLIGHTS: Highlight[] = [
   {
     "id": "matty-experiment-47",
     "featured": true,
-    "title": "Experiment",
+    "title": "Experiment 47",
     "category": "Skills",
     "tags": [
       "Advanced",
@@ -206,7 +206,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-shots-iec",
-    "title": "Basketball shots IEC",
+    "title": "Basketball Shot IEC 29",
     "category": "Skills",
     "tags": [
       "POV",
@@ -264,7 +264,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-iec-13",
-    "title": "Experiment IEC",
+    "title": "Experiment IEC 13",
     "category": "Skills",
     "tags": [
       "Peak",
@@ -282,7 +282,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-iec-25",
-    "title": "Experiment IEC",
+    "title": "Experiment IEC 25",
     "category": "Skills",
     "tags": [
       "POV",
@@ -318,7 +318,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-inshot",
-    "title": "Experiment",
+    "title": "Experiment (Inshot)",
     "category": "Training",
     "tags": [
       "Technical",
@@ -376,7 +376,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-skills-iec-46",
-    "title": "Skills IEC",
+    "title": "Skills IEC 46",
     "category": "Skills",
     "tags": [
       "Solo",
@@ -394,7 +394,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-ping-pong-ecusta",
-    "title": "Ping-Pong Ecusta",
+    "title": "Ping-Pong Ecusta 45",
     "category": "Skills",
     "tags": [
       "Creative",
@@ -412,7 +412,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-shots-43",
-    "title": "Basketball shots IEC",
+    "title": "Basketball Shot IEC 43",
     "category": "Training",
     "tags": [
       "Technical",
@@ -448,7 +448,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-shots-42",
-    "title": "Basketball shots IEC",
+    "title": "Basketball Shot IEC 42",
     "category": "Training",
     "tags": [
       "Drill",
@@ -521,7 +521,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-iec-35",
-    "title": "Experiment IEC",
+    "title": "Experiment IEC 35",
     "category": "Skills",
     "tags": [
       "Skill",
@@ -539,7 +539,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-iec-3",
-    "title": "Experiment IEC",
+    "title": "Experiment IEC 3",
     "category": "Pingball",
     "tags": [
       "Precision",
@@ -665,7 +665,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-ecusta-24",
-    "title": "Experiment Ecusta",
+    "title": "Experiment Ecusta 24",
     "category": "Training",
     "tags": [
       "Technical",
@@ -683,7 +683,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-ping-pong-ecusta-20",
-    "title": "Ping-Pong Ecusta",
+    "title": "Ping-Pong Ecusta 20",
     "category": "Skills",
     "tags": [
       "Creative",
@@ -701,7 +701,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-shots-19",
-    "title": "Basketball shots IEC",
+    "title": "Basketball Shot IEC 19",
     "category": "Training",
     "tags": [
       "Shooting",
@@ -719,7 +719,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-iec-17",
-    "title": "Experiment IEC",
+    "title": "Experiment IEC 17",
     "category": "Skills",
     "tags": [
       "Innovation",
@@ -755,7 +755,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-skills-iec-11",
-    "title": "Skills IEC",
+    "title": "Skills IEC 11",
     "category": "Skills",
     "tags": [
       "Technical",
@@ -773,7 +773,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-experiment-ecusta-15",
-    "title": "Experiment Ecusta",
+    "title": "Experiment Ecusta 15",
     "category": "Training",
     "tags": [
       "Experimental",
@@ -791,7 +791,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-skills-iec-10",
-    "title": "Skills IEC",
+    "title": "Skills IEC 10",
     "category": "Skills",
     "tags": [
       "Foundation",
@@ -809,7 +809,7 @@ export const HIGHLIGHTS: Highlight[] = [
   },
   {
     "id": "matty-basketball-shots-12",
-    "title": "Basketball shots IEC",
+    "title": "Basketball Shot IEC 12",
     "category": "Training",
     "tags": [
       "Shooting",
