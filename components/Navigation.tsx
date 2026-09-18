@@ -103,7 +103,7 @@ const Navigation: React.FC = () => {
             className="hidden lg:flex items-center gap-2.5 px-5 py-2.5 border border-[#CCFF00]/25 text-[#CCFF00] font-mono font-bold text-xs uppercase tracking-[0.3em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] animate-ping" />
-            Live Feed
+            Highlights
           </a>
         </div>
 

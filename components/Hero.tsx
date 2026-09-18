@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
             onClick={scrollToHighlights}
             className="w-full sm:w-auto px-12 py-6 bg-[#CCFF00] text-black font-display font-bold text-2xl italic hover:bg-white transition-all duration-500 rounded-sm shadow-[0_0_50px_rgba(57,255,20,0.4)] flex items-center gap-4 group no-underline"
           >
-            <span>INITIALIZE FEED</span>
+            <span>WATCH HIGHLIGHTS</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>

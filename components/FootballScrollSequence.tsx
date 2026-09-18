@@ -645,6 +645,9 @@ const FootballScrollSequence: React.FC = () => {
                   </div>
                 );
               })}
+              <p className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mt-4" style={{ opacity: opacity > 0.3 ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+                Self-rated style scores — illustrative, not measured
+              </p>
             </div>
           </div>
         ); })()}
