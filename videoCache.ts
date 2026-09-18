@@ -57,16 +57,7 @@ export class VideoCacheManager {
       }
       return url;
     }
-    
-    // Normalize Dropbox URLs
-    let target = url;
-    if (target.includes('www.dropbox.com')) {
-      target = target.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
-    }
-    if (!target.includes('raw=1')) {
-      target += target.includes('?') ? '&raw=1' : '?raw=1';
-    }
-    return target;
+    return url;
   }
 
   /**

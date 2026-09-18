@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         className="absolute top-0 left-0 w-full h-full object-cover opacity-40 brightness-75 grayscale group-hover:grayscale-0 transition-all duration-1000"
         autoPlay loop muted playsInline
       >
-        <source src="https://dl.dropboxusercontent.com/scl/fi/ne8m29g7pfndga8h6w4p3/Matty-Summer-2K19.mp4?rlkey=43cqv8mv5qpz8u47rc5mvpv2p&st=gs9iclqp&raw=1" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036418/Matty_Final_pbj7kf.mp4" type="video/mp4" />
       </video>
 
       {/* Futuristic Tactical Overlays */}
