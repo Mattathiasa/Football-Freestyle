@@ -100,11 +100,11 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
 
       <div className="absolute top-3 md:top-5 left-3 md:left-5 right-3 md:right-5 z-10 flex items-start justify-between gap-2">
         <div className="flex flex-col gap-1.5">
-          <span className="self-start px-2 py-0.5 bg-[#CCFF00] text-black font-mono text-[8px] md:text-[9px] font-bold uppercase tracking-widest">
+          <span className="self-start px-2 py-0.5 bg-[#CCFF00] text-black font-mono text-[11px] md:text-xs font-bold uppercase tracking-widest">
             {clip.category}
           </span>
           {dateLabel && (
-            <span className="text-white/40 font-mono text-[7px] md:text-[8px] uppercase tracking-widest">
+            <span className="text-white/40 font-mono text-[10px] md:text-[11px] uppercase tracking-widest">
               {dateLabel}
             </span>
           )}
@@ -124,7 +124,7 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
             {([['Pwr', clip.stats.power], ['Spd', clip.stats.speed], ['Ctl', clip.stats.control]] as const).map(
               ([label, value]) => (
                 <div key={label} className="flex flex-col">
-                  <span className="text-[6px] md:text-[7px] font-mono text-white/50 uppercase">{label}</span>
+                  <span className="text-[9px] md:text-[10px] font-mono text-white/50 uppercase">{label}</span>
                   <span className="text-[10px] md:text-xs font-mono font-bold text-[#CCFF00]">{value}</span>
                 </div>
               )

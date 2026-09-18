@@ -83,7 +83,7 @@ const Navigation: React.FC = () => {
               key={item.id}
               href={`#${item.id}`}
               onClick={e => scrollTo(e, item.id)}
-              className={`relative group py-2 font-mono font-bold uppercase tracking-[0.3em] text-[10px] lg:text-xs transition-all ${
+              className={`relative group py-2 font-mono font-bold uppercase tracking-[0.3em] text-xs lg:text-sm transition-all ${
                 activeSection === item.id ? 'text-[#CCFF00]' : 'text-white/30 hover:text-white/80'
               }`}
             >
@@ -100,7 +100,7 @@ const Navigation: React.FC = () => {
           <a
             href="#highlights"
             onClick={e => scrollTo(e, 'highlights')}
-            className="hidden lg:flex items-center gap-2.5 px-5 py-2.5 border border-[#CCFF00]/25 text-[#CCFF00] font-mono font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline"
+            className="hidden lg:flex items-center gap-2.5 px-5 py-2.5 border border-[#CCFF00]/25 text-[#CCFF00] font-mono font-bold text-xs uppercase tracking-[0.3em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] animate-ping" />
             Live Feed
@@ -128,7 +128,7 @@ const Navigation: React.FC = () => {
             {/* Header */}
             <div className="p-6 border-b border-white/8 flex items-center gap-3">
               <div className="w-7 h-[2px] bg-[#CCFF00]" />
-              <span className="text-[#CCFF00] font-mono text-[10px] uppercase tracking-[0.4em] font-bold">Navigation</span>
+              <span className="text-[#CCFF00] font-mono text-xs uppercase tracking-[0.4em] font-bold">Navigation</span>
             </div>
 
             {/* Links */}
@@ -152,7 +152,7 @@ const Navigation: React.FC = () => {
                     <span className={`font-mono text-sm font-bold uppercase tracking-[0.2em] ${activeSection === item.id ? 'text-[#CCFF00]' : 'text-white/70 group-hover:text-white'}`}>
                       {item.label}
                     </span>
-                    <span className="font-mono text-[9px] text-white/25 uppercase tracking-[0.3em] mt-0.5">
+                    <span className="font-mono text-[11px] text-white/25 uppercase tracking-[0.3em] mt-0.5">
                       {item.sub}
                     </span>
                   </div>
@@ -162,8 +162,8 @@ const Navigation: React.FC = () => {
 
             {/* Footer info */}
             <div className="p-6 border-t border-white/8">
-              <div className="text-white/20 font-mono text-[8px] uppercase tracking-[0.4em] mb-1">Elite Football Portfolio</div>
-              <div className="text-[#CCFF00]/50 font-mono text-[10px] uppercase tracking-[0.3em]">{PLAYER_NAME}</div>
+              <div className="text-white/20 font-mono text-[11px] uppercase tracking-[0.4em] mb-1">Football Portfolio</div>
+              <div className="text-[#CCFF00]/50 font-mono text-xs uppercase tracking-[0.3em]">{PLAYER_NAME}</div>
             </div>
 
             {/* Decorative */}

@@ -283,7 +283,7 @@ const FeaturedReel: React.FC<FeaturedReelProps> = ({ clips, onOpen }) => {
             />
           </div>
           <span
-            className={`font-mono text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#CCFF00] transition-opacity duration-700 ${
+            className={`font-mono text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#CCFF00] transition-opacity duration-700 ${
               scrollHintDone ? 'opacity-0' : 'opacity-60'
             }`}
             style={{ animation: scrollHintDone ? 'none' : 'pulse 2s ease-in-out infinite' }}

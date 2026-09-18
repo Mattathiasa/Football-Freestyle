@@ -107,11 +107,11 @@ const ReelCard: React.FC<ReelCardProps> = ({ clip, index, isActive, isNear, play
         </div>
 
         <div className="absolute top-4 md:top-6 left-4 md:left-6 flex items-center gap-3">
-          <span className="px-2 py-1 bg-[#CCFF00] text-black font-mono text-[8px] md:text-[9px] font-bold uppercase tracking-widest">
+          <span className="px-2 py-1 bg-[#CCFF00] text-black font-mono text-[11px] md:text-xs font-bold uppercase tracking-widest">
             {clip.category}
           </span>
           {dateLabel && (
-            <span className="text-white/40 font-mono text-[8px] md:text-[9px] uppercase tracking-widest">
+            <span className="text-white/40 font-mono text-[10px] md:text-[11px] uppercase tracking-widest">
               {dateLabel}
             </span>
           )}
@@ -129,7 +129,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ clip, index, isActive, isNear, play
                   {([['Pwr', clip.stats.power], ['Spd', clip.stats.speed], ['Ctl', clip.stats.control]] as const).map(
                     ([label, value]) => (
                       <div key={label} className="flex flex-col">
-                        <span className="text-[7px] md:text-[8px] font-mono text-white/50 uppercase">{label}</span>
+                        <span className="text-[9px] md:text-[10px] font-mono text-white/50 uppercase">{label}</span>
                         <span className="text-[11px] md:text-sm font-mono font-bold text-[#CCFF00]">{value}</span>
                       </div>
                     )
@@ -138,7 +138,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ clip, index, isActive, isNear, play
               )}
             </div>
             <span
-              className={`flex items-center gap-2 px-3 py-1.5 glass border-[#CCFF00]/30 text-[#CCFF00] font-mono text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
+              className={`flex items-center gap-2 px-3 py-1.5 glass border-[#CCFF00]/30 text-[#CCFF00] font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
                 isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}
             >

@@ -103,7 +103,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
     <button
       key={value}
       onClick={() => setSortBy(value)}
-      className={`px-3 py-1.5 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+      className={`px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
         sortBy === value
           ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
           : 'bg-white/5 border-white/10 text-white/30 hover:text-[#CCFF00]'
@@ -132,7 +132,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
             </h2>
             <div className="mt-4 flex items-center gap-2">
               <div className="w-6 md:w-8 h-[1px] bg-[#CCFF00]" />
-              <span className="text-white/40 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.3em]">
+              <span className="text-white/40 font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
                 {clips.length}_Units_Logged{filter !== 'All' ? ` // Channel: ${filter}` : ''}
               </span>
             </div>
@@ -140,7 +140,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
 
           <div className="w-full lg:w-auto flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-white/40 font-mono text-[8px] lg:text-[9px] uppercase tracking-[0.3em] mr-2">
+              <span className="text-white/40 font-mono text-[10px] uppercase tracking-[0.3em] mr-2">
                 Sort
               </span>
               {sortButton('default', 'Default')}
@@ -157,7 +157,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               <button
                 onClick={() => setPreviewsEnabled(!previewsEnabled)}
                 aria-pressed={previewsEnabled}
-                className={`ml-auto lg:ml-4 px-3 py-1.5 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+                className={`ml-auto lg:ml-4 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
                   previewsEnabled
                     ? 'bg-[#CCFF00]/10 border-[#CCFF00]/40 text-[#CCFF00]'
                     : 'bg-white/5 border-white/10 text-white/30 hover:text-[#CCFF00]'
@@ -171,7 +171,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               <button
                 onClick={() => setFilter('All')}
                 aria-pressed={filter === 'All'}
-                className={`px-3 py-1.5 font-mono text-[9px] lg:text-[10px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+                className={`px-3 py-1.5 font-mono text-[10px] lg:text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
                   filter === 'All'
                     ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
                     : 'bg-white/5 border-white/10 text-white/30 hover:text-[#CCFF00]'
@@ -184,7 +184,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
                   key={cat}
                   onClick={() => setFilter(cat)}
                   aria-pressed={filter === cat}
-                  className={`px-3 py-1.5 font-mono text-[9px] lg:text-[10px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+className={`px-3 py-1.5 font-mono text-[10px] lg:text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
                     filter === cat
                       ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
                       : 'bg-white/5 border-white/10 text-white/30 hover:text-[#CCFF00]'
@@ -233,7 +233,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
             >
               Load_+{Math.min(PAGE_SIZE, remaining)}
             </button>
-            <span className="font-mono text-[9px] text-white/25 uppercase tracking-[0.3em]">
+            <span className="font-mono text-[10px] text-white/25 uppercase tracking-[0.3em]">
               {visible.length} / {sorted.length} Units
             </span>
           </div>

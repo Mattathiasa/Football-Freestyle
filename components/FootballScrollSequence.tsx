@@ -319,7 +319,7 @@ function renderFrame(
 const eyebrow = (n: number, label: string, align: 'left' | 'center' | 'right' = 'left') => (
   <div className={`flex items-center gap-3 mb-5 ${align === 'center' ? 'justify-center' : align === 'right' ? 'justify-end' : ''}`}>
     {align !== 'right'  && <div className="w-6 h-px" style={{ background: ACCENT }} />}
-    <span className="font-mono text-[9px] uppercase tracking-[0.55em]" style={{ color: ACCENT }}>
+    <span className="font-mono text-[11px] uppercase tracking-[0.55em]" style={{ color: ACCENT }}>
       Chapter_0{n}
     </span>
     {align !== 'left' && <div className="w-6 h-px" style={{ background: ACCENT }} />}
@@ -468,7 +468,7 @@ const FootballScrollSequence: React.FC = () => {
               <div className="flex gap-3 flex-wrap">
                 {[['Origin', 'Addis Ababa'], ['Est.', '2020'], ['Videos', '50+']].map(([k, v]) => (
                   <div key={k} className="glass border-white/5 px-3 py-2">
-                    <div className="font-mono text-[8px] text-white/25 uppercase tracking-widest">{k}</div>
+                    <div className="font-mono text-[10px] text-white/25 uppercase tracking-widest">{k}</div>
                     <div className="font-display font-black italic tracking-tight" style={{ fontSize: '1rem', color: ACCENT }}>{v}</div>
                   </div>
                 ))}
@@ -488,7 +488,7 @@ const FootballScrollSequence: React.FC = () => {
                 {PLAYER_NAME.split(' ')[0]}&nbsp;
                 <span style={{ color: 'rgba(255,255,255,0.18)' }}>{PLAYER_NAME.split(' ')[1]}</span>
               </h2>
-              <p className="font-mono text-white/35 text-[10px] uppercase tracking-[0.25em]">
+              <p className="font-mono text-white/35 text-[11px] uppercase tracking-[0.25em]">
                 [ {PLAYER_TAGLINE} ]
               </p>
               <div className="flex gap-2 mt-3">
@@ -549,7 +549,7 @@ const FootballScrollSequence: React.FC = () => {
               <div className="grid grid-cols-2 gap-3">
                 {SKILLS.map((sk) => (
                   <div key={sk.label} className="glass px-3 py-2 border-white/5">
-                    <div className="font-mono text-[8px] text-white/30 uppercase tracking-widest mb-1">{sk.label}</div>
+                    <div className="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-1">{sk.label}</div>
                     <div className="font-display font-black italic text-xl" style={{ color: ACCENT }}>{sk.value}</div>
                   </div>
                 ))}
@@ -592,7 +592,7 @@ const FootballScrollSequence: React.FC = () => {
                   </div>
                   <div className="h-px w-8 my-2" style={{ background: `rgba(${ACCENT_RGB},0.3)` }} />
                   <div className="font-mono text-white/60 text-[10px] uppercase tracking-widest">{s.label}</div>
-                  <div className="font-mono text-white/25 text-[8px] uppercase tracking-widest mt-0.5">{s.sub}</div>
+                  <div className="font-mono text-white/25 text-[10px] uppercase tracking-widest mt-0.5">{s.sub}</div>
                 </div>
               ))}
             </div>
@@ -625,7 +625,7 @@ const FootballScrollSequence: React.FC = () => {
                 const revealed = opacity > 0.25;
                 return (
                   <div key={row.year} className="flex items-center gap-3 md:gap-4">
-                    <span className="font-mono text-[9px] md:text-[10px] text-white/35 w-9 md:w-10 text-right tracking-widest flex-shrink-0">
+                    <span className="font-mono text-[11px] md:text-xs text-white/35 w-9 md:w-10 text-right tracking-widest flex-shrink-0">
                       {row.year}
                     </span>
                     <div className="flex-1 h-[6px] md:h-[7px] bg-white/5 overflow-hidden">
@@ -640,7 +640,7 @@ const FootballScrollSequence: React.FC = () => {
                     </div>
                     <div className="flex items-baseline gap-2 flex-shrink-0">
                       <span className="font-display font-black italic text-sm md:text-base" style={{ color: ACCENT }}>{row.score}</span>
-                      <span className="font-mono text-[8px] text-white/25 uppercase tracking-widest hidden sm:inline">{row.label}</span>
+                      <span className="font-mono text-[10px] text-white/25 uppercase tracking-widest hidden sm:inline">{row.label}</span>
                     </div>
                   </div>
                 );

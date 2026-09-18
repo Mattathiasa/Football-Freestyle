@@ -42,10 +42,10 @@ const Hero: React.FC = () => {
         <div className="mb-12 flex flex-col items-center animate-in fade-in slide-in-from-top-10 duration-1000">
           <div className="flex items-center gap-4 mb-4">
              <div className="w-10 h-[1px] bg-[#CCFF00]" />
-             <span className="text-[#CCFF00] font-mono tracking-[0.5em] text-[10px] font-bold uppercase">Elite Profile v3.1</span>
+             <span className="text-[#CCFF00] font-mono tracking-[0.5em] text-xs font-bold uppercase">Player Profile</span>
              <div className="w-10 h-[1px] bg-[#CCFF00]" />
           </div>
-          <h2 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.3em] mb-2">Protocol: {PLAYER_TITLE}</h2>
+          <h2 className="text-white/40 font-mono text-[11px] uppercase tracking-[0.3em] mb-2">Profile: {PLAYER_TITLE}</h2>
         </div>
         
         <h1 className="font-display font-black text-7xl sm:text-9xl md:text-[13rem] mb-10 tracking-tighter leading-[0.8] uppercase italic">
@@ -73,14 +73,14 @@ const Hero: React.FC = () => {
           
           <div className="hidden sm:flex items-center gap-6 py-6 px-10 rounded-sm border border-white/10 backdrop-blur-xl glass">
             <div className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
-            <span className="text-white font-mono text-[10px] font-bold uppercase tracking-widest">Live: Skill Sync Active</span>
+            <span className="text-white font-mono text-xs font-bold uppercase tracking-widest">Always Training</span>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
         <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#CCFF00] to-transparent animate-pulse" />
-        <span className="text-[8px] font-mono uppercase tracking-[0.5em] font-bold text-[#CCFF00]">Data Stream</span>
+        <span className="text-[10px] font-mono uppercase tracking-[0.5em] font-bold text-[#CCFF00]">Scroll</span>
       </div>
     </section>
   );
