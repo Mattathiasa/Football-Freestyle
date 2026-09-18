@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PLAYER_NAME } from '../constants';
 import Logo from './Logo';
 
@@ -12,6 +12,9 @@ const Navigation: React.FC = () => {
   const [isScrolled,       setIsScrolled]       = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection,    setActiveSection]    = useState('');
+
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -49,6 +52,42 @@ const Navigation: React.FC = () => {
     return () => document.removeEventListener('mousedown', handler);
   }, [isMobileMenuOpen]);
 
+  // Focus management for the mobile menu: initial focus, Escape and Tab trap
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const drawer = drawerRef.current;
+    if (!drawer) return;
+
+    const focusables: HTMLElement[] = Array.from(
+      drawer.querySelectorAll<HTMLElement>('a[href], button, [tabindex]:not([tabindex="-1"])')
+    );
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    window.setTimeout(() => first?.focus(), 50);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        hamburgerRef.current?.focus();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      if (!focusables.length) return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen]);
+
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     // 'connect' maps to the footer section
@@ -56,6 +95,13 @@ const Navigation: React.FC = () => {
     const el = document.getElementById(targetId);
     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+  };
+
+  const handleLogoKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -71,6 +117,10 @@ const Navigation: React.FC = () => {
         {/* Logo */}
         <div
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onKeyDown={handleLogoKeyDown}
+          role="button"
+          tabIndex={0}
+          aria-label="Back to top"
           className="cursor-pointer"
         >
           <Logo variant="navigation" size="medium" showText={true} />
@@ -83,6 +133,7 @@ const Navigation: React.FC = () => {
               key={item.id}
               href={`#${item.id}`}
               onClick={e => scrollTo(e, item.id)}
+              aria-current={activeSection === item.id ? 'true' : undefined}
               className={`relative group py-2 font-mono font-bold uppercase tracking-[0.3em] text-xs lg:text-sm transition-all ${
                 activeSection === item.id ? 'text-[#CCFF00]' : 'text-white/30 hover:text-white/80'
               }`}
@@ -109,9 +160,12 @@ const Navigation: React.FC = () => {
 
         {/* Mobile hamburger */}
         <button
+          ref={hamburgerRef}
           onClick={() => setIsMobileMenuOpen(v => !v)}
           className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 group mobile-menu-container"
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu-drawer"
         >
           <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : 'group-hover:bg-[#CCFF00]'}`} />
           <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'group-hover:bg-[#CCFF00]'}`} />
@@ -124,7 +178,14 @@ const Navigation: React.FC = () => {
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
-          <div className="mobile-menu-container absolute top-0 right-0 w-72 h-full bg-black/96 backdrop-blur-xl border-l border-white/8 flex flex-col">
+          <div
+            ref={drawerRef}
+            id="mobile-menu-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            className="mobile-menu-container absolute top-0 right-0 w-72 h-full bg-black/96 backdrop-blur-xl border-l border-white/8 flex flex-col"
+          >
             {/* Header */}
             <div className="p-6 border-b border-white/8 flex items-center gap-3">
               <div className="w-7 h-[2px] bg-[#CCFF00]" />
@@ -138,6 +199,7 @@ const Navigation: React.FC = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={e => scrollTo(e, item.id)}
+                  aria-current={activeSection === item.id ? 'true' : undefined}
                   className={`flex items-center gap-4 p-4 transition-all duration-300 no-underline group rounded-sm ${
                     activeSection === item.id
                       ? 'bg-[#CCFF00]/8 border-l-2 border-[#CCFF00]'

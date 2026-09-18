@@ -165,6 +165,27 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
     video.currentTime = time;
   }, []);
 
+  // Keyboard seek on the timeline
+  const handleTimelineKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!duration) return;
+    const step = duration / 20;
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      e.stopPropagation();
+      seekTo(Math.min(currentTime + step, duration));
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      e.stopPropagation();
+      seekTo(Math.max(currentTime - step, 0));
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      seekTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      seekTo(duration);
+    }
+  }, [duration, currentTime, seekTo]);
+
   // Handle timeline click
   const handleTimelineClick = useCallback((e: React.MouseEvent) => {
     const rect = progressRef.current?.getBoundingClientRect();
@@ -202,8 +223,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.target !== document.body) return;
-      
+      const activeEl = document.activeElement;
+      const inDialog = activeEl?.closest?.('.video-player-container');
+      if (activeEl !== document.body && !inDialog) return;
+
       switch (e.code) {
         case 'Space':
           e.preventDefault();
@@ -242,6 +265,33 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
     document.addEventListener('keydown', handleKeyPress);
     return () => document.removeEventListener('keydown', handleKeyPress);
   }, [togglePlayPause, stepFrame, toggleFullscreen, onClose, showControlsTemporarily]);
+
+  // Focus management: initial focus on close button + Tab focus trap
+  useEffect(() => {
+    const container = document.querySelector('.video-player-container');
+    const closeBtn = container?.querySelector('[data-close-player]');
+    if (closeBtn instanceof HTMLElement) closeBtn.focus();
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !container) return;
+      const focusables = Array.from(
+        container.querySelectorAll<HTMLElement>('button, a[href], input, [tabindex]:not([tabindex="-1"])')
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleTab);
+    return () => document.removeEventListener('keydown', handleTab);
+  }, []);
 
   // Video event handlers
   useEffect(() => {
@@ -299,12 +349,20 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
   const progressPercentage = duration ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className={`fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center video-player-container ${
-      showControls ? 'controls-visible' : 'controls-hidden'
-    }`}>
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Playing ${highlight.title}`}
+      className={`fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center video-player-container ${
+        showControls ? 'controls-visible' : 'controls-hidden'
+      }`}
+    >
       {/* Close button */}
-      <button 
+      <button
+        data-close-player
         onClick={onClose}
+        aria-label="Close player"
+        inert={!showControls}
         className={`absolute top-4 md:top-8 right-4 md:right-8 z-[120] w-10 h-10 md:w-14 md:h-14 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-md ${
           showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
@@ -317,6 +375,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
       {/* Info toggle */}
       <button 
         onClick={() => setShowInfo(!showInfo)}
+        aria-label="Toggle video information"
+        aria-expanded={showInfo}
+        aria-controls="video-info-panel"
+        inert={!showControls}
         className={`absolute top-4 md:top-8 left-4 md:left-8 z-[120] w-10 h-10 md:w-14 md:h-14 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded-full flex items-center justify-center transition-all duration-500 backdrop-blur-md ${
           showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
@@ -328,7 +390,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
 
       {/* Info panel */}
       {showInfo && showControls && (
-        <div className="absolute top-16 md:top-24 left-4 md:left-8 z-[120] bg-black/90 backdrop-blur-md border border-white/10 rounded-lg p-3 md:p-6 max-w-xs md:max-w-sm transition-all duration-300">
+        <div id="video-info-panel" role="region" aria-label={`Details for ${highlight.title}`} className="absolute top-16 md:top-24 left-4 md:left-8 z-[120] bg-black/90 backdrop-blur-md border border-white/10 rounded-lg p-3 md:p-6 max-w-xs md:max-w-sm transition-all duration-300">
           <h3 className="text-[#CCFF00] font-mono text-xs md:text-sm font-bold mb-2 md:mb-3">{highlight.title}</h3>
           <div className="space-y-1 md:space-y-2 text-[10px] md:text-xs text-white/70 font-mono">
             <div>Category: <span className="text-white">{highlight.category}</span></div>
@@ -387,18 +449,30 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
           className="w-full h-full object-contain"
           src={highlight.videoUrl}
           preload="metadata"
+          aria-label={highlight.title}
         />
       </div>
 
       {/* Controls */}
-      <div className={`video-controls absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-3 md:p-6 lg:p-8 z-[110] transition-all duration-500 ${
-        showControls ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full pointer-events-none'
-      }`}>
+      <div
+        inert={!showControls || !isReady}
+        className={`video-controls absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-3 md:p-6 lg:p-8 z-[110] transition-all duration-500 ${
+          showControls ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full pointer-events-none'
+        }`}
+      >
         {/* Timeline */}
         <div 
           ref={progressRef}
+          role="slider"
+          tabIndex={0}
+          aria-label="Seek"
+          aria-valuemin={0}
+          aria-valuemax={Math.round(duration)}
+          aria-valuenow={Math.round(currentTime)}
+          aria-valuetext={formatTime(currentTime)}
           className="w-full h-1 md:h-2 bg-white/20 rounded-full cursor-pointer mb-3 md:mb-6 relative overflow-hidden group"
           onClick={handleTimelineClick}
+          onKeyDown={handleTimelineKeyDown}
         >
           <div 
             className="absolute top-0 left-0 h-full bg-[#CCFF00] transition-all duration-100"
@@ -417,6 +491,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
             <div className="flex items-center gap-3">
               <button 
                 onClick={togglePlayPause}
+                aria-label={isPlaying ? 'Pause' : 'Play'}
+                aria-pressed={isPlaying}
                 className="w-10 h-10 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded-full flex items-center justify-center transition-all duration-300"
               >
                 {isPlaying ? (
@@ -437,6 +513,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
 
             <button 
               onClick={toggleFullscreen}
+              aria-label="Toggle fullscreen"
+              aria-pressed={isFullscreen}
               className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -450,6 +528,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
             <div className="flex gap-1">
               <button 
                 onClick={() => stepFrame('backward')}
+                aria-label="Step backward one frame"
                 className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
               >
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -458,6 +537,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               </button>
               <button 
                 onClick={() => stepFrame('forward')}
+                aria-label="Step forward one frame"
                 className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
               >
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -471,6 +551,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
                 <button
                   key={speed}
                   onClick={() => setPlaybackRate(speed)}
+                  aria-pressed={playbackRate === speed}
                   className={`px-2 py-1 text-[10px] font-mono rounded transition-all duration-300 ${
                     playbackRate === speed 
                       ? 'bg-[#CCFF00] text-black' 
@@ -488,6 +569,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
             <div className="flex items-center gap-2">
               <button 
                 onClick={() => setIsMuted(!isMuted)}
+                aria-label="Mute"
+                aria-pressed={isMuted || volume === 0}
                 className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
               >
                 {isMuted || volume === 0 ? (
@@ -506,6 +589,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
                 max="1"
                 step="0.1"
                 value={isMuted ? 0 : volume}
+                aria-label="Volume"
                 onChange={(e) => {
                   const newVolume = parseFloat(e.target.value);
                   setVolume(newVolume);
@@ -517,6 +601,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
 
             <button 
               onClick={() => setIsLooping(!isLooping)}
+              aria-label="Toggle loop"
+              aria-pressed={isLooping}
               className={`w-8 h-8 rounded flex items-center justify-center transition-all duration-300 ${
                 isLooping ? 'bg-[#CCFF00] text-black' : 'bg-white/10 hover:bg-white/20'
               }`}
@@ -536,6 +622,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               {/* Play/Pause */}
               <button 
                 onClick={togglePlayPause}
+                aria-label={isPlaying ? 'Pause' : 'Play'}
+                aria-pressed={isPlaying}
                 className="w-12 h-12 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded-full flex items-center justify-center transition-all duration-300"
               >
                 {isPlaying ? (
@@ -553,6 +641,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               <div className="flex gap-1">
                 <button 
                   onClick={() => stepFrame('backward')}
+                  aria-label="Step backward one frame"
                   className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
                   title="Step backward (←)"
                 >
@@ -562,6 +651,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
                 </button>
                 <button 
                   onClick={() => stepFrame('forward')}
+                  aria-label="Step forward one frame"
                   className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
                   title="Step forward (→)"
                 >
@@ -585,6 +675,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
                   <button
                     key={speed}
                     onClick={() => setPlaybackRate(speed)}
+                    aria-pressed={playbackRate === speed}
                     className={`px-2 py-1 text-xs font-mono rounded transition-all duration-300 ${
                       playbackRate === speed 
                         ? 'bg-[#CCFF00] text-black' 
@@ -599,6 +690,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               {/* Loop toggle */}
               <button 
                 onClick={() => setIsLooping(!isLooping)}
+                aria-label="Toggle loop"
+                aria-pressed={isLooping}
                 className={`w-8 h-8 rounded flex items-center justify-center transition-all duration-300 ${
                   isLooping ? 'bg-[#CCFF00] text-black' : 'bg-white/10 hover:bg-white/20'
                 }`}
@@ -616,6 +709,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               <div className="flex items-center gap-2">
                 <button 
                   onClick={() => setIsMuted(!isMuted)}
+                  aria-label="Mute"
+                  aria-pressed={isMuted || volume === 0}
                   className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
                   title="Mute (M)"
                 >
@@ -635,6 +730,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
                   max="1"
                   step="0.1"
                   value={isMuted ? 0 : volume}
+                  aria-label="Volume"
                   onChange={(e) => {
                     const newVolume = parseFloat(e.target.value);
                     setVolume(newVolume);
@@ -647,6 +743,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ highlight, onClose }) => {
               {/* Fullscreen */}
               <button 
                 onClick={toggleFullscreen}
+                aria-label="Toggle fullscreen"
+                aria-pressed={isFullscreen}
                 className="w-8 h-8 bg-white/10 hover:bg-[#CCFF00] hover:text-black rounded flex items-center justify-center transition-all duration-300"
                 title="Fullscreen (F)"
               >

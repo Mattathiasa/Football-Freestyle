@@ -18,6 +18,15 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center text-center">
           <div 
             onClick={scrollToTop}
+            onKeyDown={(e: React.KeyboardEvent) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToTop();
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Back to top"
             className="group cursor-pointer mb-12 relative"
           >
             <div className="w-24 h-24 glass flex items-center justify-center text-[#CCFF00] font-display font-black text-4xl italic transition-all duration-500 group-hover:glow-green group-hover:scale-110">

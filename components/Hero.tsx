@@ -21,6 +21,8 @@ const Hero: React.FC = () => {
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover opacity-40 brightness-75 grayscale group-hover:grayscale-0 transition-all duration-1000"
         autoPlay loop muted playsInline
+        aria-hidden="true"
+        tabIndex={-1}
       >
         <source src="https://res.cloudinary.com/dg1xa7q5c/video/upload/v1770036418/Matty_Final_pbj7kf.mp4" type="video/mp4" />
       </video>
