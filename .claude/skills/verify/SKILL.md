@@ -22,9 +22,11 @@ Install once per environment: `npx playwright install chromium` (headless shell)
 
 Key drive facts learned the hard way:
 - Wait for `#highlights` selector — the `LoadingScreen` delays app mount, so `window.load` may fire long before React renders.
-- Section anchors: `#journey` (700vh football canvas scrollytelling — regression-check by scrolling through it down AND back up, and sampling canvas pixels for non-black content), `#highlights` (GSAP-pinned featured reel + archive grid), `#connect`, `#footer`.
+- Section anchors: `#journey` (700vh football canvas scrollytelling — regression-check by scrolling through it down AND back up, and sampling canvas pixels for non-black content), `#highlights` (GSAP-pinned featured reel + archive grid), `#cards` (season cards: arc chart + snap-scrolling card row; clicking a card opens a dialog portalled to `<body>`, labelled `"<year> season card"`), `#connect`, `#footer`.
 - The reel pin: assert `.pin-spacer` exists on desktop ≥768px, absent on mobile/reduced-motion. Simulate scrolling with `page.mouse.wheel` loops, not instant `scrollTo`, when testing the snap behavior — snap needs scroll-velocity settling.
 - Snap correctness check: after settling, one `[data-reel-card]`'s `getBoundingClientRect()` center should be ≈0px from viewport center.
 - Watch `page.on('response')` for 4xx: **Cloudinary rejects `g_auto` on video transforms (400)** — only `g_center` works on `.mp4` URLs; `g_auto` is fine on `.jpg`. `videoCache.getOptimizedUrl(url, ctx, 'auto')` produces `g_auto` video URLs — avoid the `'auto'` aspect for videos.
 - Videos won't render frames in headless Chromium (codec-less shell) — assert `video.paused === false` counts instead of pixels; the VideoPlayer modal shows "LOADING..." forever there, which is expected in headless only.
 - Test 3 profiles: desktop 1440x900, mobile 390x844 (`isMobile, hasTouch`), and `reducedMotion: 'reduce'` (expect: no pin-spacer, no autoplaying videos, archive cards opacity 1 immediately).
+- Season cards: open one via `#cards button[aria-label^="2024 card"]`; ←/→ flip seasons, Esc closes, focus starts on "Close season card". Check the close button is the top element at its centre (`elementFromPoint`) — anything rendered inside `<main>` (z-10) sits under the z-50 nav, which is why the dialog is portalled.
+- Cloud sandboxes may block `res.cloudinary.com` (`ERR_TUNNEL_CONNECTION_FAILED`): thumbnails/portraits won't load there, and card portraits fall back to the silhouette. Not a page bug.
