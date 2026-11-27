@@ -65,3 +65,63 @@ export interface FootEfficiency {
   curve: number;
   firstTouchShots: number;
 }
+
+// ── Season cards (FIFA-style) ─────────────────────────────────────────────
+
+/** The six face stats printed on the front of a card. */
+export type FaceStat = 'PAC' | 'SHO' | 'PAS' | 'DRI' | 'DEF' | 'PHY';
+
+/**
+ * Detailed attributes, 1-99. Face stats are averages of these, the same way
+ * the real game derives them, so you only ever edit this level.
+ */
+export interface SeasonAttributes {
+  // Pace
+  acceleration: number;
+  sprintSpeed: number;
+  // Shooting
+  finishing: number;
+  shotPower: number;
+  longShots: number;
+  // Passing
+  vision: number;
+  shortPassing: number;
+  crossing: number;
+  // Dribbling
+  agility: number;
+  balance: number;
+  ballControl: number;
+  dribbling: number;
+  // Defending
+  interceptions: number;
+  standingTackle: number;
+  // Physical
+  jumping: number;
+  stamina: number;
+  strength: number;
+}
+
+export interface SeasonCard {
+  /** Calendar year this card covers. */
+  year: number;
+  /** Position printed under the rating, e.g. "CAM". */
+  position: string;
+  /** Short line for the back of the card: what defined this year. */
+  headline: string;
+  /** Longer note shown in the detail view. */
+  story: string;
+  attributes: SeasonAttributes;
+  /** 1-5. Freestyle is mostly skill moves, so this one matters here. */
+  skillMoves: number;
+  /** 1-5. */
+  weakFoot: number;
+  /** Highlight id whose thumbnail becomes the card portrait. */
+  portraitClipId?: string;
+  /** Extra highlight ids to pin to this season even if they carry no date. */
+  clipIds?: string[];
+}
+
+export type CardTier = 'bronze' | 'silver' | 'gold' | 'peak';
+
+/** Where a season sits in the career arc, derived from the ratings. */
+export type CareerPhase = 'rise' | 'peak' | 'decline' | 'current';
