@@ -5,6 +5,7 @@ import { dropFromPeak, rateSeasons, RatedSeason, unplacedClips } from '../../lib
 import SeasonCardFace from './SeasonCardFace';
 import CareerArc from './CareerArc';
 import SeasonDetail from './SeasonDetail';
+import { usePrefersReducedMotion } from '../showcase/useReducedMotion';
 
 const Ribbon: React.FC<{ season: RatedSeason }> = ({ season }) => {
   const { phase, delta } = season;
@@ -38,6 +39,7 @@ const SeasonCards: React.FC = () => {
   const undated = useMemo(() => unplacedClips(seasons, HIGHLIGHTS), [seasons]);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const rowRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = usePrefersReducedMotion();
 
   if (seasons.length === 0) return null;
 
@@ -46,7 +48,7 @@ const SeasonCards: React.FC = () => {
   const drop = dropFromPeak(seasons);
 
   const scrollRow = (dir: 1 | -1) =>
-    rowRef.current?.scrollBy({ left: dir * rowRef.current.clientWidth * 0.8, behavior: 'smooth' });
+    rowRef.current?.scrollBy({ left: dir * rowRef.current.clientWidth * 0.8, behavior: reducedMotion ? 'auto' : 'smooth' });
 
   return (
     <section id="cards" className="relative bg-obsidian border-t border-white/5 py-20 md:py-32 px-4 sm:px-6 overflow-hidden">
@@ -99,7 +101,7 @@ const SeasonCards: React.FC = () => {
               key={season.card.year}
               onClick={() => setOpenIndex(i)}
               aria-label={`${season.card.year} card, overall ${season.ovr}, ${season.phase}. Open details`}
-              className="snap-start shrink-0 flex flex-col items-center gap-3 group rounded-xl transition-transform duration-300 hover:-translate-y-2"
+              className="snap-start shrink-0 flex flex-col items-center gap-3 group rounded-xl transition-transform duration-300 hover:-translate-y-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <SeasonCardFace season={season} />
               <div className="flex items-center gap-2">
