@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardTier } from '../../types';
 import { FACE_STATS, RatedSeason } from '../../lib/seasonRatings';
 import { CARD_NAME } from '../../data/seasonCards';
@@ -52,6 +52,7 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
   const portraitId = card.portraitClipId ?? season.clips[0]?.id;
   const portrait = HIGHLIGHTS.find(h => h.id === portraitId)?.thumbnail;
   const lg = size === 'lg';
+  const [portraitFailed, setPortraitFailed] = useState(false);
 
   return (
     <div
@@ -60,11 +61,12 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
     >
       <div className="absolute inset-0 overflow-hidden" style={{ clipPath: SHIELD, background: skin.bg }}>
         {/* Portrait */}
-        {portrait ? (
+        {portrait && !portraitFailed ? (
           <img
             src={portrait}
             alt=""
             loading="lazy"
+            onError={() => setPortraitFailed(true)}
             className="absolute right-0 top-[5%] w-[70%] h-[45%] object-cover"
             style={{
               maskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
