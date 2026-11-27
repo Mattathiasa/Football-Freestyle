@@ -95,7 +95,9 @@ const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
           <text
             key={`label-${i}`}
             x={x(i)}
-            y={y(seasons[i].ovr) - 14}
+            // On narrow charts the NOW label sits under its dot so it can't
+            // collide with the line rising to the peak two seasons earlier.
+            y={i === last && i !== peakIndex && shortYears ? y(seasons[i].ovr) + 22 : y(seasons[i].ovr) - 14}
             textAnchor={i === last ? 'end' : 'middle'}
             className="font-mono"
             fontSize={12}
