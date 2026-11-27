@@ -51,7 +51,7 @@ const App: React.FC = () => {
             <a
               href="#footer"
               onClick={scrollToFooter}
-              className="inline-flex items-center gap-4 px-16 py-6 glass bg-white/5 border-white/20 text-white font-display font-black italic uppercase text-lg tracking-[0.2em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline group"
+              className="inline-flex items-center gap-4 px-8 sm:px-16 py-6 whitespace-nowrap glass bg-white/5 border-white/20 text-white font-display font-black italic uppercase text-lg tracking-[0.2em] hover:bg-[#CCFF00] hover:text-black transition-all duration-300 no-underline group"
             >
               <span>CONTACT ME</span>
               <div className="w-1.5 h-1.5 rounded-full bg-[#CCFF00] group-hover:bg-black group-hover:animate-ping" />
