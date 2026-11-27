@@ -106,6 +106,37 @@ ok('no duplicate video titles',
     return titles.some((t) => titles.filter((x) => x === t).length > 1);
   })());
 
+// ── Season cards data ─────────────────────────────────────────────────────
+// The cards derive everything from data/seasonCards.ts, so a typo there
+// (a 990 instead of 90, a duplicated year, a clip id that no longer exists)
+// would silently skew the whole career arc. Catch it here.
+const seasons = read('data/seasonCards.ts');
+const years = [...seasons.matchAll(/\byear:\s*(\d{4})/g)].map((m) => Number(m[1]));
+ok('season cards: at least one season', years.length > 0);
+ok('season cards: no duplicate years', new Set(years).size === years.length,
+  years.filter((y, i) => years.indexOf(y) !== i).join(','));
+const gaps = years.slice(1).filter((y, i) => y !== years[i] + 1);
+ok('season cards: years are consecutive and ascending', gaps.length === 0, gaps.join(','));
+const attrBlocks = [...seasons.matchAll(/attributes:\s*\{([^}]*)\}/g)].map((m) => m[1]);
+ok('season cards: every season has attributes', attrBlocks.length === years.length,
+  `${attrBlocks.length} attribute blocks for ${years.length} seasons`);
+const badAttr = attrBlocks.flatMap((b) =>
+  [...b.matchAll(/(\w+):\s*(\d+)/g)].filter((m) => +m[2] < 1 || +m[2] > 99).map((m) => `${m[1]}=${m[2]}`));
+ok('season cards: every attribute is 1-99', badAttr.length === 0, badAttr.join(', '));
+const attrCounts = attrBlocks.map((b) => [...b.matchAll(/(\w+):\s*\d+/g)].length);
+ok('season cards: every season rates all 17 attributes', attrCounts.every((n) => n === 17),
+  attrCounts.join(','));
+const badStars = [...seasons.matchAll(/(skillMoves|weakFoot):\s*(\d+)/g)].filter((m) => +m[2] < 1 || +m[2] > 5);
+ok('season cards: skill moves / weak foot are 1-5', badStars.length === 0,
+  badStars.map((m) => `${m[1]}=${m[2]}`).join(', '));
+const clipIds = new Set([...constants.matchAll(/"id": "([^"]+)"/g)].map((m) => m[1]));
+const refs = [
+  ...[...seasons.matchAll(/portraitClipId:\s*'([^']+)'/g)].map((m) => m[1]),
+  ...[...seasons.matchAll(/clipIds:\s*\[([^\]]*)\]/g)].flatMap((m) => [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1])),
+];
+const dangling = refs.filter((r) => !clipIds.has(r));
+ok('season cards: every referenced clip id exists', dangling.length === 0, dangling.join(', '));
+
 console.log('');
 if (failures.length) {
   console.error(`Guard failed: ${failures.length} invariant(s) broken`);
