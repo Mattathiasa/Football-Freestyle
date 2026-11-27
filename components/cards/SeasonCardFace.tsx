@@ -101,14 +101,14 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
 
         {/* Name + stats */}
         <div className="absolute left-0 right-0 top-[49%] px-[12%]" style={{ color: skin.ink }}>
-          <div className={`font-display font-black text-center tracking-wide not-italic ${lg ? 'text-2xl' : 'text-xl'}`}>
+          <div className={`font-display font-black text-center tracking-wide not-italic leading-none ${lg ? 'text-2xl' : 'text-lg'}`}>
             {CARD_NAME}
           </div>
           <div className="h-[1px] my-1.5" style={{ background: skin.rule }} />
-          <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
             {FACE_STATS.map(stat => (
-              <div key={stat} className="flex items-baseline justify-center gap-1.5">
-                <span className={`font-display font-black not-italic ${lg ? 'text-xl' : 'text-lg'}`}>{face[stat]}</span>
+              <div key={stat} className="flex items-baseline justify-center gap-1.5 leading-none">
+                <span className={`font-display font-black not-italic ${lg ? 'text-xl' : 'text-base'}`}>{face[stat]}</span>
                 <span className="font-mono font-bold text-[11px]" style={{ color: skin.muted }}>
                   {stat}
                 </span>
