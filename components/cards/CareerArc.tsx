@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { RatedSeason } from '../../lib/seasonRatings';
 
 interface CareerArcProps {
@@ -6,9 +6,7 @@ interface CareerArcProps {
   onSelect: (index: number) => void;
 }
 
-const W = 960;
-const H = 260;
-const PAD = { top: 36, right: 32, bottom: 36, left: 40 };
+const PAD = { top: 36, right: 28, bottom: 36, left: 34 };
 
 /**
  * Overall rating per season. One series, so no legend: the line is solid up
@@ -17,7 +15,22 @@ const PAD = { top: 36, right: 32, bottom: 36, left: 40 };
  */
 const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
   const [hover, setHover] = useState<number | null>(null);
+  // Draw at the real pixel width instead of scaling a fixed viewBox, so the
+  // 11px labels stay 11px on a 320px phone rather than shrinking to ~4px.
+  const figRef = useRef<HTMLElement>(null);
+  const [W, setW] = useState(960);
+  useEffect(() => {
+    const el = figRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => setW(Math.max(260, Math.round(entry.contentRect.width))));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   if (seasons.length < 2) return null;
+
+  const H = W < 520 ? 220 : 260;
+  const step = (W - PAD.left - PAD.right) / (seasons.length - 1);
+  const shortYears = step < 46;
 
   const ovrs = seasons.map(s => s.ovr);
   const lo = Math.floor((Math.min(...ovrs) - 5) / 5) * 5;
@@ -39,9 +52,9 @@ const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
   const tip = hover !== null ? seasons[hover] : null;
 
   return (
-    <figure className="relative w-full">
+    <figure ref={figRef} className="relative w-full">
       <figcaption className="sr-only">Overall rating by season, {seasons[0].card.year} to {seasons[last].card.year}</figcaption>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-hidden="true">
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto" role="img" aria-hidden="true">
         {gridLines.map(v => (
           <g key={v}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(v)} y2={y(v)} stroke="rgba(255,255,255,0.06)" strokeWidth={1} />
@@ -53,7 +66,7 @@ const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
 
         {seasons.map((s, i) => (
           <text key={s.card.year} x={x(i)} y={H - 10} textAnchor="middle" className="font-mono" fontSize={11} fill="rgba(255,255,255,0.55)">
-            {s.card.year}
+            {shortYears ? `'${String(s.card.year).slice(2)}` : s.card.year}
           </text>
         ))}
 
@@ -95,7 +108,7 @@ const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
 
         {/* Hit targets: full-height column per season, wider than the dot */}
         {seasons.map((s, i) => {
-          const half = (W - PAD.left - PAD.right) / (seasons.length - 1) / 2;
+          const half = step / 2;
           return (
             <rect
               key={`hit-${s.card.year}`}
@@ -115,8 +128,12 @@ const CareerArc: React.FC<CareerArcProps> = ({ seasons, onSelect }) => {
 
       {tip && hover !== null && (
         <div
-          className="pointer-events-none absolute top-0 -translate-x-1/2 glass bg-black/80 border-white/10 px-3 py-2 rounded-lg font-mono text-[11px] text-white whitespace-nowrap"
-          style={{ left: `${(x(hover) / W) * 100}%` }}
+          className="pointer-events-none absolute top-0 glass bg-black/80 border-white/10 px-3 py-2 rounded-lg font-mono text-[11px] text-white whitespace-nowrap"
+          style={{
+            left: `${(x(hover) / W) * 100}%`,
+            // keep the tooltip on screen at either end of a narrow chart
+            transform: `translateX(${hover <= 1 ? '-15%' : hover >= last - 1 ? '-85%' : '-50%'})`,
+          }}
         >
           <div className="font-bold">{tip.card.year} · {tip.card.headline}</div>
           <div className="text-white/70">
