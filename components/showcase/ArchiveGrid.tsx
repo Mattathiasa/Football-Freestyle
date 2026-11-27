@@ -103,7 +103,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
     <button
       key={value}
       onClick={() => setSortBy(value)}
-      className={`px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+      className={`min-h-[44px] lg:min-h-0 shrink-0 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
         sortBy === value
           ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
           : 'bg-white/5 border-white/10 text-white/60 hover:text-[#CCFF00]'
@@ -149,7 +149,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               {sortBy !== 'default' && (
                 <button
                   onClick={() => setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')}
-                  className="px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border bg-white/5 border-white/10 text-white/50 hover:text-[#CCFF00] hover:border-[#CCFF00]/50"
+                  className="min-h-[44px] lg:min-h-0 shrink-0 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border bg-white/5 border-white/10 text-white/50 hover:text-[#CCFF00] hover:border-[#CCFF00]/50"
                 >
                   {sortOrder === 'desc' ? '↓ Desc' : '↑ Asc'}
                 </button>
@@ -157,7 +157,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               <button
                 onClick={() => setPreviewsEnabled(!previewsEnabled)}
                 aria-pressed={previewsEnabled}
-                className={`ml-auto lg:ml-4 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+                className={`min-h-[44px] lg:min-h-0 shrink-0 ml-auto lg:ml-4 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
                   previewsEnabled
                     ? 'bg-[#CCFF00]/10 border-[#CCFF00]/40 text-[#CCFF00]'
                     : 'bg-white/5 border-white/10 text-white/60 hover:text-[#CCFF00]'
@@ -167,11 +167,11 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               </button>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 lg:gap-2 lg:justify-end">
+            <div className="no-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 flex flex-nowrap lg:flex-wrap overflow-x-auto lg:overflow-visible gap-1.5 lg:gap-2 lg:justify-end" role="group" aria-label="Filter by category">
               <button
                 onClick={() => setFilter('All')}
                 aria-pressed={filter === 'All'}
-                className={`px-3 py-1.5 font-mono text-[10px] lg:text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+                className={`min-h-[44px] lg:min-h-0 shrink-0 px-3 py-1.5 font-mono text-[10px] lg:text-[11px] whitespace-nowrap font-bold uppercase tracking-widest transition-all duration-500 border ${
                   filter === 'All'
                     ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
                     : 'bg-white/5 border-white/10 text-white/60 hover:text-[#CCFF00]'
@@ -184,7 +184,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
                   key={cat}
                   onClick={() => setFilter(cat)}
                   aria-pressed={filter === cat}
-className={`px-3 py-1.5 font-mono text-[10px] lg:text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border ${
+className={`min-h-[44px] lg:min-h-0 shrink-0 px-3 py-1.5 font-mono text-[10px] lg:text-[11px] whitespace-nowrap font-bold uppercase tracking-widest transition-all duration-500 border ${
                     filter === cat
                       ? 'bg-[#CCFF00] border-[#CCFF00] text-black shadow-[0_0_15px_rgba(204,255,0,0.5)]'
                       : 'bg-white/5 border-white/10 text-white/60 hover:text-[#CCFF00]'
