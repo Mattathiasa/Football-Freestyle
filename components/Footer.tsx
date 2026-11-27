@@ -59,9 +59,9 @@ const Footer: React.FC = () => {
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center text-white/50 text-[11px] font-mono uppercase tracking-[0.4em] pt-12 border-t border-white/5">
              <p>© {new Date().getFullYear()} Mattathias Abraham. All rights reserved.</p>
-             <div className="flex gap-8 mt-6 md:mt-0">
-                <a href="https://www.tiktok.com/@mattathiasa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors no-underline">TikTok</a>
-                <a href="https://github.com/mattathiasa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors no-underline">GitHub</a>
+             <div className="flex gap-6 mt-4 md:mt-0">
+                <a href="https://www.tiktok.com/@mattathiasa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] px-2 hover:text-white transition-colors no-underline">TikTok</a>
+                <a href="https://github.com/mattathiasa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] px-2 hover:text-white transition-colors no-underline">GitHub</a>
              </div>
           </div>
         </div>
