@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         
         <h1 className="font-display font-black text-[17vw] sm:text-9xl md:text-[13rem] short:text-[22vh] mb-10 short:mb-3 tracking-tighter leading-[0.8] uppercase italic">
           {PLAYER_NAME.split(' ')[0]}<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] via-white to-white/10 drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]">
+          <span className="inline-block pr-[0.15em] -mr-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] via-white to-white/10 drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]">
             {PLAYER_NAME.split(' ')[1]}
           </span>
         </h1>

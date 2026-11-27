@@ -41,7 +41,7 @@ const App: React.FC = () => {
             </div>
             <h3 className="font-display text-[12vw] sm:text-6xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">
               Let's<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] to-white">
+              <span className="inline-block pr-[0.15em] -mr-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] to-white">
                 Connect
               </span>
             </h3>
