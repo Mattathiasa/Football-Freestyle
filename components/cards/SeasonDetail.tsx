@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Highlight } from '../../types';
 import { ATTRIBUTE_LABELS, FACE_STATS, FACE_STAT_GROUPS, RatedSeason } from '../../lib/seasonRatings';
 import SeasonCardFace, { TIER_SKIN } from './SeasonCardFace';
@@ -103,7 +104,9 @@ const SeasonDetail: React.FC<SeasonDetailProps> = ({ seasons, index, undated, on
   const { card } = season;
   const accent = season.tier === 'peak' ? '#CCFF00' : TIER_SKIN[season.tier].bg.match(/#[0-9a-f]{6}/i)?.[0] ?? '#CCFF00';
 
-  return (
+  // Portalled to <body>: <main> is its own z-10 stacking context, so anything
+  // rendered inside it sits under the fixed z-50 nav regardless of z-index.
+  return createPortal(
     <div
       ref={dialogRef}
       role="dialog"
@@ -279,7 +282,8 @@ const SeasonDetail: React.FC<SeasonDetailProps> = ({ seasons, index, undated, on
           <VideoPlayer highlight={activeClip} onClose={() => setActiveClip(null)} />
         </Suspense>
       )}
-    </div>
+    </div>,
+    document.body
   );
 };
 
