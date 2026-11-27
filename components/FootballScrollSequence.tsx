@@ -561,23 +561,23 @@ const FootballScrollSequence: React.FC = () => {
         {/* ── Beat 4: PERFORMANCE PARAMETERS ────────────────────────────────── */}
         {(() => { const { opacity, y } = vis('performance'); return opacity > 0.01 && (
           <div
-            className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center"
+            className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center short:pt-[var(--nav-height)]"
             style={{ opacity, transform: `translateY(${y}px)` }}
           >
             {eyebrow(4, 'Performance Parameters', 'center')}
             <h2
-              className="font-display font-black uppercase italic leading-none tracking-tighter mb-12 text-center"
+              className="font-display font-black uppercase italic leading-none tracking-tighter mb-12 short:mb-4 text-center"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'rgba(255,255,255,0.92)' }}
             >
               PERFORMANCE<br /><span style={{ color: 'rgba(255,255,255,0.40)' }}>PARAMETERS</span>
             </h2>
 
             {/* Flanking stat grid — 2×2 around the ball on desktop, simple grid on mobile */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-16 w-full max-w-4xl px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 short:grid-cols-4 gap-6 md:gap-16 short:gap-3 w-full max-w-4xl px-6">
               {PERF_STATS.map((s, i) => (
                 <div
                   key={i}
-                  className="glass p-5 md:p-6 border-white/5 flex flex-col items-center text-center group hover:border-[#CCFF00]/30 transition-colors"
+                  className="glass p-5 md:p-6 short:p-3 border-white/5 flex flex-col items-center text-center group hover:border-[#CCFF00]/30 transition-colors"
                   style={{
                     opacity: opacity > 0.3 ? 1 : 0,
                     transform: `translateY(${opacity > 0.3 ? 0 : 20}px)`,
