@@ -494,7 +494,7 @@ const FootballScrollSequence: React.FC = () => {
               <div className="flex gap-2 mt-3">
                 {[['Addis Ababa'], ['Est. 2020'], ['50+ Videos']].map(([v]) => (
                   <div key={v} className="glass px-2 py-1 border-white/5">
-                    <span className="font-mono text-[9px]" style={{ color: ACCENT }}>{v}</span>
+                    <span className="font-mono text-[10px]" style={{ color: ACCENT }}>{v}</span>
                   </div>
                 ))}
               </div>
@@ -692,7 +692,7 @@ const FootballScrollSequence: React.FC = () => {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 pointer-events-none select-none"
           style={{ opacity: clamp(1 - dp / 0.06, 0, 1) }}
         >
-          <span className="font-mono uppercase tracking-[0.55em]" style={{ fontSize: '9px', color: 'rgba(255,255,255,0.50)' }}>
+          <span className="font-mono uppercase tracking-[0.55em]" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.50)' }}>
             Scroll to Explore
           </span>
           <div style={{ width: 1, height: 40, background: `linear-gradient(to bottom, rgba(${ACCENT_RGB},0.45), transparent)` }} />

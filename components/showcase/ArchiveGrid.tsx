@@ -149,7 +149,7 @@ const ArchiveGrid: React.FC<ArchiveGridProps> = ({ clips, onOpen }) => {
               {sortBy !== 'default' && (
                 <button
                   onClick={() => setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')}
-                  className="px-3 py-1.5 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-500 border bg-white/5 border-white/10 text-white/50 hover:text-[#CCFF00] hover:border-[#CCFF00]/50"
+                  className="px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-all duration-500 border bg-white/5 border-white/10 text-white/50 hover:text-[#CCFF00] hover:border-[#CCFF00]/50"
                 >
                   {sortOrder === 'desc' ? '↓ Desc' : '↑ Asc'}
                 </button>

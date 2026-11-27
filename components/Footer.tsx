@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
               MA
               <div className="corner-tl opacity-50" /> <div className="corner-br opacity-50" />
             </div>
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-mono text-[#CCFF00] uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-[#CCFF00] uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
               Back to Start
             </div>
           </div>

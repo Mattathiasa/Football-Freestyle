@@ -124,7 +124,7 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
             {([['Pwr', clip.stats.power], ['Spd', clip.stats.speed], ['Ctl', clip.stats.control]] as const).map(
               ([label, value]) => (
                 <div key={label} className="flex flex-col">
-                  <span className="text-[9px] md:text-[10px] font-mono text-white/50 uppercase">{label}</span>
+                  <span className="text-[10px] md:text-[11px] font-mono text-white/50 uppercase">{label}</span>
                   <span className="text-[10px] md:text-xs font-mono font-bold text-[#CCFF00]">{value}</span>
                 </div>
               )

@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none z-10 opacity-20">
          <div className="absolute top-[20%] left-[10%] w-[1px] h-[40%] bg-[#CCFF00]" />
          <div className="absolute top-[10%] right-[10%] w-[20%] h-[1px] bg-[#CCFF00]" />
-         <div className="absolute bottom-[20%] left-[5%] text-[#CCFF00] font-mono text-[8px] flex flex-col gap-1">
+         <div className="absolute bottom-[20%] left-[5%] text-[#CCFF00] font-mono text-[10px] flex flex-col gap-1">
             <span>// ANALYZING_FLUIDITY...</span>
             <span>// TRACKING_POSITION_X: 104.22</span>
             <span>// TRACKING_POSITION_Y: 88.01</span>
