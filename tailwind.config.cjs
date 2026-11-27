@@ -7,6 +7,11 @@ module.exports = {
   content: ['./index.html', './index.tsx', './App.tsx', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        // Phones held sideways: wide enough for sm/md, but only ~320-430px
+        // tall, so width-based type sizes overflow vertically.
+        short: { raw: '(orientation: landscape) and (max-height: 500px)' },
+      },
       colors: {
         obsidian: '#050505',
         'pitch-green': '#CCFF00',
