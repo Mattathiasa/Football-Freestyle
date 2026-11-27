@@ -65,7 +65,7 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
             src={portrait}
             alt=""
             loading="lazy"
-            className="absolute right-0 top-[6%] w-[72%] h-[52%] object-cover"
+            className="absolute right-0 top-[5%] w-[70%] h-[45%] object-cover"
             style={{
               maskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
@@ -75,7 +75,7 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
           <svg
             aria-hidden="true"
             viewBox="0 0 100 100"
-            className="absolute right-[6%] top-[10%] w-[58%] h-[44%]"
+            className="absolute right-[6%] top-[9%] w-[56%] h-[38%]"
             style={{ color: skin.rule }}
           >
             <circle cx="50" cy="32" r="18" fill="currentColor" />
@@ -98,7 +98,7 @@ const SeasonCardFace: React.FC<SeasonCardFaceProps> = ({ season, size = 'sm' }) 
         </div>
 
         {/* Name + stats */}
-        <div className="absolute left-0 right-0 top-[58%] px-[10%]" style={{ color: skin.ink }}>
+        <div className="absolute left-0 right-0 top-[49%] px-[12%]" style={{ color: skin.ink }}>
           <div className={`font-display font-black text-center tracking-wide not-italic ${lg ? 'text-2xl' : 'text-xl'}`}>
             {CARD_NAME}
           </div>
