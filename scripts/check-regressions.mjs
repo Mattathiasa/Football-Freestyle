@@ -45,8 +45,10 @@ ok('vite.config.ts does not define API/KEY from env',
   !/define\s*:\s*\{[\s\S]*?(API_KEY|GEMINI|process\.env)/.test(vite));
 ok('vite dev server bound to loopback',
   vite.includes('127.0.0.1'));
-ok('vite base is the Pages subpath',
-  vite.includes("base: '/Football-Freestyle/'"));
+// Pages serves under /Football-Freestyle/; Vercel serves at root. Either a
+// fixed Pages base or a VERCEL-conditional one that still falls back to it.
+ok('vite base is the Pages subpath (or Vercel-conditional with Pages fallback)',
+  /base:\s*(process\.env\.VERCEL\s*\?\s*'\/'\s*:\s*)?'\/Football-Freestyle\/'/.test(vite));
 
 // ── No committed cloud credential URLs in source ──────────────────────────
 const srcFiles = (p) => {
