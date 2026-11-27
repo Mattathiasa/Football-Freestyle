@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-svh w-full flex items-center justify-center overflow-hidden bg-black pt-[var(--nav-height)] pb-10 short:pb-4">
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover opacity-40 brightness-75 grayscale group-hover:grayscale-0 transition-all duration-1000"
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
       />
 
       {/* Futuristic Tactical Overlays */}
-      <div className="absolute inset-0 pointer-events-none z-10 opacity-20">
+      <div className="absolute inset-0 pointer-events-none z-10 opacity-20 short:hidden">
          <div className="absolute top-[20%] left-[10%] w-[1px] h-[40%] bg-[#CCFF00]" />
          <div className="absolute top-[10%] right-[10%] w-[20%] h-[1px] bg-[#CCFF00]" />
          <div className="absolute bottom-[20%] left-[5%] text-[#CCFF00] font-mono text-[10px] flex flex-col gap-1">
@@ -60,8 +60,8 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
 
       <div className="relative z-20 text-center px-6 max-w-6xl">
-        <div className="mb-12 flex flex-col items-center animate-in fade-in slide-in-from-top-10 duration-1000">
-          <div className="flex items-center gap-4 mb-4">
+        <div className="mb-12 short:mb-3 flex flex-col items-center animate-in fade-in slide-in-from-top-10 duration-1000">
+          <div className="flex items-center gap-4 mb-4 short:mb-1">
              <div className="w-10 h-[1px] bg-[#CCFF00]" />
              <span className="text-[#CCFF00] font-mono tracking-[0.5em] text-xs font-bold uppercase">Player Profile</span>
              <div className="w-10 h-[1px] bg-[#CCFF00]" />
@@ -69,22 +69,22 @@ const Hero: React.FC = () => {
           <h2 className="text-white/40 font-mono text-[11px] uppercase tracking-[0.3em] mb-2">Profile: {PLAYER_TITLE}</h2>
         </div>
         
-        <h1 className="font-display font-black text-[17vw] sm:text-9xl md:text-[13rem] mb-10 tracking-tighter leading-[0.8] uppercase italic">
+        <h1 className="font-display font-black text-[17vw] sm:text-9xl md:text-[13rem] short:text-[22vh] mb-10 short:mb-3 tracking-tighter leading-[0.8] uppercase italic">
           {PLAYER_NAME.split(' ')[0]}<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] via-white to-white/10 drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]">
             {PLAYER_NAME.split(' ')[1]}
           </span>
         </h1>
         
-        <p className="text-sm md:text-2xl font-light text-white/50 mb-16 tracking-widest italic font-mono uppercase">
+        <p className="text-sm md:text-2xl short:text-sm font-light text-white/50 mb-16 short:mb-4 tracking-widest italic font-mono uppercase">
           [ {PLAYER_TAGLINE} ]
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-6 short:gap-3 justify-center items-center">
           <a 
             href="#highlights"
             onClick={scrollToHighlights}
-            className="w-full sm:w-auto px-12 py-6 bg-[#CCFF00] text-black font-display font-bold text-2xl italic hover:bg-white transition-all duration-500 rounded-sm shadow-[0_0_50px_rgba(57,255,20,0.4)] flex items-center gap-4 group no-underline"
+            className="w-full sm:w-auto px-12 py-6 short:px-8 short:py-3 bg-[#CCFF00] text-black font-display font-bold text-2xl short:text-lg italic hover:bg-white transition-all duration-500 rounded-sm shadow-[0_0_50px_rgba(57,255,20,0.4)] flex items-center gap-4 group no-underline"
           >
             <span>WATCH HIGHLIGHTS</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 20 20" fill="currentColor">
@@ -92,14 +92,14 @@ const Hero: React.FC = () => {
             </svg>
           </a>
           
-          <div className="hidden sm:flex items-center gap-6 py-6 px-10 rounded-sm border border-white/10 backdrop-blur-xl glass">
+          <div className="hidden sm:flex items-center gap-6 py-6 px-10 short:py-3 short:px-6 rounded-sm border border-white/10 backdrop-blur-xl glass">
             <div className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
             <span className="text-white font-mono text-xs font-bold uppercase tracking-widest">Always Training</span>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40 short:hidden">
         <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#CCFF00] to-transparent animate-pulse" />
         <span className="text-[10px] font-mono uppercase tracking-[0.5em] font-bold text-[#CCFF00]">Scroll</span>
       </div>
