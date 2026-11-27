@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import FootballScrollSequence from './components/FootballScrollSequence';
 import VideoShowcase from './components/showcase/VideoShowcase';
+import SeasonCards from './components/cards/SeasonCards';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 
@@ -28,7 +29,10 @@ const App: React.FC = () => {
         {/* 3 ─ Highlights: featured reel + video archive */}
         <VideoShowcase />
 
-        {/* 4 ─ Connect CTA */}
+        {/* 4 ─ Season cards: one FIFA-style card per year, peak to now */}
+        <SeasonCards />
+
+        {/* 5 ─ Connect CTA */}
         <section id="connect" className="py-40 md:py-60 px-6 text-center relative overflow-hidden bg-obsidian border-t border-white/5">
           <div className="absolute inset-0 z-0 bg-hex opacity-5" />
           <div className="relative z-10 max-w-4xl mx-auto">
