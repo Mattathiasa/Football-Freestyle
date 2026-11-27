@@ -17,6 +17,9 @@ import { SeasonCard } from '../types';
  * Clips: every highlight with a `date` in constants.tsx lands on its year's
  * card automatically. Undated clips can be pinned to a year via `clipIds`.
  */
+/** Name printed across every card. */
+export const CARD_NAME = 'MATTY';
+
 export const SEASON_CARDS: SeasonCard[] = [
   {
     year: 2018,
