@@ -618,8 +618,7 @@ const FootballScrollSequence: React.FC = () => {
 
             {/* Timeline bars - bottom half */}
             <div
-              className="absolute bottom-[8%] left-4 right-4 md:left-[8%] md:right-[8%] flex flex-col gap-3"
-              style={{ maxWidth: '680px', margin: '0 auto', left: 0, right: 0, position: 'absolute', bottom: '8%' }}
+              className="absolute bottom-[8%] inset-x-0 mx-auto w-full max-w-[680px] px-5 md:px-0 flex flex-col gap-3"
             >
               {YEAR_DATA.map((row, i) => {
                 const revealed = opacity > 0.25;
