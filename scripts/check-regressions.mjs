@@ -137,6 +137,17 @@ const refs = [
 const dangling = refs.filter((r) => !clipIds.has(r));
 ok('season cards: every referenced clip id exists', dangling.length === 0, dangling.join(', '));
 
+// ── Phone readability ─────────────────────────────────────────────────────
+// Nothing renders below 10px: 8-9px labels were unreadable on phones.
+let tiny = '';
+for (const f of srcFiles('components').concat([join(root, 'App.tsx')])) {
+  const m = readFileSync(f, 'utf8').match(/text-\[[1-9]px\]|fontSize:\s*'[1-9]px'/);
+  if (m) tiny = `${f.replace(root + '/', '')}: ${m[0]}`;
+}
+ok('no text sized below 10px', !tiny, tiny);
+ok('hero is min-h-svh (not h-screen), so mobile toolbars cannot crop it',
+  /min-h-svh/.test(read('components/Hero.tsx')) && !/\bh-screen\b/.test(read('components/Hero.tsx')));
+
 console.log('');
 if (failures.length) {
   console.error(`Guard failed: ${failures.length} invariant(s) broken`);
