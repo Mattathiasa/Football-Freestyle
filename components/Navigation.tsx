@@ -5,6 +5,7 @@ import Logo from './Logo';
 const NAV_ITEMS = [
   { id: 'journey',    label: 'Journey',    sub: 'The Story'      },
   { id: 'highlights', label: 'Highlights', sub: 'Video Archive'  },
+  { id: 'cards',      label: 'Cards',      sub: 'Season Ratings' },
   { id: 'connect',    label: 'Connect',    sub: 'Get In Touch'   },
 ];
 
