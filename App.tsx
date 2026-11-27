@@ -39,7 +39,7 @@ const App: React.FC = () => {
             <div className="inline-block px-6 py-2 glass border-[#CCFF00]/20 text-[#CCFF00] font-mono text-[9px] uppercase tracking-[0.5em] mb-12">
               Get_In_Touch
             </div>
-            <h3 className="font-display text-5xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">
+            <h3 className="font-display text-[12vw] sm:text-6xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none">
               Let's<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] to-white">
                 Connect
